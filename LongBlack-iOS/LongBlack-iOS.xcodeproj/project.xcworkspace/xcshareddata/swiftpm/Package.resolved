@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "swiftycolor",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/devxoul/SwiftyColor",
-      "state" : {
-        "revision" : "4b169b77446ef1d9878b162a0a38258f7563ed5b",
-        "version" : "1.2.1"
-      }
-    },
-    {
       "identity" : "then",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/devxoul/Then",

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A3E2B0906D7000919CF /* UILabel+.swift */; };
+		C3020A432B090704000919CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A422B090704000919CF /* HomeViewController.swift */; };
+		C3020A472B090756000919CF /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A462B090756000919CF /* NoteViewController.swift */; };
+		C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4B2B090796000919CF /* NoteDetailViewController.swift */; };
+		C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4E2B0907AE000919CF /* LibraryViewController.swift */; };
+		C3020A512B0907D1000919CF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A502B0907D1000919CF /* NetworkError.swift */; };
+		C3020A5A2B09083E000919CF /* a.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A592B09083E000919CF /* a.swift */; };
+		C3020A5C2B090847000919CF /* b.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A5B2B090847000919CF /* b.swift */; };
+		C3020A5E2B09084C000919CF /* c.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A5D2B09084C000919CF /* c.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
 		C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBE02B08676E00118AB3 /* ViewController.swift */; };
@@ -31,6 +40,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C3020A3E2B0906D7000919CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		C3020A422B090704000919CF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C3020A462B090756000919CF /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		C3020A4B2B090796000919CF /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
+		C3020A4E2B0907AE000919CF /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		C3020A502B0907D1000919CF /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C3020A592B09083E000919CF /* a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a.swift; sourceTree = "<group>"; };
+		C3020A5B2B090847000919CF /* b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = b.swift; sourceTree = "<group>"; };
+		C3020A5D2B09084C000919CF /* c.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c.swift; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +85,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3020A402B0906E2000919CF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C3ECFC172B086EF100118AB3 /* BaseViewController.swift */,
+				C3ECFC152B086EE600118AB3 /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C3020A412B0906EA000919CF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A422B090704000919CF /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C3020A442B09070E000919CF /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A462B090756000919CF /* NoteViewController.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		C3020A452B09072E000919CF /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3ECFBE72B08677100118AB3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C3020A482B09076A000919CF /* NoteDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A4B2B090796000919CF /* NoteDetailViewController.swift */,
+			);
+			path = NoteDetail;
+			sourceTree = "<group>";
+		};
+		C3020A4D2B09079E000919CF /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A4E2B0907AE000919CF /* LibraryViewController.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		C3020A522B0907EB000919CF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A532B0907FF000919CF /* Base */,
+				C3020A552B090818000919CF /* Note */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C3020A532B0907FF000919CF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A502B0907D1000919CF /* NetworkError.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C3020A552B090818000919CF /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A562B090820000919CF /* DTO */,
+				C3020A5F2B090853000919CF /* Service */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		C3020A562B090820000919CF /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A582B090837000919CF /* Response */,
+				C3020A572B090829000919CF /* Request */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C3020A572B090829000919CF /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A5B2B090847000919CF /* b.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		C3020A582B090837000919CF /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A592B09083E000919CF /* a.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		C3020A5F2B090853000919CF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A5D2B09084C000919CF /* c.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		C3ECFBD02B08676E00118AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -86,10 +212,11 @@
 		C3ECFBDB2B08676E00118AB3 /* LongBlack-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C3020A452B09072E000919CF /* Storyboard */,
 				C3ECFBF92B08695200118AB3 /* Application */,
 				C3ECFBFD2B0869C100118AB3 /* Global */,
 				C3ECFBFA2B08695900118AB3 /* Presentation */,
-				C3ECFBE72B08677100118AB3 /* LaunchScreen.storyboard */,
+				C3020A522B0907EB000919CF /* Network */,
 			);
 			path = "LongBlack-iOS";
 			sourceTree = "<group>";
@@ -100,6 +227,7 @@
 				C3ECFBF62B08694100118AB3 /* UIView+.swift */,
 				C3ECFBFB2B08697300118AB3 /* UIStackView+.swift */,
 				C3ECFBFF2B086A1500118AB3 /* UIColor+.swift */,
+				C3020A3E2B0906D7000919CF /* UILabel+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -117,8 +245,11 @@
 			isa = PBXGroup;
 			children = (
 				C3ECFBE02B08676E00118AB3 /* ViewController.swift */,
-				C3ECFC172B086EF100118AB3 /* BaseViewController.swift */,
-				C3ECFC152B086EE600118AB3 /* BaseView.swift */,
+				C3020A402B0906E2000919CF /* Base */,
+				C3020A412B0906EA000919CF /* Home */,
+				C3020A442B09070E000919CF /* Note */,
+				C3020A482B09076A000919CF /* NoteDetail */,
+				C3020A4D2B09079E000919CF /* Library */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -126,9 +257,9 @@
 		C3ECFBFD2B0869C100118AB3 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				C3ECFBFE2B0869CB00118AB3 /* Resources */,
 				C3ECFBF82B08694600118AB3 /* Extensions */,
 				C3ECFC032B086B2000118AB3 /* Literals */,
+				C3ECFBFE2B0869CB00118AB3 /* Resources */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -250,16 +381,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
+				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
+				C3020A5E2B09084C000919CF /* c.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
+				C3020A5C2B090847000919CF /* b.swift in Sources */,
+				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
+				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
+				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
 				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
+				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
+				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
+				C3020A472B090756000919CF /* NoteViewController.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
