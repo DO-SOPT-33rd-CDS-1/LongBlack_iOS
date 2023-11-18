@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: BaseViewController {
-    
+    // 잘 쓰세요 여러분
 }
 
 
