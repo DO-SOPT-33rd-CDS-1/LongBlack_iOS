@@ -19,6 +19,8 @@
 		C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBFF2B086A1500118AB3 /* UIColor+.swift */; };
 		C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC012B086A6F00118AB3 /* Image.swift */; };
 		C3ECFC052B086B2900118AB3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC042B086B2900118AB3 /* String.swift */; };
+		C3ECFC072B086C7700118AB3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC062B086C7700118AB3 /* Color.swift */; };
+		C3ECFC092B086CF500118AB3 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC082B086CF500118AB3 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		C3ECFBFF2B086A1500118AB3 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		C3ECFC012B086A6F00118AB3 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C3ECFC042B086B2900118AB3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		C3ECFC062B086C7700118AB3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		C3ECFC082B086CF500118AB3 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 			children = (
 				C3ECFBE52B08677100118AB3 /* Assets.xcassets */,
 				C3ECFBEA2B08677100118AB3 /* Info.plist */,
+				C3ECFC062B086C7700118AB3 /* Color.swift */,
+				C3ECFC082B086CF500118AB3 /* Font.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -211,12 +217,14 @@
 			files = (
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
+				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
+				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
