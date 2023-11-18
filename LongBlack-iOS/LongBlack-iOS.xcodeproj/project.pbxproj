@@ -26,6 +26,8 @@
 		C3ECFC112B086D9B00118AB3 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC0E2B086D9B00118AB3 /* Pretendard-Medium.otf */; };
 		C3ECFC122B086D9B00118AB3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC0F2B086D9B00118AB3 /* Pretendard-Regular.otf */; };
 		C3ECFC132B086D9B00118AB3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */; };
+		C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC152B086EE600118AB3 /* BaseView.swift */; };
+		C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC172B086EF100118AB3 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		C3ECFC0E2B086D9B00118AB3 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		C3ECFC0F2B086D9B00118AB3 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		C3ECFC152B086EE600118AB3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		C3ECFC172B086EF100118AB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				C3ECFBE02B08676E00118AB3 /* ViewController.swift */,
+				C3ECFC172B086EF100118AB3 /* BaseViewController.swift */,
+				C3ECFC152B086EE600118AB3 /* BaseView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -248,10 +254,12 @@
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
+				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
+				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,7 +406,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q827V73L8U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "LongBlack-iOS/Info.plist";
+				INFOPLIST_FILE = "LongBlack-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -425,7 +433,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q827V73L8U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "LongBlack-iOS/Info.plist";
+				INFOPLIST_FILE = "LongBlack-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

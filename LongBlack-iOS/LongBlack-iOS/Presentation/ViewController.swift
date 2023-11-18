@@ -7,13 +7,48 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+//import SnapKit
+//import Then
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+class ViewController: BaseViewController {
+    
+    let label = UILabel()
+    
+//    override func setStyle() {
+//        view.backgroundColor = .blue
+//    }
+//    
+//    override func setLayout() {
+//        
+//    }
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        setUI()
+//    }
 
-
+//
+//    private func setUI() {
+//        setStyle()
+//        setLayout()
+//    }
+//    
+//    private func setStyle() {
+//        view.backgroundColor = .white
+//        
+//        label.do {
+//            $0.text = StringLiterals.Home.Item.title
+//        }
+//        
+//    }
+//    
+//    private func setLayout() {
+//        view.addSubviews(label)
+//        
+//        label.snp.makeConstraints {
+//            $0.center.equalToSuperview()
+//        }
+//    }
 }
+
 
