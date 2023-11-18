@@ -16,6 +16,12 @@
 		C3020A5A2B09083E000919CF /* a.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A592B09083E000919CF /* a.swift */; };
 		C3020A5C2B090847000919CF /* b.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A5B2B090847000919CF /* b.swift */; };
 		C3020A5E2B09084C000919CF /* c.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A5D2B09084C000919CF /* c.swift */; };
+		C3020A622B090AAD000919CF /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A612B090AAD000919CF /* HomeTabBarViewController.swift */; };
+		C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A632B090ACB000919CF /* HomeTabBarItem.swift */; };
+		C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A662B090DEA000919CF /* AlarmViewController.swift */; };
+		C3020A692B090DFF000919CF /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A682B090DFF000919CF /* MyPageViewController.swift */; };
+		C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A6A2B090F2A000919CF /* UITabBar+.swift */; };
+		C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A6C2B090F71000919CF /* CALayer+.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
 		C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBE02B08676E00118AB3 /* ViewController.swift */; };
@@ -49,6 +55,12 @@
 		C3020A592B09083E000919CF /* a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a.swift; sourceTree = "<group>"; };
 		C3020A5B2B090847000919CF /* b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = b.swift; sourceTree = "<group>"; };
 		C3020A5D2B09084C000919CF /* c.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c.swift; sourceTree = "<group>"; };
+		C3020A612B090AAD000919CF /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		C3020A632B090ACB000919CF /* HomeTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarItem.swift; sourceTree = "<group>"; };
+		C3020A662B090DEA000919CF /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		C3020A682B090DFF000919CF /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		C3020A6A2B090F2A000919CF /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
+		C3020A6C2B090F71000919CF /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +109,8 @@
 		C3020A412B0906EA000919CF /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C3020A422B090704000919CF /* HomeViewController.swift */,
+				C3020A602B090A9A000919CF /* TabBar */,
+				C3020A652B090DD6000919CF /* ViewController */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -193,6 +206,25 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		C3020A602B090A9A000919CF /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A612B090AAD000919CF /* HomeTabBarViewController.swift */,
+				C3020A632B090ACB000919CF /* HomeTabBarItem.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		C3020A652B090DD6000919CF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A422B090704000919CF /* HomeViewController.swift */,
+				C3020A662B090DEA000919CF /* AlarmViewController.swift */,
+				C3020A682B090DFF000919CF /* MyPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		C3ECFBD02B08676E00118AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +260,8 @@
 				C3ECFBFB2B08697300118AB3 /* UIStackView+.swift */,
 				C3ECFBFF2B086A1500118AB3 /* UIColor+.swift */,
 				C3020A3E2B0906D7000919CF /* UILabel+.swift */,
+				C3020A6A2B090F2A000919CF /* UITabBar+.swift */,
+				C3020A6C2B090F71000919CF /* CALayer+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,17 +414,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3020A692B090DFF000919CF /* MyPageViewController.swift in Sources */,
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
+				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
 				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
 				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,
+				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
+				C3020A622B090AAD000919CF /* HomeTabBarViewController.swift in Sources */,
 				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
@@ -398,8 +436,10 @@
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
+				C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3020A472B090756000919CF /* NoteViewController.swift in Sources */,
+				C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
