@@ -21,6 +21,11 @@
 		C3ECFC052B086B2900118AB3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC042B086B2900118AB3 /* String.swift */; };
 		C3ECFC072B086C7700118AB3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC062B086C7700118AB3 /* Color.swift */; };
 		C3ECFC092B086CF500118AB3 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC082B086CF500118AB3 /* Font.swift */; };
+		C3ECFC0B2B086D7E00118AB3 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC0A2B086D7E00118AB3 /* Pretendard-Light.otf */; };
+		C3ECFC0D2B086D8A00118AB3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC0C2B086D8A00118AB3 /* Pretendard-Bold.otf */; };
+		C3ECFC112B086D9B00118AB3 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC0E2B086D9B00118AB3 /* Pretendard-Medium.otf */; };
+		C3ECFC122B086D9B00118AB3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC0F2B086D9B00118AB3 /* Pretendard-Regular.otf */; };
+		C3ECFC132B086D9B00118AB3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		C3ECFC042B086B2900118AB3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C3ECFC062B086C7700118AB3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C3ECFC082B086CF500118AB3 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		C3ECFC0A2B086D7E00118AB3 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		C3ECFC0C2B086D8A00118AB3 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		C3ECFC0E2B086D9B00118AB3 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		C3ECFC0F2B086D9B00118AB3 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +130,7 @@
 		C3ECFBFE2B0869CB00118AB3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3ECFC142B086DA000118AB3 /* Font */,
 				C3ECFBE52B08677100118AB3 /* Assets.xcassets */,
 				C3ECFBEA2B08677100118AB3 /* Info.plist */,
 				C3ECFC062B086C7700118AB3 /* Color.swift */,
@@ -135,6 +146,18 @@
 				C3ECFC042B086B2900118AB3 /* String.swift */,
 			);
 			path = Literals;
+			sourceTree = "<group>";
+		};
+		C3ECFC142B086DA000118AB3 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C3ECFC0E2B086D9B00118AB3 /* Pretendard-Medium.otf */,
+				C3ECFC0F2B086D9B00118AB3 /* Pretendard-Regular.otf */,
+				C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */,
+				C3ECFC0C2B086D8A00118AB3 /* Pretendard-Bold.otf */,
+				C3ECFC0A2B086D7E00118AB3 /* Pretendard-Light.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3ECFBE92B08677100118AB3 /* LaunchScreen.storyboard in Resources */,
+				C3ECFC122B086D9B00118AB3 /* Pretendard-Regular.otf in Resources */,
+				C3ECFC132B086D9B00118AB3 /* Pretendard-SemiBold.otf in Resources */,
+				C3ECFC112B086D9B00118AB3 /* Pretendard-Medium.otf in Resources */,
+				C3ECFC0D2B086D8A00118AB3 /* Pretendard-Bold.otf in Resources */,
 				C3ECFBE62B08677100118AB3 /* Assets.xcassets in Resources */,
+				C3ECFC0B2B086D7E00118AB3 /* Pretendard-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
