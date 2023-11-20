@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A3E2B0906D7000919CF /* UILabel+.swift */; };
 		C3020A432B090704000919CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A422B090704000919CF /* HomeViewController.swift */; };
-		C3020A472B090756000919CF /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A462B090756000919CF /* NoteViewController.swift */; };
 		C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4B2B090796000919CF /* NoteDetailViewController.swift */; };
 		C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4E2B0907AE000919CF /* LibraryViewController.swift */; };
 		C3020A512B0907D1000919CF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A502B0907D1000919CF /* NetworkError.swift */; };
@@ -37,12 +36,12 @@
 		C3ECFC132B086D9B00118AB3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */; };
 		C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC152B086EE600118AB3 /* BaseView.swift */; };
 		C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC172B086EF100118AB3 /* BaseViewController.swift */; };
+		E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C3020A3E2B0906D7000919CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		C3020A422B090704000919CF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C3020A462B090756000919CF /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		C3020A4B2B090796000919CF /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		C3020A4E2B0907AE000919CF /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		C3020A502B0907D1000919CF /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		C3ECFC152B086EE600118AB3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C3ECFC172B086EF100118AB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewContoller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 		C3020A442B09070E000919CF /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				C3020A462B090756000919CF /* NoteViewController.swift */,
+				E5D1CAF32B0BB82C00C50722 /* ViewContoller */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -297,6 +297,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		E5D1CAF32B0BB82C00C50722 /* ViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */,
+			);
+			path = ViewContoller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -396,10 +404,10 @@
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
+				E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
-				C3020A472B090756000919CF /* NoteViewController.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
