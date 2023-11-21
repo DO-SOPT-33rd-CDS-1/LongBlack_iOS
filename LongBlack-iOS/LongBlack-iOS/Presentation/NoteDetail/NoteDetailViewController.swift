@@ -15,14 +15,25 @@ class NoteDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "NoteViewDetailController"
         setUI()
     }
     
-    let backButton = UIButton()
-    let bookmarkButton = UIButton()
+    let backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "ic_arrow_left"), for: .normal)
+        button.addTarget(button, action: #selector(backButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    private lazy var bookmarkButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "icBookmark"), for: .normal)
+        button.setImage(UIImage(named: "icBookmarkFill"), for: .selected)
+        return button
+    }()
     let topView = UIView()
     let bottomView = UIView()
-    lazy var placeBookmarkButton: UIButton = {
+    private lazy var placeBookmarkButton: UIButton = {
         let button = UIButton()
         let label = UILabel()
         label.text = "책갈피 꽂기"
@@ -40,6 +51,7 @@ class NoteDetailViewController: BaseViewController {
     
     let collectionView = UICollectionView()
     
+    // MARK: - setStyle()
     override func setStyle() {
         placeBookmarkButton.layer.cornerRadius = 23
         placeBookmarkButton.layer.borderColor = UIColor.subGray3.cgColor // subGray3 -> subGray5으로 변경예정
@@ -51,6 +63,7 @@ class NoteDetailViewController: BaseViewController {
         bookmarkButton.tintColor = .white
     }
     
+    // MARK: - setLayout()
     override func setLayout() {
         [topView, bottomView].forEach() {
             self.view.addSubview($0)
@@ -78,6 +91,11 @@ class NoteDetailViewController: BaseViewController {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-20)
         }
+    }
+    
+    // MARK: - backButtonTapped()
+    @objc private func backButtonTapped() {
+           // 뒤로가기 버튼이 눌렸을 때 Home으로 가는 동작
     }
     
 }
