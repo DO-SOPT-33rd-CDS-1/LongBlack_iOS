@@ -16,12 +16,12 @@ enum ImageLiterals {
     }
     
     enum TabBar {
-        static var icNote: UIImage { .load(named: "icNote")}
-        static var icNoteSelected: UIImage { .load(named: "icNoteSelected")}
-        static var icAlarm: UIImage { .load(named: "icAlarm")}
-        static var icAlarmSelected: UIImage { .load(named: "icAlarmSelected")}
-        static var icMyPage: UIImage { .load(named: "icMyPage")}
-        static var icMyPageSelected: UIImage { .load(named: "icMyPageSelected")}
+        static var icNote: UIImage { .load(named: "ic_todaynote_default")}
+        static var icNoteSelected: UIImage { .load(named: "ic_todaynote_active")}
+        static var icAlarm: UIImage { .load(named: "ic_alarm_default")}
+        static var icAlarmSelected: UIImage { .load(named: "ic_alarm_active")}
+        static var icMyPage: UIImage { .load(named: "ic_mypage_default")}
+        static var icMyPageSelected: UIImage { .load(named: "ic_mypage_active")}
     }
     
     enum Detail {
