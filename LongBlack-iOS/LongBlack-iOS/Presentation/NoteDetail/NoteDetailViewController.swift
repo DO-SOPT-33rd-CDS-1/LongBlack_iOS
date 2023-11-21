@@ -54,7 +54,7 @@ class NoteDetailViewController: BaseViewController {
     // MARK: - setStyle()
     override func setStyle() {
         placeBookmarkButton.layer.cornerRadius = 23
-        placeBookmarkButton.layer.borderColor = UIColor.subGray3.cgColor // subGray3 -> subGray5으로 변경예정
+        placeBookmarkButton.layer.borderColor = UIColor.subGray5.cgColor
         placeBookmarkButton.layer.borderWidth = 1
         
         topView.backgroundColor = .subGray1
