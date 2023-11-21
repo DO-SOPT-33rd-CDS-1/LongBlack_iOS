@@ -7,24 +7,65 @@
 
 import UIKit
 
-// 임의로 만들어둔 것이니 각자 뷰컨 따로 만들어서 폴더링 하세요~
-class NoteDetailViewController: UIViewController {
+import SnapKit
+import Then
+
+// MARK: - NoteViewController class
+class NoteDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    let backButton = UIButton()
+    let bookmarkButton = UIButton()
+    let topView = UIView()
+    let bottomView = UIView()
+    lazy var placeBookmarkButton: UIButton = {
+        let button = UIButton()
+        let label = UILabel()
+        label.text = "책갈피 꽂기"
+        label.textColor = .mainMainOrange
+        label.font = UIFont.systemFont(ofSize: 14)
+        
+        button.addSubviews(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+        return button
+    }()
+    
+    let collectionView = UICollectionView()
+    
+    override func setStyle() {
+        placeBookmarkButton.layer.cornerRadius = 23
+        placeBookmarkButton.layer.borderColor = UIColor.subGray3.cgColor // subGray3 -> subGray5으로 변경예정
+        placeBookmarkButton.layer.borderWidth = 1
+        
+        topView.backgroundColor = .subGray1
+        bottomView.backgroundColor = .white
+        backButton.tintColor = .white
+        bookmarkButton.tintColor = .white
     }
-    */
-
+    
+    override func setLayout() {
+        [topView, bottomView].forEach() {
+            self.view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        topView.snp.makeConstraints() {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(52)
+        }
+        bottomView.snp.makeConstraints() {
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(53)
+        }
+    }
+    
 }
