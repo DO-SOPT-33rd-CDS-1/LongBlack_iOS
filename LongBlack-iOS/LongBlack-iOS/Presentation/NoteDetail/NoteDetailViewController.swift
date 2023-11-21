@@ -66,6 +66,18 @@ class NoteDetailViewController: BaseViewController {
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(53)
         }
+        [backButton, bookmarkButton].forEach() {
+            bottomView.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        backButton.snp.makeConstraints() {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(20)
+        }
+        bookmarkButton.snp.makeConstraints() {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-20)
+        }
     }
     
 }
