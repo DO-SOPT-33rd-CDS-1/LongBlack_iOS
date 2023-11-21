@@ -40,7 +40,10 @@ class FilterButtonMakeCollectionViewCell: UICollectionViewCell, UICollectionView
     }
     
     private func setLayout() {
-        
+        collectionView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(133)
+            $0.leading.equalToSuperview().offset(20)
+        }
     }
     
 }
