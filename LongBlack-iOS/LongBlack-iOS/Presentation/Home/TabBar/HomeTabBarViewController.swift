@@ -38,7 +38,7 @@ final class HomeTabBarController: UITabBarController {
         super.viewDidLayoutSubviews()
         
         let safeAreaHeight = view.safeAreaInsets.bottom
-        let tabBarHeight: CGFloat = 90.0
+        let tabBarHeight: CGFloat = 56
         tabBar.frame.size.height = tabBarHeight + safeAreaHeight
         tabBar.frame.origin.y = view.frame.height - tabBarHeight - safeAreaHeight
     }
