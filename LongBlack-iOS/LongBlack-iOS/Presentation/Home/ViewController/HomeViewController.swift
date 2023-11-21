@@ -11,6 +11,7 @@ import SnapKit
 import Then
 
 final class HomeViewController: BaseViewController {
+    let scrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

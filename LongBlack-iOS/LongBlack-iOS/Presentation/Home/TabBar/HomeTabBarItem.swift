@@ -18,8 +18,8 @@ extension TabBarItem {
     var title: String {
         switch self {
         case .note:   return StringLiterals.Home.TabBar.note
-        case .alarm:         return StringLiterals.Home.TabBar.alarm
-        case .myPage:         return StringLiterals.Home.TabBar.myPage
+        case .alarm:  return StringLiterals.Home.TabBar.alarm
+        case .myPage: return StringLiterals.Home.TabBar.myPage
         }
     }
 }
@@ -27,9 +27,9 @@ extension TabBarItem {
 extension TabBarItem {
     var Icon: UIImage? {
         switch self {
-        case .note:  return ImageLiterals.TabBar.icNote
-        case .alarm:        return ImageLiterals.TabBar.icAlarm
-        case .myPage:        return ImageLiterals.TabBar.icMyPage
+        case .note:  return ImageLiterals.TabBar.icNote.withRenderingMode(.alwaysOriginal)
+        case .alarm: return ImageLiterals.TabBar.icAlarm.withRenderingMode(.alwaysOriginal)
+        case .myPage: return ImageLiterals.TabBar.icMyPage.withRenderingMode(.alwaysOriginal)
         }
     }
     

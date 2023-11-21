@@ -11,6 +11,6 @@ class AlarmViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .mainMainOrange
+        view.backgroundColor = .subGray4
     }
 }
