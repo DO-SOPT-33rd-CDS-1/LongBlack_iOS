@@ -25,8 +25,6 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
     
     private func setLayout() {
         
-        let labelWidth = filter.intrinsicContentSize.width
-        
         self.contentView.addSubview(button)
         button.addSubview(filter)
         
@@ -41,7 +39,7 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
     
     private var button = UIButton().then {
         $0.backgroundColor = .clear
-        $0.layer.cornerRadius = 20
+        $0.layer.cornerRadius = 15
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor(red: 0.925, green: 0.925, blue: 0.925, alpha: 1).cgColor
     }
