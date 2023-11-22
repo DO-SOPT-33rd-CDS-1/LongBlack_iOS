@@ -19,6 +19,7 @@ class NoteDetailViewController: BaseViewController {
         setUI()
     }
     
+    // MARK: - Objects Declaration
     let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "ic_arrow_left"), for: .normal)
@@ -33,22 +34,20 @@ class NoteDetailViewController: BaseViewController {
     }()
     let topView = UIView()
     let bottomView = UIView()
-    private lazy var placeBookmarkButton: UIButton = {
-        let button = UIButton()
-        let label = UILabel()
-        label.text = "책갈피 꽂기"
-        label.textColor = .mainMainOrange
-        label.font = UIFont.systemFont(ofSize: 14)
-        
-        button.addSubviews(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
-        }
-        return button
+    
+    // 책갈피 꽂기, 삭제 버튼은 'setLayout()에서' 책갈피 유무에 따라 어떤 버튼을 보일지 결정하면 될듯
+    private lazy var placeBookmarkButton: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "placeBookmark")
+        return view
+    }()
+    private lazy var removeBookmarkButton: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "removeBookmark")
+        return view
     }()
     
+    // 아티클 전문이 들어갈 콜렉션뷰 선언
     let collectionView = UICollectionView()
     
     // MARK: - setStyle()

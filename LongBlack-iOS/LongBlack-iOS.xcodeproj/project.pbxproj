@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */; };
 		C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A3E2B0906D7000919CF /* UILabel+.swift */; };
 		C3020A432B090704000919CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A422B090704000919CF /* HomeViewController.swift */; };
 		C3020A472B090756000919CF /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A462B090756000919CF /* NoteViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
 		C3020A3E2B0906D7000919CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		C3020A422B090704000919CF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3020A462B090756000919CF /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04B2C2F02B0DC0AD00FD20E3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A4B2B090796000919CF /* NoteDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		04B2C2F12B0DC0B800FD20E3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		04B2C2F22B0DC0C500FD20E3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C3020A402B0906E2000919CF /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +146,9 @@
 		C3020A482B09076A000919CF /* NoteDetail */ = {
 			isa = PBXGroup;
 			children = (
-				C3020A4B2B090796000919CF /* NoteDetailViewController.swift */,
+				04B2C2F22B0DC0C500FD20E3 /* Cell */,
+				04B2C2F12B0DC0B800FD20E3 /* Data */,
+				04B2C2F02B0DC0AD00FD20E3 /* ViewController */,
 			);
 			path = NoteDetail;
 			sourceTree = "<group>";
@@ -380,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */,
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
