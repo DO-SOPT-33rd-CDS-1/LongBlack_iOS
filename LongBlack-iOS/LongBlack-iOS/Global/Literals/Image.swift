@@ -19,6 +19,16 @@ enum ImageLiterals {
         static var icNote: UIImage { .load(named: "ic_note")}
         static var icLibrary: UIImage { .load(named: "ic_library")}
         static var icArrow: UIImage { .load(named: "ic_arrow")}
+        
+        static var imgNoteDummy1: UIImage { .load(named: "imgNoteDummy1")}
+        static var imgNoteDummy2: UIImage { .load(named: "imgNoteDummy2")}
+        static var imgNoteDummy3: UIImage { .load(named: "imgNoteDummy3")}
+        
+        static var imgEventDummy1: UIImage { .load(named: "imgEventDummy1")}
+        static var imgEventDummy2: UIImage { .load(named: "imgEventDummy2")}
+        static var imgEventDummy3: UIImage { .load(named: "imgEventDummy3")}
+        
+        static var imgEventBanner: UIImage { .load(named: "imgEventBanner")}
     }
     
     enum TabBar {

@@ -32,10 +32,10 @@ final class HomeViewController: BaseViewController {
     
     let noteHomeButton = HomeButton()
     let libraryHomeButton = HomeButton()
-    
     let buttonSeperatorView = UIView()
-
     
+    
+
     let scrollView = UIScrollView()
     
     override func setStyle() {
