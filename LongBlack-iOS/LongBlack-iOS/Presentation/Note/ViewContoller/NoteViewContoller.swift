@@ -20,7 +20,6 @@ class NoteViewController: BaseViewController {
         setCollectionViewConfig()
         setCollectionViewLayout()
         self.navigationController?.navigationBar.isHidden = true
-        view.backgroundColor = .systemPink
     }
     
     override func setStyle() {
@@ -39,7 +38,7 @@ class NoteViewController: BaseViewController {
     }
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .white
     }
     
     private func setCollectionViewConfig() {

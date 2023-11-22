@@ -100,7 +100,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     
     private var background = UIView().then {
         $0.frame = CGRect(x: 0, y: 0, width: 335, height: 339)
-        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 4
     }
     
     func bindData(data: NoteData) {

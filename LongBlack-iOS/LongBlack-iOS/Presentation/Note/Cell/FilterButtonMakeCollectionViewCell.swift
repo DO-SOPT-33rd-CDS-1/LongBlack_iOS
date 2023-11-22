@@ -52,8 +52,15 @@ class FilterButtonMakeCollectionViewCell: UICollectionViewCell, UICollectionView
 
 extension FilterButtonMakeCollectionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 93, height: 28)
-        }
+        let filterData = filterButtonData[indexPath.item]
+        
+        let labelWidth = (filterData.filter as NSString).size(withAttributes: [
+            NSAttributedString.Key.font: UIFont.b5Mudium
+        ]).width
+        
+        let cellWidth = labelWidth + 30
+        
+        return CGSize(width: cellWidth, height: 28)        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8
