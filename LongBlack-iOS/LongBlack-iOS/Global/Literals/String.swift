@@ -27,7 +27,8 @@ enum StringLiterals {
             static let todaysNoteTitle = "오픈갤러리 : 내 거실이 갤러리, 미술 시장의 빈틈을 파고든 원화 구독 서비스"
             static let noteCommunity = "노트 커뮤니티"
             static let noteCommunityDescription = "“사람이 없어도 운영이 안되는 경우도 간혹 있던데...😢😢”"
-
+            static let noteButton = "전체 노트 보기"
+            static let libraryButton = "라이브러리 가기"
         }
     }
 }

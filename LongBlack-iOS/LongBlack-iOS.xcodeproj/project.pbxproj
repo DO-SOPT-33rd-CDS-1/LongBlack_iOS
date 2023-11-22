@@ -44,6 +44,7 @@
 		C3ECFC132B086D9B00118AB3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */; };
 		C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC152B086EE600118AB3 /* BaseView.swift */; };
 		C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC172B086EF100118AB3 /* BaseViewController.swift */; };
+		C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FD54022B0E405E00ADB912 /* HomeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		C3ECFC152B086EE600118AB3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C3ECFC172B086EF100118AB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C3FD54022B0E405E00ADB912 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				C3020A602B090A9A000919CF /* TabBar */,
 				C3020A652B090DD6000919CF /* ViewController */,
+				C3FD54042B0E406300ADB912 /* Button */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -334,6 +337,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		C3FD54042B0E406300ADB912 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				C3FD54022B0E405E00ADB912 /* HomeButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +432,7 @@
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
+				C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
 				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,

@@ -18,6 +18,7 @@ enum ImageLiterals {
         static var icClock: UIImage { .load(named: "ic_clock")}
         static var icNote: UIImage { .load(named: "ic_note")}
         static var icLibrary: UIImage { .load(named: "ic_library")}
+        static var icArrow: UIImage { .load(named: "ic_arrow")}
     }
     
     enum TabBar {

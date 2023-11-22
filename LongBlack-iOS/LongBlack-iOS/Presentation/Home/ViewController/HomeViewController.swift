@@ -30,6 +30,12 @@ final class HomeViewController: BaseViewController {
     
     let mainSeperatorView = UIView()
     
+    let noteHomeButton = HomeButton()
+    let libraryHomeButton = HomeButton()
+    
+    let buttonSeperatorView = UIView()
+
+    
     let scrollView = UIScrollView()
     
     override func setStyle() {
@@ -112,20 +118,37 @@ final class HomeViewController: BaseViewController {
         mainSeperatorView.do {
             $0.backgroundColor = .subGray6
         }
+        
+        noteHomeButton.do {
+            $0.buttonImageView.image = ImageLiterals.Home.icNote
+            $0.buttonTitleLabel.text = StringLiterals.Home.Main.noteButton
+        }
+        
+        libraryHomeButton.do {
+            $0.buttonImageView.image = ImageLiterals.Home.icLibrary
+            $0.buttonTitleLabel.text = StringLiterals.Home.Main.libraryButton
+        }
+        
+        buttonSeperatorView.do {
+            $0.backgroundColor = .subGray6
+        }
     }
     
     override func setLayout() {
         view.addSubviews(scrollView)
         
         scrollView.addSubviews(logoImageView,
-                         timeView,
-                         mainBackgroundView,
-                         mainImageView,
-                         todaysNoteLabel,
-                         todaysNoteTitleLabel,
-                         noteCommunityLabel,
-                         noteCommunityStackView,
-                         mainSeperatorView)
+                               timeView,
+                               mainBackgroundView,
+                               mainImageView,
+                               todaysNoteLabel,
+                               todaysNoteTitleLabel,
+                               noteCommunityLabel,
+                               noteCommunityStackView,
+                               mainSeperatorView,
+                               noteHomeButton,
+                               libraryHomeButton,
+                               buttonSeperatorView)
         
         timeView.addSubviews(timeImageView,
                              timeTitleLabel,
@@ -201,6 +224,22 @@ final class HomeViewController: BaseViewController {
             $0.width.centerX.equalToSuperview()
             $0.height.equalTo(8)
             $0.top.equalTo(noteCommunityStackView.snp.bottom).offset(27)
+        }
+        
+        noteHomeButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20)
+            $0.top.equalTo(mainSeperatorView.snp.bottom).offset(26)
+        }
+        
+        libraryHomeButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.top.equalTo(mainSeperatorView.snp.bottom).offset(26)
+        }
+        
+        buttonSeperatorView.snp.makeConstraints {
+            $0.width.centerX.equalToSuperview()
+            $0.height.equalTo(8)
+            $0.top.equalTo(libraryHomeButton.snp.bottom).offset(27)
             $0.bottom.equalToSuperview().inset(100)
         }
     }
