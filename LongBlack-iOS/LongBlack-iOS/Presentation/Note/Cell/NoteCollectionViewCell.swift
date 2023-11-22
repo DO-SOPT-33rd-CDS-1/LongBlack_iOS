@@ -36,7 +36,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
         }
         
         background.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
+            $0.top.bottom.equalToSuperview().offset(5)
             $0.leading.trailing.equalToSuperview()
         }
         
@@ -115,6 +115,6 @@ class NoteCollectionViewCell: UICollectionViewCell {
         } else {
             self.state.image = UIImage(named: "ic_search")
         }
-        self.background.backgroundColor = UIColor(named: data.backgroundColor)
+        self.background.backgroundColor = data.backgroundColor
     }
 }
