@@ -18,7 +18,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setLayout()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -26,24 +26,28 @@ class NoteCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        contentView.addSubviews(image, background, title, author, divider, nickname, state)
+        self.addSubview(contentView)
+        contentView.addSubviews(background, image, title, author, divider, nickname, state)
         
         image.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.top.equalToSuperview()
+            $0.width.equalTo(335)
+            $0.height.equalTo(200)
         }
         
         background.snp.makeConstraints {
-            $0.top.equalTo(image.snp.bottom)
+            $0.top.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }
         
         title.snp.makeConstraints {
-            $0.leading.equalTo(background.snp.leading).offset(26)
-            $0.leading.equalTo(background.snp.top).offset(21)
+            $0.leading.equalTo(image.snp.leading).offset(26)
+            $0.trailing.equalTo(image.snp.trailing).offset(-35)
+            $0.top.equalTo(image.snp.bottom).offset(21)
         }
         
         author.snp.makeConstraints {
-            $0.leading.equalTo(background.snp.leading).offset(26)
+            $0.leading.equalTo(image.snp.leading).offset(26)
             $0.top.equalTo(title.snp.bottom).offset(20)
         }
         
@@ -60,6 +64,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
         state.snp.makeConstraints {
             $0.leading.equalTo(image.snp.leading).offset(277)
             $0.top.equalTo(image.snp.top).offset(10)
+            $0.width.height.equalTo(40)
         }
     }
     
@@ -70,7 +75,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     private var title = UILabel().then {
         $0.font = .h5Semibold
         $0.textColor = .black
-        $0.numberOfLines = 0
+        $0.numberOfLines = 2
     }
     
     private var author = UILabel().then {
@@ -94,21 +99,22 @@ class NoteCollectionViewCell: UICollectionViewCell {
     }
     
     private var background = UIView().then {
-        $0.frame = CGRect(x: 0, y: 0, width: 335, height: 139)
+        $0.frame = CGRect(x: 0, y: 0, width: 335, height: 339)
+        $0.backgroundColor = .white
     }
     
     func bindData(data: NoteData) {
-        self.image = UIImageView(image: UIImage(named: data.image))
+        self.image.image = UIImage(named: data.image)
         self.title.text = data.title
         self.author.text = data.author
         self.divider.text = data.divider
         self.nickname.text = data.nickname
+        // TODO: asset 추가해서 좋아요(저장) 상태 바꾸기
         if data.state {
-            self.state = UIImageView(image: UIImage(named: "ic_arrow_left"))
+            self.state.image = UIImage(named: "ic_arrow_left")
         } else {
-            self.state = UIImageView(image: UIImage(named: "ic_search"))
+            self.state.image = UIImage(named: "ic_search")
         }
-        //아직 에셋 추가 안해서 임시이미지로 넣어줌
         self.background.backgroundColor = UIColor(named: data.backgroundColor)
     }
 }
