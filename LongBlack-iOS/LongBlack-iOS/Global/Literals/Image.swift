@@ -12,7 +12,12 @@ import UIKit
 
 enum ImageLiterals {
     enum Home {
-        static var icHome: UIImage { .load(named: "(이름을적어주세요)")}
+        static var imgLongBlack: UIImage { .load(named: "img_longblack")}
+        static var imgHomeTop: UIImage { .load(named: "img_home_top")}
+        static var imgThumbnail: UIImage { .load(named: "img_thumbnail")}
+        static var icClock: UIImage { .load(named: "ic_clock")}
+        static var icNote: UIImage { .load(named: "ic_note")}
+        static var icLibrary: UIImage { .load(named: "ic_library")}
     }
     
     enum TabBar {
