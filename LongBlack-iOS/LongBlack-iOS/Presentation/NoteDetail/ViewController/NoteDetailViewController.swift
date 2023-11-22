@@ -10,13 +10,14 @@ import UIKit
 import SnapKit
 import Then
 
-// MARK: - NoteViewController class
+// MARK: - NoteDetailViewController class
 class NoteDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "NoteViewDetailController"
+        self.navigationItem.title = "NoteDetailViewController"
         setCollectionViewConfig()
+        setCollectionViewLayout()
         setUI()
     }
     
@@ -26,6 +27,15 @@ class NoteDetailViewController: BaseViewController {
                                          forCellWithReuseIdentifier: CollectionViewCell.identifier)
             self.collectionView.delegate = self
             self.collectionView.dataSource = self
+    }
+    
+    // MARK: - setCollectionViewLayout()
+    private func setCollectionViewLayout() {
+            let flowLayout = UICollectionViewFlowLayout()
+            flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6) / 3 , height: (UIScreen.main.bounds.width - 6) / 3)
+            flowLayout.minimumLineSpacing = 3
+            flowLayout.minimumInteritemSpacing = 3
+            self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
     }
     
     let backButton: UIButton = {
@@ -114,7 +124,21 @@ extension NoteDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
+                                                            for: indexPath) as? CollectionViewCell else {return UICollectionViewCell()}
+        item.bindData(data: collectionviewdata[indexPath.row])
+        return item
     }
     
+}
+extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 3
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 3
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - 6) / 3 , height: (UIScreen.main.bounds.width - 6) / 3)
+    }
 }
