@@ -109,11 +109,10 @@ class NoteCollectionViewCell: UICollectionViewCell {
         self.author.text = data.author
         self.divider.text = data.divider
         self.nickname.text = data.nickname
-        // TODO: asset 추가해서 좋아요(저장) 상태 바꾸기
         if data.state {
-            self.state.image = UIImage(named: "ic_arrow_left")
+            self.state.image = UIImage(named: "likeOn")
         } else {
-            self.state.image = UIImage(named: "ic_search")
+            self.state.image = UIImage(named: "likeOff")
         }
         self.background.backgroundColor = data.backgroundColor
     }
