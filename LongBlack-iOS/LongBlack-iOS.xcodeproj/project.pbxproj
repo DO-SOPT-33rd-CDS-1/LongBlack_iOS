@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */; };
+		04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */; };
 		C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A3E2B0906D7000919CF /* UILabel+.swift */; };
 		C3020A432B090704000919CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A422B090704000919CF /* HomeViewController.swift */; };
 		C3020A472B090756000919CF /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A462B090756000919CF /* NoteViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
+		04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C3020A3E2B0906D7000919CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		C3020A422B090704000919CF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3020A462B090756000919CF /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		04B2C2F22B0DC0C500FD20E3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
+				04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */,
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
 				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
 				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,

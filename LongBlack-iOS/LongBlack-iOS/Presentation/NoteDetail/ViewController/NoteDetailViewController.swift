@@ -16,10 +16,18 @@ class NoteDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "NoteViewDetailController"
+        setCollectionViewConfig()
         setUI()
     }
     
-    // MARK: - Objects Declaration
+    // MARK: - setCollectionViewConfig()
+    private func setCollectionViewConfig() {
+            self.collectionView.register(CollectionViewCell.self,
+                                         forCellWithReuseIdentifier: CollectionViewCell.identifier)
+            self.collectionView.delegate = self
+            self.collectionView.dataSource = self
+    }
+    
     let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "ic_arrow_left"), for: .normal)
@@ -47,7 +55,7 @@ class NoteDetailViewController: BaseViewController {
         return view
     }()
     
-    // 아티클 전문이 들어갈 콜렉션뷰 선언
+    // MARK: - collectionView
     let collectionView = UICollectionView()
     
     // MARK: - setStyle()
@@ -95,6 +103,18 @@ class NoteDetailViewController: BaseViewController {
     // MARK: - backButtonTapped()
     @objc private func backButtonTapped() {
            // 뒤로가기 버튼이 눌렸을 때 Home으로 가는 동작
+    }
+    
+}
+// MARK: - UICollectionView Extension
+extension NoteDetailViewController: UICollectionViewDelegate {}
+extension NoteDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
     }
     
 }
