@@ -43,8 +43,8 @@ class FilterButtonMakeCollectionViewCell: UICollectionViewCell, UICollectionView
         contentView.addSubview(collectionView)
         
         collectionView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(20)
-            $0.trailing.top.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.top.bottom.equalToSuperview()
         }
     }
 }
