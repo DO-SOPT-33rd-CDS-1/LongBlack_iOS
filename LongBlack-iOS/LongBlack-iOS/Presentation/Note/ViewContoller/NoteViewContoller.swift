@@ -25,6 +25,7 @@ class NoteViewController: BaseViewController {
     override func setStyle() {
         self.view.addSubview(customNavigationView)
         self.view.addSubview(collectionView)
+        self.view.addSubview(pageNumber)
         
         customNavigationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -34,6 +35,11 @@ class NoteViewController: BaseViewController {
         collectionView.snp.makeConstraints{
             $0.bottom.leading.trailing.equalToSuperview()
             $0.top.equalTo(customNavigationView.snp.bottom)
+        }
+        
+        pageNumber.snp.makeConstraints {
+            $0.top.equalTo(collectionView.snp.bottom).offset(36)
+            $0.centerX.equalToSuperview()
         }
     }
     
@@ -62,6 +68,11 @@ class NoteViewController: BaseViewController {
     }
 }
 
+private var pageNumber = UIImageView().then {
+    $0.image = UIImage(named: "number")
+    $0.contentMode = .scaleAspectFit
+}
+
 extension NoteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
@@ -72,6 +83,11 @@ extension NoteViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: 335 , height: 339)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 21
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
             // 첫 번째 섹션 : filterButton
