@@ -15,6 +15,15 @@ enum ImageLiterals {
         static var icHome: UIImage { .load(named: "(이름을적어주세요)")}
     }
     
+    enum TabBar {
+        static var icNote: UIImage { .load(named: "ic_todaynote_default")}
+        static var icNoteSelected: UIImage { .load(named: "ic_todaynote_active")}
+        static var icAlarm: UIImage { .load(named: "ic_alarm_default")}
+        static var icAlarmSelected: UIImage { .load(named: "ic_alarm_active")}
+        static var icMyPage: UIImage { .load(named: "ic_mypage_default")}
+        static var icMyPageSelected: UIImage { .load(named: "ic_mypage_active")}
+    }
+    
     enum Detail {
         static var icDetail: UIImage { .load(named: "(이름을적어주세요)")}
     }
