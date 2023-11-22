@@ -10,77 +10,52 @@ import UIKit
 import Then
 import SnapKit
 
-class NoteViewController: BaseViewController, UICollectionViewDelegate {
+class NoteViewController: BaseViewController {
+    
+    private let customNavigationView = CustomNavigationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customNavigationBar()
         setLayout()
-//        setCollectionViewConfig()
-//        setCollectionViewLayout()
+        setCollectionViewConfig()
+        setCollectionViewLayout()
+        self.navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = .systemPink
     }
     
-    private let searchController = UISearchController(searchResultsController: nil)
-    
-    private func customNavigationBar() {
-        if let navigationBar = self.navigationController?.navigationBar {
-            let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 46))
-            
-            let backButton = UIButton(type: .custom)
-            backButton.setTitle("노트", for: .normal)
-            backButton.setImage(UIImage(named: "ic_arrow_left"), for: .normal)
-            backButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
-            backButton.setTitleColor(UIColor.black, for: .normal)
-            backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-            containerView.addSubview(backButton)
-            
-            searchController.searchBar.placeholder = "검색어를 입력하세요"
-            searchController.searchBar.layer.cornerRadius = 32
-            //                navigationItem.hidesSearchBarWhenScrolling = false
-            containerView.addSubview(searchController.searchBar)
-            
-            backButton.snp.makeConstraints {
-                $0.leading.equalTo(containerView.snp.leading).offset(20)
-                $0.top.equalTo(containerView.snp.top).offset(21)
-            }
-            
-            searchController.searchBar.snp.makeConstraints {
-                $0.width.equalTo(210)
-                $0.height.equalTo(36)
-                $0.leading.equalTo(containerView.snp.leading).offset(145)
-                $0.top.equalTo(containerView.snp.top).offset(18)
-            }
-            
-            navigationItem.titleView = containerView
-            navigationBar.backgroundColor = .white
-            navigationBar.isTranslucent = false
+    override func setStyle() {
+        self.view.addSubview(customNavigationView)
+        self.view.addSubview(collectionView)
+        
+        customNavigationView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+        }
+        
+        collectionView.snp.makeConstraints{
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.top.equalTo(customNavigationView.snp.bottom)
         }
     }
     
-//    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-//        $0.backgroundColor = .clear
-//    }
-//    
-//    override func setLayout() {
-//        self.view.addSubview(collectionView)
-//        
-//        collectionView.snp.makeConstraints{
-//            $0.leading.trailing.equalToSuperview()
-//        }
-//    }
-//    
-//    private func setCollectionViewConfig() {
-//        self.collectionView.register(FilterButtonMakeCollectionViewCell.self, forCellWithReuseIdentifier: FilterButtonMakeCollectionViewCell.identifier)
-//        
-//        self.collectionView.delegate = self
-//        self.collectionView.dataSource = self
-//    }
-//    
-//    private func setCollectionViewLayout() {
-//        let flowlayout = UICollectionViewFlowLayout()
-//        self.collectionView.setCollectionViewLayout(flowlayout, animated: false)
-//    }
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        $0.backgroundColor = .clear
+    }
     
+    private func setCollectionViewConfig() {
+        self.collectionView.register(FilterButtonMakeCollectionViewCell.self,
+                                     forCellWithReuseIdentifier: FilterButtonMakeCollectionViewCell.identifier)
+        
+        self.collectionView.register(NoteCollectionViewCell.self, forCellWithReuseIdentifier: NoteCollectionViewCell.identifier)
+        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+    }
+    
+    private func setCollectionViewLayout() {
+        let flowlayout = UICollectionViewFlowLayout()
+        self.collectionView.setCollectionViewLayout(flowlayout, animated: false)
+    }
     
     // TODO: 뒤로가기 버튼 동작 추가
     @objc private func backButtonTapped() {
@@ -88,27 +63,56 @@ class NoteViewController: BaseViewController, UICollectionViewDelegate {
     }
 }
 
-
 extension NoteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 28)
+        if indexPath.section == 0 {
+            // 첫 번째 섹션 : filterButton
+            return CGSize(width: collectionView.frame.width, height: 28)
+        } else {
+            // 두번째 섹션 : NoteView
+            return CGSize(width: 335 , height: 339)
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            // 첫 번째 섹션 : filterButton
+         return UIEdgeInsets(top: 15, left: 20, bottom: 39, right: 0)
+        } else {
+        return UIEdgeInsets(top: 0, left: 20, bottom: 21, right: 20)
+          
+        }
     }
 }
 
+
 extension NoteViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        } else {
+            return noteData.count
+        }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterButtonMakeCollectionViewCell.identifier, for: indexPath) as? FilterButtonMakeCollectionViewCell else {
+        switch indexPath.section {
+        case 0:
+            guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: FilterButtonMakeCollectionViewCell.identifier, for: indexPath) as? FilterButtonMakeCollectionViewCell else {return UICollectionViewCell()}
+            return item
+            
+        case 1:
+            guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.identifier, for: indexPath) as? NoteCollectionViewCell else {return UICollectionViewCell()}
+            item.bindData(data: noteData[indexPath.row])
+            return item
+            
+        default:
             return UICollectionViewCell()
+            
         }
-        // 셀에 대한 추가 설정
-        return cell
     }
 }
