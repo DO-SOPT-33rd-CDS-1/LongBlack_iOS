@@ -54,6 +54,7 @@ extension FilterButtonMakeCollectionViewCell: UICollectionViewDelegateFlowLayout
             return CGSize(width: 115, height: 28)
         }
 }
+
 extension FilterButtonMakeCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterButtonData.count
