@@ -25,12 +25,12 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
     
     private func setLayout() {
         self.contentView.addSubview(button)
-//        button.addSubview(filter)
+        button.addSubview(filter)
         
-//        filter.snp.makeConstraints {
-//            $0.top.bottom.equalToSuperview().inset(6)
-//            $0.leading.trailing.equalToSuperview().inset(15)
-//        }
+        filter.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(6)
+            $0.leading.trailing.equalToSuperview().inset(15)
+        }
         
         button.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -39,18 +39,18 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
     
     private var button = UIButton().then {
         $0.backgroundColor = .black
-        $0.setTitle("test", for: .normal)
+//        $0.setTitle("test", for: .normal)
         $0.layer.cornerRadius = 20
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor(red: 0.925, green: 0.925, blue: 0.925, alpha: 1).cgColor
     }
     
-//    private var filter = UILabel().then {
-//        $0.font = .b5Mudium
-//        $0.textColor = .black
-//    }
-//    
-//    func bindData(data: FilterButtonData) {
-//        self.filter.text = data.filter
-//    }
+    private var filter = UILabel().then {
+        $0.font = .b5Mudium
+        $0.textColor = .black
+    }
+    
+    func bindData(data: FilterButtonData) {
+        self.filter.text = data.filter
+    }
 }
