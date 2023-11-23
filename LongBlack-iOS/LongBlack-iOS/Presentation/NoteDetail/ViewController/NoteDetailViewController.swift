@@ -25,6 +25,7 @@ class NoteDetailViewController: BaseViewController {
     private func setCollectionViewConfig() {
         self.collectionView.register(CollectionViewCell.self,
                                          forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        self.collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
@@ -37,7 +38,7 @@ class NoteDetailViewController: BaseViewController {
         flowLayout.minimumInteritemSpacing = 3
         flowLayout.scrollDirection = .vertical
         
-        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 100)
+        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 80)
         self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
     }
     
@@ -64,6 +65,7 @@ class NoteDetailViewController: BaseViewController {
     let topView = UIView()
     let bottomView = UIView()
     // MARK: - opaqueView
+    // 책갈피 버튼 누르면 나타나는 불투명한 뷰
     let opaqueView: UIView = {
         let view = UIView()
         view.layer.backgroundColor = UIColor.black.cgColor
@@ -71,6 +73,20 @@ class NoteDetailViewController: BaseViewController {
         view.isUserInteractionEnabled = false
         return view
     }()
+    let profileView: UIView = {
+        let view = UIView()
+        let image = UIImageView()
+        image.image = UIImage(named: "img_profile")
+        image.contentMode = .scaleAspectFit
+        view.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.snp.makeConstraints() {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20)
+        }
+        return view
+    }()
+    // let scrollview = UIScrollView()
     
     // MARK: - placeBookmarkButton
     private let placeBookmarkButton: UIButton = {
@@ -107,63 +123,6 @@ class NoteDetailViewController: BaseViewController {
         return cv
     }()
     
-    // MARK: - contentView
-    private lazy var contentView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        
-        let title = UILabel()
-        title.font = .systemFont(ofSize: 28)
-        title.text = articledatalist[0].title
-        title.numberOfLines = 0
-        let writer = UILabel()
-        writer.text = articledatalist[0].writer
-        let date = UILabel()
-        date.text = articledatalist[0].createdDate
-
-        let line1 = CustomLine(height: 4, color: .subGray1)
-        let line2 = CustomLine(height: 2, color: .subGray2)
-        [stampButton, title, line1, line2, writer, date].forEach() {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        line1.snp.makeConstraints() {
-            $0.leading.trailing.top.equalTo(view)
-        }
-        line2.snp.makeConstraints() {
-            $0.leading.trailing.bottom.equalTo(view)
-        }
-        title.snp.makeConstraints() {
-            $0.leading.top.equalTo(view).inset(20)
-            $0.trailing.equalTo(view).inset(80)
-        }
-        writer.snp.makeConstraints() {
-            $0.leading.bottom.equalTo(view).inset(10)
-        }
-        date.snp.makeConstraints() {
-            $0.leading.equalTo(writer).offset(50)
-            $0.bottom.equalTo(view).inset(10)
-        }
-        stampButton.snp.makeConstraints() {
-            $0.trailing.bottom.equalTo(view).inset(10)
-        }
-        
-        return view
-    }()
-    
-    // MARK: - stampButton
-    private lazy var stampButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "stamp_big"), for: .normal)
-        button.setImage(UIImage(named: "coffee_big"), for: .selected)
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-
-        return button
-    }()
-    @objc func buttonPressed() {
-        stampButton.isSelected = !stampButton.isSelected
-    }
-    
     // MARK: - setStyle()
     override func setStyle() {
         self.view.backgroundColor = .white
@@ -179,7 +138,7 @@ class NoteDetailViewController: BaseViewController {
     
     // MARK: - setLayout()
     override func setLayout() {
-        [topView, bottomView, contentView, collectionView, opaqueView].forEach() {
+        [topView, bottomView, collectionView, opaqueView].forEach() {
             self.view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -216,12 +175,7 @@ class NoteDetailViewController: BaseViewController {
             $0.height.equalTo(33)
             $0.width.equalTo(96)
         }
-        NSLayoutConstraint.activate([contentView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 20),
-                                     contentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-                                     contentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-                                     contentView.heightAnchor.constraint(equalToConstant: 300)
-        ])
-        NSLayoutConstraint.activate([collectionView.topAnchor.constraint(equalTo: contentView.bottomAnchor),
+        NSLayoutConstraint.activate([collectionView.topAnchor.constraint(equalTo: topView.bottomAnchor),
                                      collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
                                      collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                                      collectionView.bottomAnchor.constraint(equalTo: bottomView.topAnchor)
@@ -242,17 +196,21 @@ class NoteDetailViewController: BaseViewController {
 }
 // MARK: - UICollectionViewDelegate+
 extension NoteDetailViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             // 선택된 셀에 대한 이벤트 진행
             if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
                 if opaqueView.isHidden == false {
                     cell.contentView.backgroundColor = UIColor.red
+                    placeBookmarkButton.isSelected = !placeBookmarkButton.isSelected
+                    opaqueView.isHidden = true
                 }
             }
     }
 }
 // MARK: - UICollectionViewDataSource+
 extension NoteDetailViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionviewdata.count
     }
@@ -261,17 +219,35 @@ extension NoteDetailViewController: UICollectionViewDataSource {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
                                                             for: indexPath) as? CollectionViewCell else {return UICollectionViewCell()}
         item.bindData(data: collectionviewdata[indexPath.row])
-        
         return item
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width-6, height: 300)
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
 }
 // MARK: - UICollectionViewDelegateFlowLayout+
 extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+                guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView else {
+                    return CollectionHeaderView()
+                }
+                header.configure()
+                return header
+        }
+    
 }
+
 // MARK: - CustomLine Class
 class CustomLine: UIView {
     
