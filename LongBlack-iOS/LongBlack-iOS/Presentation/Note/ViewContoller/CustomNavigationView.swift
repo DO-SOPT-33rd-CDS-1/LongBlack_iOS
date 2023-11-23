@@ -22,7 +22,11 @@ class CustomNavigationView: UIView {
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "검색어를 입력하세요"
+        searchBar.backgroundImage = UIImage()
         searchBar.layer.cornerRadius = 32
+        searchBar.backgroundColor = UIColor.clear
+        searchBar.isTranslucent = true
+        searchBar.barTintColor = .clear
         return searchBar
     }()
 
@@ -57,7 +61,6 @@ class CustomNavigationView: UIView {
 
         searchBar.snp.makeConstraints {
             $0.width.equalTo(210)
-//            $0.height.equalTo(36)
             $0.leading.equalToSuperview().offset(145)
             $0.centerY.equalToSuperview()
         }
