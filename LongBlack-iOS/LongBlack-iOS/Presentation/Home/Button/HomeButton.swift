@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class HomeButton: UIButton {
-        
+    
     let buttonImageView = UIImageView()
     let buttonTitleLabel = UILabel()
     let arrowImageView = UIImageView()
@@ -31,7 +31,7 @@ final class HomeButton: UIButton {
         setLayout()
     }
     
-    func setStyle() {
+    private func setStyle() {
         buttonTitleLabel.do {
             $0.font = .b5Mudium
             $0.textColor = .subGray1

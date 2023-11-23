@@ -12,7 +12,7 @@ import Then
 
 final class HomeEventView: BaseView {
     
-    let eventTitleLabel = UILabel()
+    private let eventTitleLabel = UILabel()
     let leftButton = UIButton()
     let rightButton = UIButton()
     

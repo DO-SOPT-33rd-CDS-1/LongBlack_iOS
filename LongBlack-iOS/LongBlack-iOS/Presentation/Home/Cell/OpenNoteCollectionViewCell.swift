@@ -21,7 +21,7 @@ final class OpenNoteCollectionViewCell: UICollectionViewCell {
     let openNoteWriterNameLabel = UILabel()
     let openNoteNameseparatorLineView = UIView()
     let openNoteInitialLabel = UILabel()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -77,11 +77,6 @@ final class OpenNoteCollectionViewCell: UICollectionViewCell {
         openNoteWriterStackView.addArrangedSubviews(openNoteWriterNameLabel,
                                                     openNoteNameseparatorLineView,
                                                     openNoteInitialLabel)
-        
-//        self.snp.makeConstraints {
-//            $0.width.equalTo(300)
-//            $0.height.equalTo(254)
-//        }
         
         openNoteImageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()

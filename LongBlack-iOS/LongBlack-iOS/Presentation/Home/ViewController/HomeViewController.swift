@@ -15,38 +15,38 @@ final class HomeViewController: BaseViewController {
     // TODO: 이벤트뷰 기능 연결
     // TODO: 뷰 분리
     
-    let logoImageView = UIImageView()
+    private let logoImageView = UIImageView()
     
-    let timeView = UIView()
-    let timeImageView = UIImageView()
-    let timeTitleLabel = UILabel()
-    let timeLabel = UILabel()
+    private let timeView = UIView()
+    private let timeImageView = UIImageView()
+    private let timeTitleLabel = UILabel()
+    private let timeLabel = UILabel()
     
-    let mainBackgroundView = UIView()
-    let mainImageView = UIImageView()
-    let todaysNoteLabel = UILabel()
-    let todaysNoteTitleLabel = UILabel()
+    private let mainBackgroundView = UIView()
+    private let mainImageView = UIImageView()
+    private let todaysNoteLabel = UILabel()
+    private let todaysNoteTitleLabel = UILabel()
     
-    let noteCommunityLabel = UILabel()
-    let noteCommunityStackView = UIStackView()
-    let noteCommunityThumbnail = UIImageView()
-    let noteCommunityDescription = UILabel()
+    private let noteCommunityLabel = UILabel()
+    private let noteCommunityStackView = UIStackView()
+    private let noteCommunityThumbnail = UIImageView()
+    private let noteCommunityDescription = UILabel()
     
-    let mainSeperatorView = UIView()
+    private let mainSeperatorView = UIView()
     
-    let noteHomeButton = HomeButton()
-    let libraryHomeButton = HomeButton()
-    let buttonSeperatorView = UIView()
+    private let noteHomeButton = HomeButton()
+    private let libraryHomeButton = HomeButton()
+    private let buttonSeperatorView = UIView()
     
-    let openNoteLabel = UILabel()
-    lazy var openNoteCollectionView = UICollectionView(frame: .zero,
-                                                     collectionViewLayout: openNoteFlowLayout)
-    let openNoteFlowLayout = UICollectionViewFlowLayout()
-    let openNoteSeperatorView = UIView()
+    private let openNoteLabel = UILabel()
+    private lazy var openNoteCollectionView = UICollectionView(frame: .zero,
+                                                               collectionViewLayout: openNoteFlowLayout)
+    private let openNoteFlowLayout = UICollectionViewFlowLayout()
+    private let openNoteSeperatorView = UIView()
     
-    let homeEventView = HomeEventView()
+    private let homeEventView = HomeEventView()
     
-    let scrollView = UIScrollView()
+    private let scrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,12 +170,6 @@ final class HomeViewController: BaseViewController {
         openNoteSeperatorView.do {
             $0.backgroundColor = .subGray6
         }
-    }
-    
-    
-    private func setDelegate() {
-        self.openNoteCollectionView.delegate = self
-        self.openNoteCollectionView.dataSource = self
     }
     
     private func setCollectionView() {
@@ -335,6 +329,11 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController {
+    private func setDelegate() {
+        self.openNoteCollectionView.delegate = self
+        self.openNoteCollectionView.dataSource = self
+    }
+    
     private func setAddTarget() {
         noteHomeButton.addTarget(self, action: #selector(noteHomeButtonTapped), for: .touchUpInside)
         libraryHomeButton.addTarget(self, action: #selector(libraryHomeButtonTapped), for: .touchUpInside)

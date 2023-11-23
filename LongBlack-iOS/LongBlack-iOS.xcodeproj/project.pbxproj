@@ -121,10 +121,10 @@
 			children = (
 				C3020A602B090A9A000919CF /* TabBar */,
 				C3020A652B090DD6000919CF /* ViewController */,
+				C32E77552B0F5FBC001433C8 /* View */,
 				C3FD54042B0E406300ADB912 /* Button */,
 				C32E774F2B0F497D001433C8 /* Cell */,
 				C32E77522B0F518E001433C8 /* Model */,
-				C32E77532B0F58C3001433C8 /* HomeEventView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -254,6 +254,14 @@
 				C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C32E77552B0F5FBC001433C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C32E77532B0F58C3001433C8 /* HomeEventView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C3ECFBD02B08676E00118AB3 = {
