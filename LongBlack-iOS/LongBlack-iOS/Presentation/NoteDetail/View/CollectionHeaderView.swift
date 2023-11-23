@@ -12,6 +12,7 @@ class CollectionHeaderView: UICollectionReusableView {
     static let identifier = "CollectionHeaderView"
     
     private lazy var contentView: UIView = {
+        
         let view = UIView()
         view.backgroundColor = .white
         
@@ -26,29 +27,37 @@ class CollectionHeaderView: UICollectionReusableView {
 
         let line1 = CustomLine(height: 4, color: .subGray1)
         let line2 = CustomLine(height: 2, color: .subGray2)
-        [stampButton, title, line1, line2, writer, date].forEach() {
+        [stampButton, title, line1, line2, writer, date, profileView].forEach() {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         line1.snp.makeConstraints() {
-            $0.leading.trailing.top.equalTo(view)
+            $0.leading.trailing.top.equalTo(view).inset(20)
         }
         line2.snp.makeConstraints() {
-            $0.leading.trailing.bottom.equalTo(view)
+            $0.leading.trailing.equalTo(view).inset(20)
+            $0.bottom.equalTo(profileView.snp.top).offset(-46)
         }
         title.snp.makeConstraints() {
-            $0.leading.top.equalTo(view).inset(20)
+            $0.leading.equalTo(view).inset(20)
             $0.trailing.equalTo(view).inset(80)
+            $0.top.equalTo(line1).inset(20)
         }
         writer.snp.makeConstraints() {
-            $0.leading.bottom.equalTo(view).inset(10)
+            $0.leading.equalTo(view).inset(20)
+            $0.bottom.equalTo(line2).inset(10)
         }
         date.snp.makeConstraints() {
             $0.leading.equalTo(writer).offset(50)
-            $0.bottom.equalTo(view).inset(10)
+            $0.bottom.equalTo(line2).inset(10)
         }
         stampButton.snp.makeConstraints() {
-            $0.trailing.bottom.equalTo(view).inset(10)
+            $0.trailing.equalTo(view).inset(20)
+            $0.bottom.equalTo(line2.snp.top).offset(-10)
+        }
+        profileView.snp.makeConstraints() {
+            $0.leading.equalTo(view).inset(20)
+            $0.bottom.equalTo(view)
         }
         
         return view
@@ -66,8 +75,19 @@ class CollectionHeaderView: UICollectionReusableView {
         stampButton.isSelected = !stampButton.isSelected
     }
     
+    let profileView: UIImageView = {
+        
+        let image = UIImageView()
+        image.image = UIImage(named: "img_profile")
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([image.heightAnchor.constraint(equalToConstant: 32),
+                                     image.widthAnchor.constraint(equalToConstant: 127)
+        ])
+        return image
+    }()
+    
     func configure() {
-        // backgroundColor = .systemGreen
         addSubview(contentView)
     }
     

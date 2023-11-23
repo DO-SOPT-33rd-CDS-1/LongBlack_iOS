@@ -73,20 +73,6 @@ class NoteDetailViewController: BaseViewController {
         view.isUserInteractionEnabled = false
         return view
     }()
-    let profileView: UIView = {
-        let view = UIView()
-        let image = UIImageView()
-        image.image = UIImage(named: "img_profile")
-        image.contentMode = .scaleAspectFit
-        view.addSubview(image)
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.snp.makeConstraints() {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(20)
-        }
-        return view
-    }()
-    // let scrollview = UIScrollView()
     
     // MARK: - placeBookmarkButton
     private let placeBookmarkButton: UIButton = {
@@ -223,7 +209,7 @@ extension NoteDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width-6, height: 300)
+        return CGSize(width: UIScreen.main.bounds.width-6, height: 332)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -239,12 +225,12 @@ extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-                guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView else {
-                    return CollectionHeaderView()
-                }
-                header.configure()
-                return header
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView else {
+            return CollectionHeaderView()
         }
+        header.configure()
+        return header
+    }
     
 }
 
