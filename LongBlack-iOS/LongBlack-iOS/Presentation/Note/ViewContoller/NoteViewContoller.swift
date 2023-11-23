@@ -34,6 +34,7 @@ class NoteViewController: BaseViewController {
         
         collectionView.snp.makeConstraints{
             $0.bottom.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(pageNumber.snp.top)
             $0.top.equalTo(customNavigationView.snp.bottom)
         }
         
