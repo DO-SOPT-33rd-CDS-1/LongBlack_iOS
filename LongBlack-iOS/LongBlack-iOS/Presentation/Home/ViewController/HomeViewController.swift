@@ -34,9 +34,18 @@ final class HomeViewController: BaseViewController {
     let libraryHomeButton = HomeButton()
     let buttonSeperatorView = UIView()
     
+    let openNoteLabel = UILabel()
+    lazy var openNoteCollectionView = UICollectionView(frame: .zero,
+                                                     collectionViewLayout: openNoteFlowLayout)
+    let openNoteFlowLayout = UICollectionViewFlowLayout()
     
-
     let scrollView = UIScrollView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setCollectionView()
+        setDelegate()
+    }
     
     override func setStyle() {
         self.navigationController?.navigationBar.isHidden = true
@@ -58,7 +67,6 @@ final class HomeViewController: BaseViewController {
             $0.font = .b5Mudium
             $0.textColor = .white
             $0.numberOfLines = 2
-            $0.contentMode = .center
             $0.contentMode = .center
         }
         
@@ -132,6 +140,34 @@ final class HomeViewController: BaseViewController {
         buttonSeperatorView.do {
             $0.backgroundColor = .subGray6
         }
+        
+        openNoteLabel.do {
+            $0.text = StringLiterals.Home.Open.openNote
+            $0.font = .h5Semibold
+            $0.textColor = .subGray1
+        }
+        
+        openNoteCollectionView.do {
+            $0.backgroundColor = .clear
+            $0.showsHorizontalScrollIndicator = false
+        }
+        
+        openNoteFlowLayout.do {
+            $0.scrollDirection = .horizontal
+            $0.minimumLineSpacing = 27
+            $0.itemSize = CGSize(width: 300, height: 254)
+            $0.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 27)
+        }
+    }
+    
+    
+    private func setDelegate() {
+        self.openNoteCollectionView.delegate = self
+        self.openNoteCollectionView.dataSource = self
+    }
+    
+    private func setCollectionView() {
+        self.openNoteCollectionView.register(OpenNoteCollectionViewCell.self, forCellWithReuseIdentifier: OpenNoteCollectionViewCell.identifier)
     }
     
     override func setLayout() {
@@ -148,7 +184,9 @@ final class HomeViewController: BaseViewController {
                                mainSeperatorView,
                                noteHomeButton,
                                libraryHomeButton,
-                               buttonSeperatorView)
+                               buttonSeperatorView,
+                               openNoteLabel,
+                               openNoteCollectionView)
         
         timeView.addSubviews(timeImageView,
                              timeTitleLabel,
@@ -240,7 +278,33 @@ final class HomeViewController: BaseViewController {
             $0.width.centerX.equalToSuperview()
             $0.height.equalTo(8)
             $0.top.equalTo(libraryHomeButton.snp.bottom).offset(27)
-            $0.bottom.equalToSuperview().inset(100)
         }
+        
+        openNoteLabel.snp.makeConstraints {
+            $0.top.equalTo(buttonSeperatorView.snp.bottom).offset(37)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        openNoteCollectionView.snp.makeConstraints {
+            $0.top.equalTo(openNoteLabel.snp.bottom).offset(17)
+            $0.leading.equalTo(openNoteLabel)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(254)
+            // 삭제 예정
+            $0.bottom.equalToSuperview().inset(300)
+        }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate { }
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return openNoteDummy.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OpenNoteCollectionViewCell.identifier, for: indexPath) as? OpenNoteCollectionViewCell else { return UICollectionViewCell() }
+        cell.bindOpenNoteData(data: openNoteDummy[indexPath.row])
+        return cell
     }
 }

@@ -33,7 +33,7 @@ enum StringLiterals {
         
         enum Open {
             static let openNote = "공개 예정 노트"
-            static let openDummyTitle1 = "웬디 맥노트 : 뉴옥타임즈 그래픽 저널리스트가, 낯선 이들을 그리며 배운것들"
+            static let openDummyTitle1 = "웬디 맥노트 : 뉴욕타임즈 그래픽 저널리스트가, 낯선 이들을 그리며 배운것들"
             static let openDummyTitle2 = "LCK : ‘소환사의 협곡’은 어떻게 MZ의 놀이터가 됐나"
             static let openDummyTitle3 = "마케터 숭 : 고유함을 묻고 기록하고 알릴 때, 나라는 브랜드는 태어난다"
             static let openDummyName1 = "김윤지"
