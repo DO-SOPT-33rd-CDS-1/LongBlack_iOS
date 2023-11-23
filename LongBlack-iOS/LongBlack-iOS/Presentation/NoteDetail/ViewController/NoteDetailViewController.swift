@@ -33,7 +33,6 @@ class NoteDetailViewController: BaseViewController {
     // MARK: - setCollectionViewLayout()
     private func setCollectionViewLayout() {
         let flowLayout = UICollectionViewFlowLayout()
-        // flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6) / 3 , height: (UIScreen.main.bounds.width - 6) / 3)
         flowLayout.minimumLineSpacing = 3
         flowLayout.minimumInteritemSpacing = 3
         flowLayout.scrollDirection = .vertical
@@ -64,6 +63,7 @@ class NoteDetailViewController: BaseViewController {
     
     let topView = UIView()
     let bottomView = UIView()
+    
     // MARK: - opaqueView
     // 책갈피 버튼 누르면 나타나는 불투명한 뷰
     let opaqueView: UIView = {
@@ -85,16 +85,22 @@ class NoteDetailViewController: BaseViewController {
     }()
     @objc func bookmarkbuttonPressed() {
         if opaqueView.isHidden {
-            // 검은 화면이 숨겨져 있을 때
-            opaqueView.isHidden = false
-            collectionView.visibleCells.forEach { cell in
-                if let yourCustomCell = cell as? CollectionViewCell {
-                    yourCustomCell.isUserInteractionEnabled = true
+            if !placeBookmarkButton.isSelected {
+                opaqueView.isHidden = false
+                collectionView.visibleCells.forEach { cell in
+                    if let yourCustomCell = cell as? CollectionViewCell {
+                        yourCustomCell.isUserInteractionEnabled = true
+                    }
                 }
-                
+            } else {
+                placeBookmarkButton.isSelected = false
+                collectionView.visibleCells.forEach { cell in
+                    if let yourCustomCell = cell as? CollectionViewCell {
+                        yourCustomCell.removeBookmark()
+                    }
+                }
             }
         } else {
-            // 검은 화면이 보이고 있을 때
             opaqueView.isHidden = true
         }
     }
@@ -187,9 +193,9 @@ extension NoteDetailViewController: UICollectionViewDelegate {
             // 선택된 셀에 대한 이벤트 진행
             if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
                 if opaqueView.isHidden == false {
-                    cell.contentView.backgroundColor = UIColor.red
                     placeBookmarkButton.isSelected = !placeBookmarkButton.isSelected
                     opaqueView.isHidden = true
+                    cell.addBookmark()
                 }
             }
     }
@@ -243,7 +249,6 @@ class CustomLine: UIView {
     init(height: CGFloat, color: UIColor) {
         customHeight = height
         customColor = color
-        // let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: customHeight)
         super.init(frame: .zero)
         backgroundColor = customColor
         NSLayoutConstraint.activate([self.heightAnchor.constraint(equalToConstant: height)])

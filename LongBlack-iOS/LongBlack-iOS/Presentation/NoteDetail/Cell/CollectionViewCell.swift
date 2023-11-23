@@ -14,6 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "CollectionViewCell"
     var paragraphType: String = "" // property 'paragraphType' not initialized in super.init()
+    var paragraph_original: String = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +29,27 @@ class CollectionViewCell: UICollectionViewCell {
     // MARK: - bindData()
     func bindData(data: CollectionViewData) {
         self.paragraph.text = data.content
+        self.paragraph_original = data.content
         self.paragraphType = data.paragraphType
+    }
+    
+    // MARK: - addBookmark() & removeBookmark()
+    func addBookmark() {
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(named: "readmark")
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        let attributedString = NSMutableAttributedString(string: paragraph.text ?? "")
+        attributedString.append(imageString)
+        paragraph.attributedText = attributedString
+    }
+    func removeBookmark() {
+//        let mutableAttributedString = NSMutableAttributedString(attributedString: paragraph.attributedText ?? NSAttributedString())
+//        let range = (mutableAttributedString.string as NSString).range(of: "")
+//        mutableAttributedString.replaceCharacters(in: range, with: "")
+//
+//        // UILabel에 새로운 NSAttributedString 설정
+//        paragraph.attributedText = mutableAttributedString
+        paragraph.text = paragraph_original
     }
     
     // MARK: - setLayout()
@@ -56,8 +77,10 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     lazy var paragraph: UILabel = {
+        
         let label = UILabel()
         label.numberOfLines = 0
+        
         return label
     }()
 }
