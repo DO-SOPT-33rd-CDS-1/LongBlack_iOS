@@ -52,6 +52,7 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         setCollectionView()
         setDelegate()
+        setAddTarget()
     }
     
     override func setStyle() {
@@ -209,11 +210,12 @@ final class HomeViewController: BaseViewController {
                                                    noteCommunityDescription)
         
         scrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(view.safeAreaInsets.top)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaInsets.top).offset(60)
+            $0.top.equalToSuperview().inset(14)
             $0.leading.equalToSuperview().inset(20)
         }
         
@@ -329,5 +331,20 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OpenNoteCollectionViewCell.identifier, for: indexPath) as? OpenNoteCollectionViewCell else { return UICollectionViewCell() }
         cell.bindOpenNoteData(data: openNoteDummy[indexPath.row])
         return cell
+    }
+}
+
+extension HomeViewController {
+    private func setAddTarget() {
+        noteHomeButton.addTarget(self, action: #selector(noteHomeButtonTapped), for: .touchUpInside)
+        libraryHomeButton.addTarget(self, action: #selector(libraryHomeButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func noteHomeButtonTapped() {
+        print("여기에 전체 노트 연결")
+    }
+    
+    @objc private func libraryHomeButtonTapped() {
+        print("여기에 라이브러리 연결")
     }
 }
