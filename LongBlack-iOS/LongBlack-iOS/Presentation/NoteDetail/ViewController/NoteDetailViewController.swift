@@ -63,12 +63,38 @@ class NoteDetailViewController: BaseViewController {
     
     let topView = UIView()
     let bottomView = UIView()
+    // MARK: - opaqueView
+    let opaqueView: UIView = {
+        let view = UIView()
+        view.layer.backgroundColor = UIColor.black.cgColor
+        view.layer.opacity = 0.5
+        view.isUserInteractionEnabled = false
+        return view
+    }()
     
-    // 책갈피 꽂기, 삭제 버튼은 'setLayout()에서' 책갈피 유무에 따라 어떤 버튼을 보일지 결정하면 될듯
-    private let placeBookmarkButton = UIButton().then {
-        $0.setImage(UIImage(named: "placeBookmark"), for: .normal)
-        $0.setImage(UIImage(named: "removeBookmark"), for: .selected)
-        $0.contentMode = .scaleAspectFit
+    // MARK: - placeBookmarkButton
+    private let placeBookmarkButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "placeBookmark"), for: .normal)
+        button.setImage(UIImage(named: "removeBookmark"), for: .selected)
+        button.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(bookmarkbuttonPressed), for: .touchUpInside)
+        return button
+    }()
+    @objc func bookmarkbuttonPressed() {
+        if opaqueView.isHidden {
+            // 검은 화면이 숨겨져 있을 때
+            opaqueView.isHidden = false
+            collectionView.visibleCells.forEach { cell in
+                if let yourCustomCell = cell as? CollectionViewCell {
+                    yourCustomCell.isUserInteractionEnabled = true
+                }
+                
+            }
+        } else {
+            // 검은 화면이 보이고 있을 때
+            opaqueView.isHidden = true
+        }
     }
     
     // MARK: - collectionView
@@ -153,10 +179,11 @@ class NoteDetailViewController: BaseViewController {
     
     // MARK: - setLayout()
     override func setLayout() {
-        [topView, bottomView, contentView, collectionView].forEach() {
+        [topView, bottomView, contentView, collectionView, opaqueView].forEach() {
             self.view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        self.view.bringSubviewToFront(bottomView)
         topView.snp.makeConstraints() {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
@@ -199,6 +226,12 @@ class NoteDetailViewController: BaseViewController {
                                      collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                                      collectionView.bottomAnchor.constraint(equalTo: bottomView.topAnchor)
         ])
+        NSLayoutConstraint.activate([opaqueView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                                     opaqueView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                                     opaqueView.topAnchor.constraint(equalTo: topView.bottomAnchor),
+                                     opaqueView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor)
+                                     ])
+        opaqueView.isHidden = true
     }
     
     // MARK: - backButtonTapped()
@@ -207,8 +240,18 @@ class NoteDetailViewController: BaseViewController {
     }
     
 }
-// MARK: - UICollectionView Extension
-extension NoteDetailViewController: UICollectionViewDelegate {}
+// MARK: - UICollectionViewDelegate+
+extension NoteDetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            // 선택된 셀에 대한 이벤트 진행
+            if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
+                if opaqueView.isHidden == false {
+                    cell.contentView.backgroundColor = UIColor.red
+                }
+            }
+    }
+}
+// MARK: - UICollectionViewDataSource+
 extension NoteDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionviewdata.count
@@ -218,19 +261,17 @@ extension NoteDetailViewController: UICollectionViewDataSource {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
                                                             for: indexPath) as? CollectionViewCell else {return UICollectionViewCell()}
         item.bindData(data: collectionviewdata[indexPath.row])
+        
         return item
     }
     
 }
+// MARK: - UICollectionViewDelegateFlowLayout+
 extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 3
-//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3
     }
 }
-
 // MARK: - CustomLine Class
 class CustomLine: UIView {
     
@@ -240,10 +281,8 @@ class CustomLine: UIView {
     init(height: CGFloat, color: UIColor) {
         customHeight = height
         customColor = color
-        
         // let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: customHeight)
         super.init(frame: .zero)
-        
         backgroundColor = customColor
         NSLayoutConstraint.activate([self.heightAnchor.constraint(equalToConstant: height)])
     }
