@@ -19,6 +19,8 @@ enum ImageLiterals {
         static var icNote: UIImage { .load(named: "ic_note")}
         static var icLibrary: UIImage { .load(named: "ic_library")}
         static var icArrow: UIImage { .load(named: "ic_arrow")}
+        static var icArrowLeft: UIImage { .load(named: "ic_arrow_left")}
+        static var icArrowRight: UIImage { .load(named: "ic_arrow_right")}
         
         static var imgNoteDummy1: UIImage { .load(named: "imgNoteDummy1")}
         static var imgNoteDummy2: UIImage { .load(named: "imgNoteDummy2")}

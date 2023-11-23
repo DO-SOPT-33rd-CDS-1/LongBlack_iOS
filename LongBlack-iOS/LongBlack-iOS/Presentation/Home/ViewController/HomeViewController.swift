@@ -38,6 +38,9 @@ final class HomeViewController: BaseViewController {
     lazy var openNoteCollectionView = UICollectionView(frame: .zero,
                                                      collectionViewLayout: openNoteFlowLayout)
     let openNoteFlowLayout = UICollectionViewFlowLayout()
+    let openNoteSeperatorView = UIView()
+    
+    let homeEventView = HomeEventView()
     
     let scrollView = UIScrollView()
     
@@ -158,6 +161,10 @@ final class HomeViewController: BaseViewController {
             $0.itemSize = CGSize(width: 300, height: 254)
             $0.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 27)
         }
+        
+        openNoteSeperatorView.do {
+            $0.backgroundColor = .subGray6
+        }
     }
     
     
@@ -186,7 +193,9 @@ final class HomeViewController: BaseViewController {
                                libraryHomeButton,
                                buttonSeperatorView,
                                openNoteLabel,
-                               openNoteCollectionView)
+                               openNoteCollectionView,
+                               openNoteSeperatorView,
+                               homeEventView)
         
         timeView.addSubviews(timeImageView,
                              timeTitleLabel,
@@ -290,8 +299,18 @@ final class HomeViewController: BaseViewController {
             $0.leading.equalTo(openNoteLabel)
             $0.trailing.equalToSuperview()
             $0.height.equalTo(254)
-            // 삭제 예정
-            $0.bottom.equalToSuperview().inset(300)
+        }
+        
+        openNoteSeperatorView.snp.makeConstraints {
+            $0.centerX.width.equalToSuperview()
+            $0.height.equalTo(8)
+            $0.top.equalTo(openNoteCollectionView.snp.bottom).offset(50)
+        }
+        
+        homeEventView.snp.makeConstraints {
+            $0.top.equalTo(openNoteSeperatorView.snp.bottom).offset(35)
+            $0.width.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(37)
         }
     }
 }

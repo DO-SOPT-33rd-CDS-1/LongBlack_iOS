@@ -24,6 +24,7 @@
 		C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A6C2B090F71000919CF /* CALayer+.swift */; };
 		C32E774E2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E774D2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift */; };
 		C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */; };
+		C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77532B0F58C3001433C8 /* HomeEventView.swift */; };
 		C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
@@ -67,6 +68,7 @@
 		C3020A6C2B090F71000919CF /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		C32E774D2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNoteModel.swift; sourceTree = "<group>"; };
+		C32E77532B0F58C3001433C8 /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
 		C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				C3FD54042B0E406300ADB912 /* Button */,
 				C32E774F2B0F497D001433C8 /* Cell */,
 				C32E77522B0F518E001433C8 /* Model */,
+				C32E77532B0F58C3001433C8 /* HomeEventView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
+				C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
