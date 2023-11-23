@@ -11,6 +11,10 @@ import SnapKit
 import Then
 
 final class HomeViewController: BaseViewController {
+    // TODO: 타이머 설정
+    // TODO: 이벤트뷰 기능 연결
+    // TODO: 뷰 분리
+    
     let logoImageView = UIImageView()
     
     let timeView = UIView()
