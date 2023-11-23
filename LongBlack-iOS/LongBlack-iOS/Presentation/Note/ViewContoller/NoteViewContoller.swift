@@ -14,18 +14,18 @@ class NoteViewController: BaseViewController {
     
     private let customNavigationView = CustomNavigationView()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
         setCollectionViewConfig()
-        setCollectionViewLayout()
         self.navigationController?.navigationBar.isHidden = true
     }
     
     override func setStyle() {
         self.view.addSubview(customNavigationView)
         self.view.addSubview(collectionView)
-        self.view.addSubview(pageNumber)
+        
         
         customNavigationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -34,14 +34,9 @@ class NoteViewController: BaseViewController {
         
         collectionView.snp.makeConstraints{
             $0.bottom.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(pageNumber.snp.top)
             $0.top.equalTo(customNavigationView.snp.bottom)
         }
         
-        pageNumber.snp.makeConstraints {
-            $0.top.equalTo(collectionView.snp.bottom).offset(36)
-            $0.centerX.equalToSuperview()
-        }
     }
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
@@ -54,24 +49,18 @@ class NoteViewController: BaseViewController {
         
         self.collectionView.register(NoteCollectionViewCell.self, forCellWithReuseIdentifier: NoteCollectionViewCell.identifier)
         
+        self.collectionView.register(CustomFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CustomFooterView.identifier)
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
     
-    private func setCollectionViewLayout() {
-        let flowlayout = UICollectionViewFlowLayout()
-        self.collectionView.setCollectionViewLayout(flowlayout, animated: false)
-    }
+    
     
     // TODO: 뒤로가기 버튼 동작 추가
     @objc private func backButtonTapped() {
         // 뒤로가기 버튼이 눌렸을 때 Home으로 가는 동작
     }
-}
-
-private var pageNumber = UIImageView().then {
-    $0.image = UIImage(named: "number")
-    $0.contentMode = .scaleAspectFit
 }
 
 extension NoteViewController: UICollectionViewDelegateFlowLayout {
@@ -89,17 +78,32 @@ extension NoteViewController: UICollectionViewDelegateFlowLayout {
         return 21
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == 0 {
-            // 첫 번째 섹션 : filterButton
-         return UIEdgeInsets(top: 15, left: 20, bottom: 39, right: 0)
-        } else {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 21, right: 20)
-          
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch indexPath.section {
+        case 1:
+            guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CustomFooterView.identifier, for: indexPath) as? CustomFooterView
+            else {
+                return UICollectionReusableView()
+            }
+            return footerView
+        default:
+            return UICollectionReusableView()
         }
     }
+    
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if section == 1 {
+            return CGSize(width: collectionView.frame.width, height: 120)
+        }
+        else {
+            return CGSize.zero // 다른 섹션에는 Footer를 추가하지 않음
+        }
+        
+    }
 }
-
 
 extension NoteViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {

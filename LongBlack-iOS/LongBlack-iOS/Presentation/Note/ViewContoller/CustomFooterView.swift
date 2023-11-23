@@ -10,11 +10,25 @@ import UIKit
 import Then
 import SnapKit
 
-class CustomBottomView: UIView {
+
+class CustomFooterView: UICollectionReusableView {
+    
+    static let identifier = "CustomFooterView"
+
+    private let footerFrameView = UIView().then {
+        $0.backgroundColor = .white
+    }
     
     private var pageNumber = UIImageView().then {
         $0.image = UIImage(named: "number")
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleToFill
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setupViews()
+        setupConstraints()
     }
 
     override init(frame: CGRect) {
@@ -30,20 +44,21 @@ class CustomBottomView: UIView {
     }
 
     private func setupViews() {
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
     }
 
     private func setupConstraints() {
         
-        self.addSubview(pageNumber)
+        self.addSubview(footerFrameView)
+        footerFrameView.addSubview(pageNumber)
         
-        self.snp.makeConstraints {
-            $0.height.equalTo(120)
+        footerFrameView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
         pageNumber.snp.makeConstraints {
             $0.top.equalToSuperview().offset(36)
-            $0.leading.trailing.equalToSuperview().inset(52)
+            $0.leading.equalToSuperview().offset(73)
         }
     }
 }
