@@ -12,6 +12,8 @@ import Then
 
 final class HomeEventView: BaseView {
     
+    // MARK: - Variables
+    // MARK: Component
     private let eventTitleLabel = UILabel()
     let leftButton = UIButton()
     let rightButton = UIButton()
@@ -19,12 +21,14 @@ final class HomeEventView: BaseView {
     lazy var eventImageCollectionView = UICollectionView(frame: .zero,
                                                          collectionViewLayout: eventImageFlowLayout)
     let eventImageFlowLayout = UICollectionViewFlowLayout()
+    let bannerImageView = UIImageView()
     
+    // MARK: Constants
     let collectionViewWidth = UIScreen.main.bounds.width - 40
     lazy var collectionViewHeight = collectionViewWidth * 260 / 335
     
-    let bannerImageView = UIImageView()
-    
+    // MARK: - Function
+    // MARK: Layout Helpers
     override func setStyle() {
         eventTitleLabel.do {
             $0.text = StringLiterals.Home.Event.event

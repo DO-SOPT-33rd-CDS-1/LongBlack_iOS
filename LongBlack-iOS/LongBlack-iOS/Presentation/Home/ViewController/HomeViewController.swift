@@ -11,8 +11,9 @@ import SnapKit
 import Then
 
 final class HomeViewController: BaseViewController {
-    // TODO: MARK 주석 달기
     
+    // MARK: - Variables
+    // MARK: Component
     private let logoImageView = UIImageView()
     private let homeMainView = HomeMainView()
     private let mainSeperatorView = UIView()
@@ -25,9 +26,12 @@ final class HomeViewController: BaseViewController {
     
     private let scrollView = UIScrollView()
     
+    // MARK: Property
     private var homeTimer: Timer?
     private var currentEventPageIndex = 0
     
+    // MARK: - Function
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
@@ -40,6 +44,7 @@ final class HomeViewController: BaseViewController {
         homeTimer?.invalidate()
     }
     
+    // MARK: Layout Helpers
     override func setStyle() {
         self.navigationController?.navigationBar.isHidden = true
         
@@ -82,7 +87,7 @@ final class HomeViewController: BaseViewController {
                                homeOpenNote,
                                openNoteSeperatorView,
                                homeEventView)
-                
+        
         scrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaInsets.top)
             $0.leading.trailing.bottom.equalToSuperview()
@@ -140,6 +145,8 @@ final class HomeViewController: BaseViewController {
     }
 }
 
+// MARK: - extension
+// MARK: UICollectionViewDelegate, UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDelegate { }
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -163,6 +170,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: UIScrollViewDelegate
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         /// 제스쳐를 통해서 스크롤 했을 때도 index가 반영이 되어야 하기 때문에 적용
@@ -174,7 +182,7 @@ extension HomeViewController: UIScrollViewDelegate {
 }
 
 extension HomeViewController {
-    
+    // MARK: Custom Function
     private func setCollectionView() {
         self.homeEventView.eventImageCollectionView.register(EventImageCollectionViewCell.self, forCellWithReuseIdentifier: EventImageCollectionViewCell.identifier)
         
@@ -199,6 +207,7 @@ extension HomeViewController {
         self.homeEventView.leftButton.addTarget(self, action: #selector(eventLeftButtonTapped), for: .touchUpInside)
     }
     
+    // MARK: Objc Function
     @objc private func noteHomeButtonTapped() {
         print("여기에 전체 노트 연결")
     }

@@ -10,10 +10,16 @@ import SnapKit
 import Then
 
 final class EventImageCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - Variables
+    // MARK: Constants
     static let identifier: String = "EventImageCollectionViewCell"
     
+    // MARK: Component
     let eventImageView = UIImageView()
     
+    // MARK: - Function
+    // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -23,6 +29,7 @@ final class EventImageCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Layout Helpers
     private func setUI() {
         setStyle()
         setLayout()

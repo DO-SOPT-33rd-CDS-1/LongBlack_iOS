@@ -10,13 +10,17 @@ import UIKit
 import SnapKit
 import Then
 
-class HomeOpenNote: BaseView {
+final class HomeOpenNote: BaseView {
     
+    // MARK: - Variables
+    // MARK: Component
     private let openNoteLabel = UILabel()
     lazy var openNoteCollectionView = UICollectionView(frame: .zero,
                                                        collectionViewLayout: openNoteFlowLayout)
     private let openNoteFlowLayout = UICollectionViewFlowLayout()
     
+    // MARK: - Function
+    // MARK: Layout Helpers
     override func setStyle() {
         openNoteLabel.do {
             $0.text = StringLiterals.Home.Open.openNote

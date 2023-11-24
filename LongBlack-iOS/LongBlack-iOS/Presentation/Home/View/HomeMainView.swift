@@ -12,6 +12,8 @@ import Then
 
 final class HomeMainView: BaseView {
     
+    // MARK: - Variables
+    // MARK: Component
     private let timeView = UIView()
     private let timeImageView = UIImageView()
     private let timeTitleLabel = UILabel()
@@ -27,6 +29,8 @@ final class HomeMainView: BaseView {
     private let noteCommunityThumbnail = UIImageView()
     private let noteCommunityDescription = UILabel()
     
+    // MARK: - Function
+    // MARK: Layout Helpers
     override func setStyle() {
         timeView.do {
             $0.backgroundColor = .subGray1
