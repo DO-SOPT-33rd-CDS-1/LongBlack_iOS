@@ -18,7 +18,7 @@ class NoteViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
-        setCollectionViewConfig()
+        setCollectionView()
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -43,7 +43,7 @@ class NoteViewController: BaseViewController {
         $0.backgroundColor = .white
     }
     
-    private func setCollectionViewConfig() {
+    private func setCollectionView() {
         self.collectionView.register(FilterButtonMakeCollectionViewCell.self,
                                      forCellWithReuseIdentifier: FilterButtonMakeCollectionViewCell.identifier)
         
