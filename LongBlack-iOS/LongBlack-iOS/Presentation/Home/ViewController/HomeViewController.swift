@@ -11,7 +11,6 @@ import SnapKit
 import Then
 
 final class HomeViewController: BaseViewController {
-    // TODO: 타이머 설정
     // TODO: 이벤트뷰 기능 연결
     // TODO: 뷰 분리
     
@@ -48,11 +47,18 @@ final class HomeViewController: BaseViewController {
     
     private let scrollView = UIScrollView()
     
+    private var homeTimer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
         setDelegate()
         setAddTarget()
+    }
+    
+    deinit {
+        // 타이머 해제
+        homeTimer?.invalidate()
     }
     
     override func setStyle() {
@@ -79,7 +85,6 @@ final class HomeViewController: BaseViewController {
         }
         
         timeLabel.do {
-            $0.text = "01 : 45 : 07"
             $0.font = .h1Light
             $0.textColor = .white
         }
@@ -335,6 +340,7 @@ extension HomeViewController {
     }
     
     private func setAddTarget() {
+        self.homeTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         noteHomeButton.addTarget(self, action: #selector(noteHomeButtonTapped), for: .touchUpInside)
         libraryHomeButton.addTarget(self, action: #selector(libraryHomeButtonTapped), for: .touchUpInside)
     }
@@ -345,5 +351,16 @@ extension HomeViewController {
     
     @objc private func libraryHomeButtonTapped() {
         print("여기에 라이브러리 연결")
+    }
+    
+    @objc private func updateTime() {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        guard let endOfDay = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: currentDate) else { return }
+
+        let components = calendar.dateComponents([.hour, .minute, .second], from: currentDate, to: endOfDay)
+
+        let formattedTime = String(format: "%02d : %02d : %02d", components.hour ?? 0, components.minute ?? 0, components.second ?? 0)
+        timeLabel.text = formattedTime
     }
 }
