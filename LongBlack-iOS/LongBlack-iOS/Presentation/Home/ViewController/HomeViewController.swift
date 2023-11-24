@@ -334,7 +334,17 @@ extension HomeViewController: UICollectionViewDataSource {
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventImageCollectionViewCell.identifier, for: indexPath) as? EventImageCollectionViewCell else { return UICollectionViewCell() }
             cell.bindEventImageData(data: eventImageDummy[indexPath.row])
-                return cell
+            return cell
+        }
+    }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        /// 제스쳐를 통해서 스크롤 했을 때도 index가 반영이 되어야 하기 때문에 적용
+        if scrollView == homeEventView.eventImageCollectionView {
+            let pageIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
+            currentEventPageIndex = pageIndex
         }
     }
 }
@@ -343,7 +353,7 @@ extension HomeViewController {
     
     private func setCollectionView() {
         self.homeEventView.eventImageCollectionView.register(EventImageCollectionViewCell.self, forCellWithReuseIdentifier: EventImageCollectionViewCell.identifier)
-
+        
         self.openNoteCollectionView.register(OpenNoteCollectionViewCell.self, forCellWithReuseIdentifier: OpenNoteCollectionViewCell.identifier)
     }
     
@@ -352,6 +362,7 @@ extension HomeViewController {
         self.openNoteCollectionView.dataSource = self
         self.homeEventView.eventImageCollectionView.delegate = self
         self.homeEventView.eventImageCollectionView.dataSource = self
+        self.homeEventView.eventImageCollectionView.delegate = self
     }
     
     private func setAddTarget() {
@@ -398,9 +409,9 @@ extension HomeViewController {
         let currentDate = Date()
         let calendar = Calendar.current
         guard let endOfDay = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: currentDate) else { return }
-
+        
         let components = calendar.dateComponents([.hour, .minute, .second], from: currentDate, to: endOfDay)
-
+        
         let formattedTime = String(format: "%02d : %02d : %02d", components.hour ?? 0, components.minute ?? 0, components.second ?? 0)
         timeLabel.text = formattedTime
     }

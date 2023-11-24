@@ -17,7 +17,7 @@ final class HomeEventView: BaseView {
     let rightButton = UIButton()
     
     lazy var eventImageCollectionView = UICollectionView(frame: .zero,
-                                                    collectionViewLayout: eventImageFlowLayout)
+                                                         collectionViewLayout: eventImageFlowLayout)
     let eventImageFlowLayout = UICollectionViewFlowLayout()
     
     let collectionViewWidth = UIScreen.main.bounds.width - 40
