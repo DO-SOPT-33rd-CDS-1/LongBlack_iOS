@@ -17,7 +17,7 @@ class CollectionHeaderView: UICollectionReusableView {
         view.backgroundColor = .white
         
         let title = UILabel()
-        title.font = .systemFont(ofSize: 28)
+        title.font = .h2Bold
         title.text = articledatalist[0].title
         title.numberOfLines = 0
         let writer = UILabel()

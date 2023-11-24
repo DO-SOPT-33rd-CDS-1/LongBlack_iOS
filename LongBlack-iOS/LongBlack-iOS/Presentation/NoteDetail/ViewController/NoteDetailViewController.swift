@@ -37,7 +37,7 @@ class NoteDetailViewController: BaseViewController {
         flowLayout.minimumInteritemSpacing = 3
         flowLayout.scrollDirection = .vertical
         
-        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 80)
+        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 110)
         self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
     }
     
@@ -62,14 +62,33 @@ class NoteDetailViewController: BaseViewController {
     }
     
     let topView = UIView()
-    let bottomView = UIView()
+    let bottomView: UIView = {
+        let view = UIView()
+        let back = UIButton()
+        back.setImage(UIImage(named: "ic_arrow_left"), for: .normal)
+        let foward = UIButton()
+        foward.setImage(UIImage(named: "ic_arrow_right"), for: .normal)
+        [back, foward].forEach() {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        foward.snp.makeConstraints() {
+            $0.trailing.equalTo(view).inset(20)
+            $0.top.equalTo(view).inset(10)
+        }
+        back.snp.makeConstraints() {
+            $0.trailing.equalTo(foward.snp.leading).inset(-60)
+            $0.top.equalTo(view).inset(10)
+        }
+        return view
+    }()
     
     // MARK: - opaqueView
     // 책갈피 버튼 누르면 나타나는 불투명한 뷰
     let opaqueView: UIView = {
         let view = UIView()
         view.layer.backgroundColor = UIColor.black.cgColor
-        view.layer.opacity = 0.5
+        view.layer.opacity = 0.45
         view.isUserInteractionEnabled = false
         return view
     }()
@@ -160,10 +179,12 @@ class NoteDetailViewController: BaseViewController {
         [placeBookmarkButton].forEach() {
             bottomView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.layer.cornerRadius = 0
+            $0.layer.borderWidth = 0
         }
         placeBookmarkButton.snp.makeConstraints() {
             $0.centerY.equalToSuperview()
-            $0.leading.top.equalToSuperview().offset(10)
+            $0.leading.equalToSuperview().inset(20)
             $0.height.equalTo(33)
             $0.width.equalTo(96)
         }
@@ -239,23 +260,23 @@ extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
-
-// MARK: - CustomLine Class
-class CustomLine: UIView {
     
-    var customHeight: CGFloat
-    var customColor: UIColor
-
-    init(height: CGFloat, color: UIColor) {
-        customHeight = height
-        customColor = color
-        super.init(frame: .zero)
-        backgroundColor = customColor
-        NSLayoutConstraint.activate([self.heightAnchor.constraint(equalToConstant: height)])
+    // MARK: - CustomLine Class
+    class CustomLine: UIView {
+        
+        var customHeight: CGFloat
+        var customColor: UIColor
+        
+        init(height: CGFloat, color: UIColor) {
+            customHeight = height
+            customColor = color
+            super.init(frame: .zero)
+            backgroundColor = customColor
+            NSLayoutConstraint.activate([self.heightAnchor.constraint(equalToConstant: height)])
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-}
