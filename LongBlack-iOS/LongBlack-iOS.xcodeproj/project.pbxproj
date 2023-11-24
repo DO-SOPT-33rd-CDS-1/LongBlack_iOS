@@ -26,6 +26,7 @@
 		C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */; };
 		C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77532B0F58C3001433C8 /* HomeEventView.swift */; };
 		C32E77572B10AA44001433C8 /* EventImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */; };
+		C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77582B10D944001433C8 /* HomeMainView.swift */; };
 		C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
@@ -71,6 +72,7 @@
 		C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNoteModel.swift; sourceTree = "<group>"; };
 		C32E77532B0F58C3001433C8 /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
 		C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		C32E77582B10D944001433C8 /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				C32E77532B0F58C3001433C8 /* HomeEventView.swift */,
+				C32E77582B10D944001433C8 /* HomeMainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
+				C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */,
 				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
 				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,
 				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
