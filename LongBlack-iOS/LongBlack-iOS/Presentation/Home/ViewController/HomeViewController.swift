@@ -177,10 +177,6 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func setCollectionView() {
-        self.openNoteCollectionView.register(OpenNoteCollectionViewCell.self, forCellWithReuseIdentifier: OpenNoteCollectionViewCell.identifier)
-    }
-    
     override func setLayout() {
         view.addSubviews(scrollView)
         
@@ -323,20 +319,39 @@ final class HomeViewController: BaseViewController {
 extension HomeViewController: UICollectionViewDelegate { }
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return openNoteDummy.count
+        if collectionView == openNoteCollectionView {
+            return openNoteDummy.count
+        } else {
+            return eventImageDummy.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OpenNoteCollectionViewCell.identifier, for: indexPath) as? OpenNoteCollectionViewCell else { return UICollectionViewCell() }
-        cell.bindOpenNoteData(data: openNoteDummy[indexPath.row])
-        return cell
+        if collectionView == openNoteCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OpenNoteCollectionViewCell.identifier, for: indexPath) as? OpenNoteCollectionViewCell else { return UICollectionViewCell() }
+            cell.bindOpenNoteData(data: openNoteDummy[indexPath.row])
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventImageCollectionViewCell.identifier, for: indexPath) as? EventImageCollectionViewCell else { return UICollectionViewCell() }
+            cell.bindEventImageData(data: eventImageDummy[indexPath.row])
+                return cell
+        }
     }
 }
 
 extension HomeViewController {
+    
+    private func setCollectionView() {
+        self.homeEventView.eventImageCollectionView.register(EventImageCollectionViewCell.self, forCellWithReuseIdentifier: EventImageCollectionViewCell.identifier)
+
+        self.openNoteCollectionView.register(OpenNoteCollectionViewCell.self, forCellWithReuseIdentifier: OpenNoteCollectionViewCell.identifier)
+    }
+    
     private func setDelegate() {
         self.openNoteCollectionView.delegate = self
         self.openNoteCollectionView.dataSource = self
+        self.homeEventView.eventImageCollectionView.delegate = self
+        self.homeEventView.eventImageCollectionView.dataSource = self
     }
     
     private func setAddTarget() {

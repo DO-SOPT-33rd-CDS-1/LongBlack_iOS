@@ -16,8 +16,12 @@ final class HomeEventView: BaseView {
     let leftButton = UIButton()
     let rightButton = UIButton()
     
-    // collectionView로 수정 예정
-    let imageView = UIImageView()
+    lazy var eventImageCollectionView = UICollectionView(frame: .zero,
+                                                    collectionViewLayout: eventImageFlowLayout)
+    let eventImageFlowLayout = UICollectionViewFlowLayout()
+    
+    let collectionViewWidth = UIScreen.main.bounds.width - 40
+    lazy var collectionViewHeight = collectionViewWidth * 260 / 335
     
     let bannerImageView = UIImageView()
     
@@ -36,8 +40,17 @@ final class HomeEventView: BaseView {
             $0.setImage(ImageLiterals.Home.icArrowRight, for: .normal)
         }
         
-        imageView.do {
-            $0.image = ImageLiterals.Home.imgEventDummy1
+        eventImageCollectionView.do {
+            $0.backgroundColor = .clear
+            $0.showsHorizontalScrollIndicator = false
+            $0.layer.cornerRadius = 8
+            $0.isPagingEnabled = true
+        }
+        
+        eventImageFlowLayout.do {
+            $0.scrollDirection = .horizontal
+            $0.minimumLineSpacing = 0
+            $0.itemSize = CGSize(width: collectionViewWidth, height: collectionViewHeight)
         }
         
         bannerImageView.do {
@@ -49,7 +62,7 @@ final class HomeEventView: BaseView {
         self.addSubviews(eventTitleLabel,
                          leftButton,
                          rightButton,
-                         imageView,
+                         eventImageCollectionView,
                          bannerImageView)
         
         eventTitleLabel.snp.makeConstraints {
@@ -67,14 +80,15 @@ final class HomeEventView: BaseView {
             $0.top.equalTo(rightButton)
         }
         
-        imageView.snp.makeConstraints {
+        eventImageCollectionView.snp.makeConstraints {
             $0.top.equalTo(eventTitleLabel.snp.bottom).offset(18)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.centerX.equalToSuperview()
+            $0.height.equalTo(collectionViewHeight)
         }
         
         bannerImageView.snp.makeConstraints {
-            $0.top.equalTo(imageView.snp.bottom).offset(18)
+            $0.top.equalTo(eventImageCollectionView.snp.bottom).offset(18)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.bottom.equalToSuperview()
         }
