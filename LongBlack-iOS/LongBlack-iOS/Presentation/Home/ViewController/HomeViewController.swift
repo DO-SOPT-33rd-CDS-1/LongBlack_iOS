@@ -11,7 +11,6 @@ import SnapKit
 import Then
 
 final class HomeViewController: BaseViewController {
-    // TODO: 이벤트뷰 기능 연결
     // TODO: 뷰 분리
     
     private let logoImageView = UIImageView()
@@ -48,6 +47,7 @@ final class HomeViewController: BaseViewController {
     private let scrollView = UIScrollView()
     
     private var homeTimer: Timer?
+    private var currentEventPageIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -356,8 +356,12 @@ extension HomeViewController {
     
     private func setAddTarget() {
         self.homeTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        
         noteHomeButton.addTarget(self, action: #selector(noteHomeButtonTapped), for: .touchUpInside)
         libraryHomeButton.addTarget(self, action: #selector(libraryHomeButtonTapped), for: .touchUpInside)
+        
+        self.homeEventView.rightButton.addTarget(self, action: #selector(eventRightButtonTapped), for: .touchUpInside)
+        self.homeEventView.leftButton.addTarget(self, action: #selector(eventLeftButtonTapped), for: .touchUpInside)
     }
     
     @objc private func noteHomeButtonTapped() {
@@ -366,6 +370,28 @@ extension HomeViewController {
     
     @objc private func libraryHomeButtonTapped() {
         print("여기에 라이브러리 연결")
+    }
+    
+    @objc private func eventRightButtonTapped() {
+        currentEventPageIndex += 1
+        
+        if currentEventPageIndex >= openNoteDummy.count {
+            currentEventPageIndex = 0
+        }
+        
+        let contentOffset = CGPoint(x: CGFloat(currentEventPageIndex) * homeEventView.eventImageCollectionView.frame.width, y: 0)
+        homeEventView.eventImageCollectionView.setContentOffset(contentOffset, animated: true)
+    }
+    
+    @objc private func eventLeftButtonTapped() {
+        currentEventPageIndex -= 1
+        
+        if currentEventPageIndex < 0 {
+            currentEventPageIndex = openNoteDummy.count - 1
+        }
+        
+        let contentOffset = CGPoint(x: CGFloat(currentEventPageIndex) * homeEventView.eventImageCollectionView.frame.width, y: 0)
+        homeEventView.eventImageCollectionView.setContentOffset(contentOffset, animated: true)
     }
     
     @objc private func updateTime() {
