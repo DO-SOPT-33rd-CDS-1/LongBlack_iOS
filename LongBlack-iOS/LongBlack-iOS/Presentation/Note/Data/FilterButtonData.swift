@@ -18,8 +18,8 @@ struct FilterButtonData {
 }
 
 var filterButtonData: [FilterButtonData] = [
-    .init(filter: "안 읽은 노트"),
-    .init(filter: "스탬프 받은 노트"),
-    .init(filter: "평점 5점 준 노트"),
-    .init(filter: "북마크 한 노트"),
+    .init(filter: StringLiterals.Note.Filter.filterDummy1),
+    .init(filter: StringLiterals.Note.Filter.filterDummy2),
+    .init(filter: StringLiterals.Note.Filter.filterDummy3),
+    .init(filter: StringLiterals.Note.Filter.filterDummy4),
     ]

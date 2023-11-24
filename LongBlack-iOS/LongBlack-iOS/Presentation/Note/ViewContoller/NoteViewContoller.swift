@@ -12,29 +12,28 @@ import SnapKit
 
 class NoteViewController: BaseViewController {
     
-    private let customNavigationView = CustomNavigationView()
+    private let customNoteViewNavigationView = CustomNoteViewNavigationView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLayout()
-        setCollectionView()
-        self.navigationController?.navigationBar.isHidden = true
+        setStyle()
     }
     
     override func setStyle() {
-        self.view.addSubview(customNavigationView)
-        self.view.addSubview(collectionView)
+        self.view.addSubviews(customNoteViewNavigationView, collectionView)
+        setLayout()
+        setCollectionView()
+        self.navigationController?.navigationBar.isHidden = true
         
-        
-        customNavigationView.snp.makeConstraints {
+        customNoteViewNavigationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
         }
         
         collectionView.snp.makeConstraints{
             $0.bottom.leading.trailing.equalToSuperview()
-            $0.top.equalTo(customNavigationView.snp.bottom)
+            $0.top.equalTo(customNoteViewNavigationView.snp.bottom)
         }
         
     }
@@ -49,7 +48,7 @@ class NoteViewController: BaseViewController {
         
         self.collectionView.register(NoteCollectionViewCell.self, forCellWithReuseIdentifier: NoteCollectionViewCell.identifier)
         
-        self.collectionView.register(CustomFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CustomFooterView.identifier)
+        self.collectionView.register(CustomNoteViewFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CustomNoteViewFooterView.identifier)
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -90,7 +89,7 @@ extension NoteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch indexPath.section {
         case 1:
-            guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CustomFooterView.identifier, for: indexPath) as? CustomFooterView
+            guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CustomNoteViewFooterView.identifier, for: indexPath) as? CustomNoteViewFooterView
             else {
                 return UICollectionReusableView()
             }

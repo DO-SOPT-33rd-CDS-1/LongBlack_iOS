@@ -104,7 +104,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     }
     
     func bindData(data: NoteData) {
-        self.image.image = UIImage(named: data.image)
+        self.image.image = data.image
         self.title.text = data.title
         self.author.text = data.author
         self.divider.text = data.divider
