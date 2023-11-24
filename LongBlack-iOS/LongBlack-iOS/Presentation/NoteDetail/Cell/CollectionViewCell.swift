@@ -57,7 +57,7 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
-    // MARK: - addBookmark() & removeBookmark()
+    // MARK: - addBookmark()
     func addBookmark() {
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(named: "readmark")
@@ -73,7 +73,7 @@ class CollectionViewCell: UICollectionViewCell {
     func removeBookmark() {
         paragraph.text = paragraph_original
         
-        // 줄 간격 다시 조정
+        // 줄 간격 다시 조정 (텍스트라벨에 이미지뷰를 붙일 때 줄간격이 무너지는 현상이 발생...)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10 // 원하는 간격 값으로 설정
         let attributes: [NSAttributedString.Key: Any] = [
@@ -92,6 +92,11 @@ class CollectionViewCell: UICollectionViewCell {
             $0.centerY.equalTo(self)
             $0.leading.trailing.equalTo(self).inset(20)
         }
+        
+//        let size = paragraph.sizeThatFits(CGSize(width: paragraph.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
+//        let labelHeight = size.height
+//        
+//        self.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
     }
     
     let paragraph: UILabel = {
