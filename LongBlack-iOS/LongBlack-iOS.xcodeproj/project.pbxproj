@@ -27,6 +27,7 @@
 		C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77532B0F58C3001433C8 /* HomeEventView.swift */; };
 		C32E77572B10AA44001433C8 /* EventImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */; };
 		C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77582B10D944001433C8 /* HomeMainView.swift */; };
+		C32E775B2B10DEE2001433C8 /* HomeOpenNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */; };
 		C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
@@ -73,6 +74,7 @@
 		C32E77532B0F58C3001433C8 /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
 		C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C32E77582B10D944001433C8 /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
+		C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOpenNote.swift; sourceTree = "<group>"; };
 		C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				C32E77532B0F58C3001433C8 /* HomeEventView.swift */,
 				C32E77582B10D944001433C8 /* HomeMainView.swift */,
+				C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
 				C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */,
+				C32E775B2B10DEE2001433C8 /* HomeOpenNote.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,

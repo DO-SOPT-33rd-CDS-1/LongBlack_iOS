@@ -11,25 +11,16 @@ import SnapKit
 import Then
 
 final class HomeViewController: BaseViewController {
-    // TODO: 뷰 분리
     // TODO: MARK 주석 달기
     
     private let logoImageView = UIImageView()
-    
     private let homeMainView = HomeMainView()
-    
     private let mainSeperatorView = UIView()
-    
     private let noteHomeButton = HomeButton()
     private let libraryHomeButton = HomeButton()
     private let buttonSeperatorView = UIView()
-    
-    private let openNoteLabel = UILabel()
-    private lazy var openNoteCollectionView = UICollectionView(frame: .zero,
-                                                               collectionViewLayout: openNoteFlowLayout)
-    private let openNoteFlowLayout = UICollectionViewFlowLayout()
+    private let homeOpenNote = HomeOpenNote()
     private let openNoteSeperatorView = UIView()
-    
     private let homeEventView = HomeEventView()
     
     private let scrollView = UIScrollView()
@@ -56,7 +47,6 @@ final class HomeViewController: BaseViewController {
             $0.image = ImageLiterals.Home.imgLongBlack
         }
         
-        
         mainSeperatorView.do {
             $0.backgroundColor = .subGray6
         }
@@ -75,24 +65,6 @@ final class HomeViewController: BaseViewController {
             $0.backgroundColor = .subGray6
         }
         
-        openNoteLabel.do {
-            $0.text = StringLiterals.Home.Open.openNote
-            $0.font = .h5Semibold
-            $0.textColor = .subGray1
-        }
-        
-        openNoteCollectionView.do {
-            $0.backgroundColor = .clear
-            $0.showsHorizontalScrollIndicator = false
-        }
-        
-        openNoteFlowLayout.do {
-            $0.scrollDirection = .horizontal
-            $0.minimumLineSpacing = 27
-            $0.itemSize = CGSize(width: 300, height: 254)
-            $0.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 27)
-        }
-        
         openNoteSeperatorView.do {
             $0.backgroundColor = .subGray6
         }
@@ -107,8 +79,7 @@ final class HomeViewController: BaseViewController {
                                noteHomeButton,
                                libraryHomeButton,
                                buttonSeperatorView,
-                               openNoteLabel,
-                               openNoteCollectionView,
+                               homeOpenNote,
                                openNoteSeperatorView,
                                homeEventView)
                 
@@ -149,22 +120,16 @@ final class HomeViewController: BaseViewController {
             $0.top.equalTo(libraryHomeButton.snp.bottom).offset(27)
         }
         
-        openNoteLabel.snp.makeConstraints {
+        homeOpenNote.snp.makeConstraints {
+            $0.width.centerX.equalToSuperview()
             $0.top.equalTo(buttonSeperatorView.snp.bottom).offset(37)
-            $0.leading.equalToSuperview().inset(20)
-        }
-        
-        openNoteCollectionView.snp.makeConstraints {
-            $0.top.equalTo(openNoteLabel.snp.bottom).offset(17)
-            $0.leading.equalTo(openNoteLabel)
-            $0.trailing.equalToSuperview()
-            $0.height.equalTo(254)
+            $0.height.equalTo(301)
         }
         
         openNoteSeperatorView.snp.makeConstraints {
             $0.centerX.width.equalToSuperview()
             $0.height.equalTo(8)
-            $0.top.equalTo(openNoteCollectionView.snp.bottom).offset(50)
+            $0.top.equalTo(homeOpenNote.snp.bottom).offset(50)
         }
         
         homeEventView.snp.makeConstraints {
@@ -178,7 +143,7 @@ final class HomeViewController: BaseViewController {
 extension HomeViewController: UICollectionViewDelegate { }
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == openNoteCollectionView {
+        if collectionView == homeOpenNote.openNoteCollectionView {
             return openNoteDummy.count
         } else {
             return eventImageDummy.count
@@ -186,7 +151,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == openNoteCollectionView {
+        if collectionView == homeOpenNote.openNoteCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OpenNoteCollectionViewCell.identifier, for: indexPath) as? OpenNoteCollectionViewCell else { return UICollectionViewCell() }
             cell.bindOpenNoteData(data: openNoteDummy[indexPath.row])
             return cell
@@ -213,12 +178,12 @@ extension HomeViewController {
     private func setCollectionView() {
         self.homeEventView.eventImageCollectionView.register(EventImageCollectionViewCell.self, forCellWithReuseIdentifier: EventImageCollectionViewCell.identifier)
         
-        self.openNoteCollectionView.register(OpenNoteCollectionViewCell.self, forCellWithReuseIdentifier: OpenNoteCollectionViewCell.identifier)
+        self.homeOpenNote.openNoteCollectionView.register(OpenNoteCollectionViewCell.self, forCellWithReuseIdentifier: OpenNoteCollectionViewCell.identifier)
     }
     
     private func setDelegate() {
-        self.openNoteCollectionView.delegate = self
-        self.openNoteCollectionView.dataSource = self
+        self.homeOpenNote.openNoteCollectionView.delegate = self
+        self.homeOpenNote.openNoteCollectionView.dataSource = self
         self.homeEventView.eventImageCollectionView.delegate = self
         self.homeEventView.eventImageCollectionView.dataSource = self
         self.homeEventView.eventImageCollectionView.delegate = self
