@@ -22,6 +22,9 @@
 		C3020A692B090DFF000919CF /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A682B090DFF000919CF /* MyPageViewController.swift */; };
 		C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A6A2B090F2A000919CF /* UITabBar+.swift */; };
 		C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A6C2B090F71000919CF /* CALayer+.swift */; };
+		C32E774E2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E774D2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift */; };
+		C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */; };
+		C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77532B0F58C3001433C8 /* HomeEventView.swift */; };
 		C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
@@ -44,6 +47,7 @@
 		C3ECFC132B086D9B00118AB3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */; };
 		C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC152B086EE600118AB3 /* BaseView.swift */; };
 		C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC172B086EF100118AB3 /* BaseViewController.swift */; };
+		C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FD54022B0E405E00ADB912 /* HomeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +66,9 @@
 		C3020A682B090DFF000919CF /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C3020A6A2B090F2A000919CF /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		C3020A6C2B090F71000919CF /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		C32E774D2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNoteModel.swift; sourceTree = "<group>"; };
+		C32E77532B0F58C3001433C8 /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
 		C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +91,7 @@
 		C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		C3ECFC152B086EE600118AB3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C3ECFC172B086EF100118AB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C3FD54022B0E405E00ADB912 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,10 @@
 			children = (
 				C3020A602B090A9A000919CF /* TabBar */,
 				C3020A652B090DD6000919CF /* ViewController */,
+				C32E77552B0F5FBC001433C8 /* View */,
+				C3FD54042B0E406300ADB912 /* Button */,
+				C32E774F2B0F497D001433C8 /* Cell */,
+				C32E77522B0F518E001433C8 /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -228,6 +240,30 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		C32E774F2B0F497D001433C8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C32E774D2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C32E77522B0F518E001433C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C32E77552B0F5FBC001433C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C32E77532B0F58C3001433C8 /* HomeEventView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C3ECFBD02B08676E00118AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +370,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		C3FD54042B0E406300ADB912 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				C3FD54022B0E405E00ADB912 /* HomeButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +465,7 @@
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
+				C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
 				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
@@ -432,9 +477,11 @@
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
 				C3020A622B090AAD000919CF /* HomeTabBarViewController.swift in Sources */,
+				C32E774E2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift in Sources */,
 				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
+				C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
@@ -442,6 +489,7 @@
 				C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
+				C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */,
 				C3020A472B090756000919CF /* NoteViewController.swift in Sources */,
 				C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
