@@ -58,6 +58,10 @@ class NoteViewController: BaseViewController {
     
     
     // TODO: 뒤로가기 버튼 동작 추가
+    // TODO: section0 의 버튼들 상태 변화 넣기
+    // TODO: section1 detail 페이지 연결
+    // TODO: 좋아요 버튼 구현
+    
     @objc private func backButtonTapped() {
         // 뒤로가기 버튼이 눌렸을 때 Home으로 가는 동작
     }
@@ -78,6 +82,11 @@ extension NoteViewController: UICollectionViewDelegateFlowLayout {
         return 21
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch indexPath.section {
         case 1:
@@ -91,17 +100,13 @@ extension NoteViewController: UICollectionViewDelegateFlowLayout {
         }
     }
     
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         if section == 1 {
             return CGSize(width: collectionView.frame.width, height: 120)
         }
         else {
-            return CGSize.zero // 다른 섹션에는 Footer를 추가하지 않음
+            return CGSize.zero
         }
-        
     }
 }
 
@@ -132,7 +137,6 @@ extension NoteViewController: UICollectionViewDataSource {
             
         default:
             return UICollectionViewCell()
-            
         }
     }
 }

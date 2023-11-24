@@ -36,12 +36,14 @@
 		C3ECFC132B086D9B00118AB3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */; };
 		C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC152B086EE600118AB3 /* BaseView.swift */; };
 		C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC172B086EF100118AB3 /* BaseViewController.swift */; };
+		E54698332B0F68D600CBACCE /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54698322B0F68D600CBACCE /* CustomFooterView.swift */; };
 		E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */; };
 		E5D1CAFB2B0C5D6C00C50722 /* FilterButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAFA2B0C5D6C00C50722 /* FilterButtonData.swift */; };
 		E5D1CAFD2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAFC2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift */; };
 		E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAFE2B0C5F1400C50722 /* NoteData.swift */; };
 		E5D1CB012B0C5F2900C50722 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CB002B0C5F2900C50722 /* NoteCollectionViewCell.swift */; };
 		E5D1CB032B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CB022B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift */; };
+		E5D1CB0D2B0E8C2B00C50722 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CB0C2B0E8C2B00C50722 /* CustomNavigationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,12 +76,14 @@
 		C3ECFC102B086D9B00118AB3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		C3ECFC152B086EE600118AB3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C3ECFC172B086EF100118AB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E54698322B0F68D600CBACCE /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
 		E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewContoller.swift; sourceTree = "<group>"; };
 		E5D1CAFA2B0C5D6C00C50722 /* FilterButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonData.swift; sourceTree = "<group>"; };
 		E5D1CAFC2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5D1CAFE2B0C5F1400C50722 /* NoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteData.swift; sourceTree = "<group>"; };
 		E5D1CB002B0C5F2900C50722 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5D1CB022B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonMakeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5D1CB0C2B0E8C2B00C50722 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */,
+				E5D1CB0C2B0E8C2B00C50722 /* CustomNavigationView.swift */,
+				E54698322B0F68D600CBACCE /* CustomFooterView.swift */,
 			);
 			path = ViewContoller;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
+				E5D1CB0D2B0E8C2B00C50722 /* CustomNavigationView.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
@@ -434,6 +441,7 @@
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
 				E5D1CAFB2B0C5D6C00C50722 /* FilterButtonData.swift in Sources */,
+				E54698332B0F68D600CBACCE /* CustomFooterView.swift in Sources */,
 				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
