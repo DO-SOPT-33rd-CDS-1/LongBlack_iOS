@@ -39,11 +39,10 @@ extension UIColor {
   @nonobjc class var subGray4: UIColor {
     return UIColor(white: 217.0 / 255.0, alpha: 1.0)
   }
-    
-    // subGray5 color 추가 (우제)
-    @nonobjc class var subGray5: UIColor {
-      return UIColor(red: 236.0 / 255.0, green: 236.0 / 255.0, blue: 236.0 / 255.0, alpha: 1.0)
-    }
+
+  @nonobjc class var subGray5: UIColor {
+      return UIColor(white: 236.0 / 255.0, alpha: 1.0)
+  }
 
   @nonobjc class var subGray6: UIColor {
     return UIColor(white: 245.0 / 255.0, alpha: 1.0)
