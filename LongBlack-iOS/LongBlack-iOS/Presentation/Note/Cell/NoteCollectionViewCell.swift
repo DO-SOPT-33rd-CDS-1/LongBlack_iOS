@@ -27,93 +27,93 @@ class NoteCollectionViewCell: UICollectionViewCell {
     
     private func setLayout() {
         self.addSubview(contentView)
-        contentView.addSubviews(background, image, title, author, divider, nickname, state)
+        contentView.addSubviews(noteBackground, noteImage, noteTitle, noteAuthor, noteDivider, noteNickname, noteState)
         
-        image.snp.makeConstraints {
+        noteImage.snp.makeConstraints {
             $0.leading.trailing.top.equalToSuperview()
             $0.width.equalTo(335)
             $0.height.equalTo(200)
         }
         
-        background.snp.makeConstraints {
+        noteBackground.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().offset(5)
             $0.leading.trailing.equalToSuperview()
         }
         
-        title.snp.makeConstraints {
-            $0.leading.equalTo(image.snp.leading).offset(26)
-            $0.trailing.equalTo(image.snp.trailing).offset(-35)
-            $0.top.equalTo(image.snp.bottom).offset(21)
+        noteTitle.snp.makeConstraints {
+            $0.leading.equalTo(noteImage.snp.leading).offset(26)
+            $0.trailing.equalTo(noteImage.snp.trailing).offset(-35)
+            $0.top.equalTo(noteImage.snp.bottom).offset(21)
         }
         
-        author.snp.makeConstraints {
-            $0.leading.equalTo(image.snp.leading).offset(26)
-            $0.top.equalTo(title.snp.bottom).offset(20)
+        noteAuthor.snp.makeConstraints {
+            $0.leading.equalTo(noteImage.snp.leading).offset(26)
+            $0.top.equalTo(noteTitle.snp.bottom).offset(20)
         }
         
-        divider.snp.makeConstraints {
-            $0.leading.equalTo(author.snp.trailing).offset(11)
-            $0.top.equalTo(title.snp.bottom).offset(20)
+        noteDivider.snp.makeConstraints {
+            $0.leading.equalTo(noteAuthor.snp.trailing).offset(11)
+            $0.top.equalTo(noteTitle.snp.bottom).offset(20)
         }
         
-        nickname.snp.makeConstraints {
-            $0.leading.equalTo(divider.snp.trailing).offset(11)
-            $0.top.equalTo(title.snp.bottom).offset(20)
+        noteNickname.snp.makeConstraints {
+            $0.leading.equalTo(noteDivider.snp.trailing).offset(11)
+            $0.top.equalTo(noteTitle.snp.bottom).offset(20)
         }
         
-        state.snp.makeConstraints {
-            $0.leading.equalTo(image.snp.leading).offset(277)
-            $0.top.equalTo(image.snp.top).offset(10)
+        noteState.snp.makeConstraints {
+            $0.leading.equalTo(noteImage.snp.leading).offset(277)
+            $0.top.equalTo(noteImage.snp.top).offset(10)
             $0.width.height.equalTo(40)
         }
     }
     
-    private var image = UIImageView().then {
+    private var noteImage = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
     }
-    private var title = UILabel().then {
+    private var noteTitle = UILabel().then {
         $0.font = .h5Semibold
         $0.textColor = .black
         $0.numberOfLines = 2
     }
     
-    private var author = UILabel().then {
+    private var noteAuthor = UILabel().then {
         $0.font = .b3Medium
         $0.textColor = .black
     }
     
-    private var divider = UILabel().then {
+    private var noteDivider = UILabel().then {
         $0.font = .b3Medium
         $0.textColor = .subGray3
     }
     
-    private var nickname = UILabel().then {
+    private var noteNickname = UILabel().then {
         $0.font = .b3Medium
         $0.textColor = .black
     }
     
-    private var state = UIImageView().then {
+    private var noteState = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
     }
     
-    private var background = UIView().then {
+    private var noteBackground = UIView().then {
         $0.frame = CGRect(x: 0, y: 0, width: 335, height: 339)
         $0.layer.cornerRadius = 4
     }
     
     func bindData(data: NoteData) {
-        self.image.image = data.image
-        self.title.text = data.title
-        self.author.text = data.author
-        self.divider.text = data.divider
-        self.nickname.text = data.nickname
+        self.noteImage.image = data.image
+        self.noteTitle.text = data.title
+        self.noteAuthor.text = data.author
+        self.noteDivider.text = data.divider
+        self.noteNickname.text = data.nickname
         if data.state {
-            self.state.image = UIImage(named: "likeOn")
+            self.noteState.image = UIImage(named: "likeOn")
         } else {
-            self.state.image = UIImage(named: "likeOff")
+            self.noteState.image = UIImage(named: "likeOff")
         }
-        self.background.backgroundColor = data.backgroundColor
+        self.noteBackground.backgroundColor = data.backgroundColor
     }
 }

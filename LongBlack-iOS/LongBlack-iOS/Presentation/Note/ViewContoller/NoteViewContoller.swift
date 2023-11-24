@@ -17,14 +17,16 @@ class NoteViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setStyle()
+        setLayout()
+        setCollectionView()
+    }
+    
+    override func setLayout() {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func setStyle() {
         self.view.addSubviews(customNoteViewNavigationView, collectionView)
-        setLayout()
-        setCollectionView()
-        self.navigationController?.navigationBar.isHidden = true
         
         customNoteViewNavigationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)

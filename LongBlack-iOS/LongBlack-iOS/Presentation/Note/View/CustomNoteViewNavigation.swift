@@ -15,8 +15,8 @@ class CustomNoteViewNavigationView: UIView {
         let button = UIButton(type: .custom)
         button.setTitle(StringLiterals.Note.TabBar.noteViewTitle, for: .normal)
         button.setImage(ImageLiterals.Note.icNoteBackButton, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.titleLabel?.font = .h3Semibold
+        button.setTitleColor(.subGray1, for: .normal)
         return button
     }()
 

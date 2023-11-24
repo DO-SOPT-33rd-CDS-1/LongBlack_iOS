@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class FilterButtonMakeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate {
+class FilterButtonMakeCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "FilterButtonMakeCollectionViewCell"
     
