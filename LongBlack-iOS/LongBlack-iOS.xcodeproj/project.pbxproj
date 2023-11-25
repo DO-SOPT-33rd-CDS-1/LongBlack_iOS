@@ -156,7 +156,11 @@
 		C3020A4D2B09079E000919CF /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				C3020A4E2B0907AE000919CF /* LibraryViewController.swift */,
+				E5DC8CD92B11BFB6007A4F12 /* Data */,
+				E5DC8CD82B11BFAF007A4F12 /* Cell */,
+				E5DC8CD72B11BF9B007A4F12 /* Button */,
+				E5DC8CD62B11BF96007A4F12 /* View */,
+				E5DC8CD52B11BF71007A4F12 /* ViewController */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -376,6 +380,42 @@
 				C3FD54022B0E405E00ADB912 /* HomeButton.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		E5DC8CD52B11BF71007A4F12 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A4E2B0907AE000919CF /* LibraryViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E5DC8CD62B11BF96007A4F12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5DC8CD72B11BF9B007A4F12 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		E5DC8CD82B11BFAF007A4F12 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E5DC8CD92B11BFB6007A4F12 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

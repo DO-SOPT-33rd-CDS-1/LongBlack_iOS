@@ -48,6 +48,46 @@ enum StringLiterals {
             static let event = "이벤트"
         }
     }
+    
+    enum Library {
+        
+        enum Title {
+            static let libraryTitle = "라이브러리"
+        }
+        
+        enum Page {
+            static let stampPage = "스탬프"
+            static let myNotePage = "내노트"
+            static let stickerPage = "스티커"
+            static let bookmarkPage = "북마크"
+        }
+        
+        enum Button {
+            static let beforeExchangedButton = "미교환"
+            static let exchangedButton = "교환"
+        }
+        
+        enum Stamp {
+            static let stampTitle = "진행 중인 스탬프카드"
+            static let stampCardTitle = "카드2"
+            static let stampDescription = "스탬프 12개를 다 채우면 샷 1개를 증정합니다!"
+            static let exchangeButton = "샷으로 교환하기"
+        }
+        
+        enum Card {
+            static let cardTitle = "미교환 스탬프카드"
+            static let cardName = "카드1"
+            static let cardDate = "2023.11.13"
+            static let cardExchangeButton = "교환하기"
+        }
+        
+        enum Description {
+            static let descriptionDummy1 = "스탬프 획득하지 않은 읽은 노트도 다시 접속해 스탬프를 획득할 수 있습니다."
+            static let descriptionDummy2 = "노트당 스탬프 획득은 최초 1회만 가능합니다."
+            static let descriptionDummy3 = "샷으로 교환 후 14일 이내(교환일 기준)에 사용하셔야합니다."
+            static let descriptionDummy4 = "샷은 멤버십을 유지하고 있어야 사용이 가능합니다."
+        }
+    }
 }
 
 
