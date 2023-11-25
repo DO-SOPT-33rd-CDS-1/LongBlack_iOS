@@ -15,7 +15,7 @@ class NoteDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "NoteDetailViewController"
+        self.navigationController?.isNavigationBarHidden = true
         setCollectionViewConfig()
         setCollectionViewLayout()
         setUI()
