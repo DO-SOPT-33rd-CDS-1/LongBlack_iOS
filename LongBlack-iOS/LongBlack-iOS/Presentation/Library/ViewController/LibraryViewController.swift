@@ -7,24 +7,25 @@
 
 import UIKit
 
-// 임의로 만들어둔 것이니 각자 뷰컨 따로 만들어서 폴더링 하세요~
-class LibraryViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+class LibraryViewController: BaseViewController {
     
+    private let customLibraryNavigationView = CustomLibraryNavigationView()
+    
+    override func setLayout() {
+            self.navigationController?.navigationBar.isHidden = true
+        }
+    
+    override func setStyle() {
+        view.backgroundColor = .white
+        self.view.addSubviews(customLibraryNavigationView)
+            
+        customLibraryNavigationView.snp.makeConstraints {
+                $0.top.equalTo(view.safeAreaLayoutGuide)
+                $0.horizontalEdges.equalToSuperview()
+            }
+        
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
