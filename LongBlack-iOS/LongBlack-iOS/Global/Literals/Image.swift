@@ -49,7 +49,7 @@ enum ImageLiterals {
     enum Library {
         static var imgStickerSmallEmpty: UIImage { .load(named: "sticker_small_empty")}
         static var imgStickerSmallFill: UIImage { .load(named: "sticker_small_fill")}
-        static var icArrowLeftL: UIImage { .load(named: "ic_arrow_left")}
+        static var icArrowLeft: UIImage { .load(named: "ic_arrow_left_small")}
     }
 }
 
