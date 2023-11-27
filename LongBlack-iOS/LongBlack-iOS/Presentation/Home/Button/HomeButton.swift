@@ -12,10 +12,14 @@ import Then
 
 final class HomeButton: UIButton {
     
+    // MARK: - Variables
+    // MARK: Component
     let buttonImageView = UIImageView()
     let buttonTitleLabel = UILabel()
     let arrowImageView = UIImageView()
     
+    // MARK: - Function
+    // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -26,6 +30,7 @@ final class HomeButton: UIButton {
         setUI()
     }
     
+    // MARK: Layout Helpers
     private func setUI() {
         setStyle()
         setLayout()

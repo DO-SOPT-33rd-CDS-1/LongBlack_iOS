@@ -9,6 +9,8 @@ import UIKit
 
 final class MyPageViewController: BaseViewController {
     
+    // MARK: - Function
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .subGray4
