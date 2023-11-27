@@ -24,6 +24,9 @@
 		C32E774E2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E774D2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift */; };
 		C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */; };
 		C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77532B0F58C3001433C8 /* HomeEventView.swift */; };
+		C32E77572B10AA44001433C8 /* EventImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */; };
+		C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77582B10D944001433C8 /* HomeMainView.swift */; };
+		C32E775B2B10DEE2001433C8 /* HomeOpenNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */; };
 		C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
@@ -75,6 +78,9 @@
 		C32E774D2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		C32E77502B0F50ED001433C8 /* OpenNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNoteModel.swift; sourceTree = "<group>"; };
 		C32E77532B0F58C3001433C8 /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
+		C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		C32E77582B10D944001433C8 /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
+		C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOpenNote.swift; sourceTree = "<group>"; };
 		C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				C32E774D2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift */,
+				C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -277,6 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				C32E77532B0F58C3001433C8 /* HomeEventView.swift */,
+				C32E77582B10D944001433C8 /* HomeMainView.swift */,
+				C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -519,6 +528,7 @@
 				E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
+				C32E77572B10AA44001433C8 /* EventImageCollectionViewCell.swift in Sources */,
 				C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
 				E58C9D362B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift in Sources */,
@@ -527,6 +537,7 @@
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
 				E5D1CB012B0C5F2900C50722 /* NoteCollectionViewCell.swift in Sources */,
 				E5D1CB032B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift in Sources */,
+				C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */,
 				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
 				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,
 				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
@@ -542,6 +553,7 @@
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
 				C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */,
+				C32E775B2B10DEE2001433C8 /* HomeOpenNote.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
 				E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */,

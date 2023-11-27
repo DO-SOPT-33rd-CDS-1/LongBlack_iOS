@@ -11,8 +11,12 @@ import SnapKit
 import Then
 
 final class OpenNoteCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - Variables
+    // MARK: Constants
     static let identifier: String = "OpenNoteCollectionViewCell"
     
+    // MARK: Component
     let openNoteImageView = UIImageView()
     let openNoteTitleLabel = UILabel()
     let openNoteseparatorLineView = UIView()
@@ -22,6 +26,8 @@ final class OpenNoteCollectionViewCell: UICollectionViewCell {
     let openNoteNameseparatorLineView = UIView()
     let openNoteInitialLabel = UILabel()
     
+    // MARK: - Function
+    // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -30,6 +36,8 @@ final class OpenNoteCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: Layout Helpers
     private func setUI() {
         setStyle()
         setLayout()
@@ -104,6 +112,7 @@ final class OpenNoteCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    // MARK: Custom Function
     func bindOpenNoteData(data: OpenNoteModel) {
         self.openNoteImageView.image = data.image
         self.openNoteTitleLabel.setTextWithLineHeight(text: data.title, lineHeight: 25.33)
