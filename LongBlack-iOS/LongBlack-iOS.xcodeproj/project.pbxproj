@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A3E2B0906D7000919CF /* UILabel+.swift */; };
 		C3020A432B090704000919CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A422B090704000919CF /* HomeViewController.swift */; };
-		C3020A472B090756000919CF /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A462B090756000919CF /* NoteViewController.swift */; };
 		C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4B2B090796000919CF /* NoteDetailViewController.swift */; };
 		C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4E2B0907AE000919CF /* LibraryViewController.swift */; };
 		C3020A512B0907D1000919CF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A502B0907D1000919CF /* NetworkError.swift */; };
@@ -51,12 +50,19 @@
 		C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC152B086EE600118AB3 /* BaseView.swift */; };
 		C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC172B086EF100118AB3 /* BaseViewController.swift */; };
 		C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FD54022B0E405E00ADB912 /* HomeButton.swift */; };
+		E58C9D342B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C9D332B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift */; };
+		E58C9D362B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C9D352B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift */; };
+		E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */; };
+		E5D1CAFB2B0C5D6C00C50722 /* FilterButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAFA2B0C5D6C00C50722 /* FilterButtonData.swift */; };
+		E5D1CAFD2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAFC2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift */; };
+		E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAFE2B0C5F1400C50722 /* NoteData.swift */; };
+		E5D1CB012B0C5F2900C50722 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CB002B0C5F2900C50722 /* NoteCollectionViewCell.swift */; };
+		E5D1CB032B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CB022B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C3020A3E2B0906D7000919CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		C3020A422B090704000919CF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C3020A462B090756000919CF /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		C3020A4B2B090796000919CF /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		C3020A4E2B0907AE000919CF /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		C3020A502B0907D1000919CF /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -98,6 +104,14 @@
 		C3ECFC152B086EE600118AB3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C3ECFC172B086EF100118AB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C3FD54022B0E405E00ADB912 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
+		E58C9D332B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNoteViewNavigation.swift; sourceTree = "<group>"; };
+		E58C9D352B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNoteViewFooterView.swift; sourceTree = "<group>"; };
+		E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewContoller.swift; sourceTree = "<group>"; };
+		E5D1CAFA2B0C5D6C00C50722 /* FilterButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonData.swift; sourceTree = "<group>"; };
+		E5D1CAFC2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5D1CAFE2B0C5F1400C50722 /* NoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteData.swift; sourceTree = "<group>"; };
+		E5D1CB002B0C5F2900C50722 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5D1CB022B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonMakeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +152,10 @@
 		C3020A442B09070E000919CF /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				C3020A462B090756000919CF /* NoteViewController.swift */,
+				E58C9D372B10C049005F8CF5 /* View */,
+				E5D1CAF92B0C5CE700C50722 /* Data */,
+				E5D1CAF82B0C5C6200C50722 /* Cell */,
+				E5D1CAF32B0BB82C00C50722 /* ViewContoller */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -387,6 +404,42 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		E58C9D372B10C049005F8CF5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E58C9D332B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift */,
+				E58C9D352B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5D1CAF32B0BB82C00C50722 /* ViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1CAF42B0BB89700C50722 /* NoteViewContoller.swift */,
+			);
+			path = ViewContoller;
+			sourceTree = "<group>";
+		};
+		E5D1CAF82B0C5C6200C50722 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1CAFC2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift */,
+				E5D1CB002B0C5F2900C50722 /* NoteCollectionViewCell.swift */,
+				E5D1CB022B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E5D1CAF92B0C5CE700C50722 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E5D1CAFA2B0C5D6C00C50722 /* FilterButtonData.swift */,
+				E5D1CAFE2B0C5F1400C50722 /* NoteData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -472,21 +525,28 @@
 			files = (
 				C3020A692B090DFF000919CF /* MyPageViewController.swift in Sources */,
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
+				E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
 				C32E77572B10AA44001433C8 /* EventImageCollectionViewCell.swift in Sources */,
 				C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
+				E58C9D362B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift in Sources */,
 				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
+				E5D1CB012B0C5F2900C50722 /* NoteCollectionViewCell.swift in Sources */,
+				E5D1CB032B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift in Sources */,
 				C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */,
 				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
 				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,
 				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
+				E58C9D342B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
+				E5D1CAFB2B0C5D6C00C50722 /* FilterButtonData.swift in Sources */,
+				E5D1CAFD2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift in Sources */,
 				C3020A622B090AAD000919CF /* HomeTabBarViewController.swift in Sources */,
 				C32E774E2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift in Sources */,
 				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
@@ -496,13 +556,13 @@
 				C32E775B2B10DEE2001433C8 /* HomeOpenNote.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
+				E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
 				C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
 				C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */,
-				C3020A472B090756000919CF /* NoteViewController.swift in Sources */,
 				C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);

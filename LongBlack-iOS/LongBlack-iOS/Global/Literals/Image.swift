@@ -45,6 +45,19 @@ enum ImageLiterals {
     enum Detail {
         static var icDetail: UIImage { .load(named: "(이름을적어주세요)")}
     }
+    
+    enum Note {
+        static var icNoteBackButton: UIImage {.load(named: "ic_arrow_left")}
+        static var icPageNumber: UIImage { .load(named:  "number")}
+        static var imgNoteDummy4: UIImage { .load(named:  "imgNoteDummy4")}
+        static var imgNoteDummy5: UIImage { .load(named:  "imgNoteDummy5")}
+        static var imgNoteDummy6: UIImage { .load(named:  "imgNoteDummy6")}
+        static var imgNoteDummy7: UIImage { .load(named:  "imgNoteDummy7")}
+        static var imgNoteDummy8: UIImage { .load(named:  "imgNoteDummy8")}
+        static var imgNoteDummy9: UIImage { .load(named:  "imgNoteDummy9")}
+        static var imgNoteDummy10: UIImage { .load(named:  "imgNoteDummy10")}
+        static var imgNoteDummy11: UIImage { .load(named:  "imgNoteDummy11")}
+    }
 }
 
 extension UIImage {
