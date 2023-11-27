@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040C8EB32B0EF15300F47ACE /* ArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8EB22B0EF15300F47ACE /* ArticleData.swift */; };
+		04A524C52B0FD11300FCAC2C /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A524C42B0FD11300FCAC2C /* CollectionHeaderView.swift */; };
+		04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */; };
+		04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */; };
+		04B2C2FB2B0DD75F00FD20E3 /* CollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2FA2B0DD75F00FD20E3 /* CollectionViewData.swift */; };
 		C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A3E2B0906D7000919CF /* UILabel+.swift */; };
 		C3020A432B090704000919CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A422B090704000919CF /* HomeViewController.swift */; };
 		C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4B2B090796000919CF /* NoteDetailViewController.swift */; };
@@ -61,6 +66,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040C8EB22B0EF15300F47ACE /* ArticleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleData.swift; sourceTree = "<group>"; };
+		04A524C42B0FD11300FCAC2C /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
+		04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
+		04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		04B2C2FA2B0DD75F00FD20E3 /* CollectionViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewData.swift; sourceTree = "<group>"; };
 		C3020A3E2B0906D7000919CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		C3020A422B090704000919CF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3020A4B2B090796000919CF /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +137,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040C8EB42B0EFFE400F47ACE /* NoteDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NoteDetail;
+			sourceTree = "<group>";
+		};
+		04A524C32B0FD0F200FCAC2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04A524C42B0FD11300FCAC2C /* CollectionHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04B2C2F02B0DC0AD00FD20E3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A4B2B090796000919CF /* NoteDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		04B2C2F12B0DC0B800FD20E3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */,
+				04B2C2FA2B0DD75F00FD20E3 /* CollectionViewData.swift */,
+				040C8EB22B0EF15300F47ACE /* ArticleData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		04B2C2F22B0DC0C500FD20E3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C3020A402B0906E2000919CF /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +222,10 @@
 		C3020A482B09076A000919CF /* NoteDetail */ = {
 			isa = PBXGroup;
 			children = (
-				C3020A4B2B090796000919CF /* NoteDetailViewController.swift */,
+				04A524C32B0FD0F200FCAC2C /* View */,
+				04B2C2F22B0DC0C500FD20E3 /* Cell */,
+				04B2C2F12B0DC0B800FD20E3 /* Data */,
+				04B2C2F02B0DC0AD00FD20E3 /* ViewController */,
 			);
 			path = NoteDetail;
 			sourceTree = "<group>";
@@ -187,6 +241,7 @@
 		C3020A522B0907EB000919CF /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				040C8EB42B0EFFE400F47ACE /* NoteDetail */,
 				C3020A532B0907FF000919CF /* Base */,
 				C3020A552B090818000919CF /* Note */,
 			);
@@ -523,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */,
 				C3020A692B090DFF000919CF /* MyPageViewController.swift in Sources */,
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */,
@@ -534,6 +590,8 @@
 				E58C9D362B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift in Sources */,
 				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
+				04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */,
+				04A524C52B0FD11300FCAC2C /* CollectionHeaderView.swift in Sources */,
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
 				E5D1CB012B0C5F2900C50722 /* NoteCollectionViewCell.swift in Sources */,
 				E5D1CB032B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift in Sources */,
@@ -559,6 +617,8 @@
 				E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
+				04B2C2FB2B0DD75F00FD20E3 /* CollectionViewData.swift in Sources */,
+				040C8EB32B0EF15300F47ACE /* ArticleData.swift in Sources */,
 				C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
