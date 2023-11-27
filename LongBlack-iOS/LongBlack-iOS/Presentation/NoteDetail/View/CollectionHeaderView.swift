@@ -78,7 +78,7 @@ class CollectionHeaderView: UICollectionReusableView {
     let profileView: UIImageView = {
         
         let image = UIImageView()
-        image.image = #imageLiteral(resourceName: "img_profile")
+        image.image = ImageLiterals.Detail.profileImg
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         image.snp.makeConstraints() {

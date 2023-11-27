@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILabel {
-    func setTextWithLineHeight(text: String?, lineHeight: CGFloat) {
+    func setTextWithLineHeight(text: String?, lineHeight: CGFloat, numberOfLines: Int = 2) {
         if let text = text {
             let style = NSMutableParagraphStyle()
             style.maximumLineHeight = lineHeight
@@ -23,7 +23,7 @@ extension UILabel {
                                                 attributes: attributes)
             self.attributedText = attrString
             self.textAlignment = .center
-            self.numberOfLines = 2
+            self.numberOfLines = numberOfLines
         }
     }
 }

@@ -29,16 +29,8 @@ class CollectionViewCell: UICollectionViewCell {
     func bindData(data: CollectionViewData) {
         
         self.paragraphLabel.text = data.content
-        
-        // 줄 사이 간격 조정
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10 // 원하는 간격 값으로 설정
-        let attributes: [NSAttributedString.Key: Any] = [
-            .paragraphStyle: paragraphStyle,
-        ]
-        let attributedString = NSAttributedString(string: paragraphLabel.text ?? "", attributes: attributes)
-        self.paragraphLabel.attributedText = attributedString
-
+        paragraphLabel.setTextWithLineHeight(text: paragraphLabel.text, lineHeight: 30, numberOfLines: 0)
+        paragraphLabel.textAlignment = .left
         self.paragraphOriginal = data.content
         self.paragraphType = data.paragraphType
         
@@ -59,7 +51,7 @@ class CollectionViewCell: UICollectionViewCell {
     // MARK: - addBookmark()
     func addBookmark() {
         let imageAttachment = NSTextAttachment()
-        imageAttachment.image = #imageLiteral(resourceName: "readmark")
+        imageAttachment.image = ImageLiterals.Detail.readMark
         let imageString = NSAttributedString(attachment: imageAttachment)
         let originalText = paragraphLabel.text ?? ""
         let originalString = NSAttributedString(string: originalText)
@@ -71,13 +63,8 @@ class CollectionViewCell: UICollectionViewCell {
     // MARK: - removeBookmark()
     func removeBookmark() {
         paragraphLabel.text = paragraphOriginal
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10
-        let attributes: [NSAttributedString.Key: Any] = [
-            .paragraphStyle: paragraphStyle,
-        ]
-        let attributedString = NSAttributedString(string: paragraphLabel.text ?? "", attributes: attributes)
-        self.paragraphLabel.attributedText = attributedString
+        paragraphLabel.setTextWithLineHeight(text: paragraphLabel.text, lineHeight: 30, numberOfLines: 0)
+        paragraphLabel.textAlignment = .left
     }
     
     // MARK: - setLayout()
@@ -94,7 +81,8 @@ class CollectionViewCell: UICollectionViewCell {
     let paragraphLabel: UILabel = {
         
         let label = UILabel()
-        label.setTextWithLineHeight(text: label.text, lineHeight: 10)
+        label.setTextWithLineHeight(text: label.text, lineHeight: 30, numberOfLines: 0)
+        label.textAlignment = .left
         label.numberOfLines = 0
         label.sizeToFit()
         
