@@ -14,11 +14,10 @@ class CollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "CollectionViewCell"
     var paragraphType: String = ""
-    var paragraph_original: String = ""
+    var paragraphOriginal: String = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.paragraph.numberOfLines = 0
         self.setLayout()
     }
     
@@ -29,7 +28,7 @@ class CollectionViewCell: UICollectionViewCell {
     // MARK: - bindData()
     func bindData(data: CollectionViewData) {
         
-        self.paragraph.text = data.content
+        self.paragraphLabel.text = data.content
         
         // 줄 사이 간격 조정
         let paragraphStyle = NSMutableParagraphStyle()
@@ -37,71 +36,65 @@ class CollectionViewCell: UICollectionViewCell {
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
         ]
-        let attributedString = NSAttributedString(string: paragraph.text ?? "", attributes: attributes)
-        self.paragraph.attributedText = attributedString
+        let attributedString = NSAttributedString(string: paragraphLabel.text ?? "", attributes: attributes)
+        self.paragraphLabel.attributedText = attributedString
 
-        self.paragraph_original = data.content
+        self.paragraphOriginal = data.content
         self.paragraphType = data.paragraphType
         
         switch self.paragraphType {
         case "SUBHEADING":
-            paragraph.font = .h6Bold
+            paragraphLabel.font = .h6Bold
         case "TEXT":
-            paragraph.font = .b1Regular
+            paragraphLabel.font = .b1Regular
         case "HEAD":
-            paragraph.font = .h3Semibold
+            paragraphLabel.font = .h3Semibold
         case "TITLE":
-            paragraph.font = .h2Bold
+            paragraphLabel.font = .h2Bold
         default:
-            paragraph.font = .systemFont(ofSize: 16)
+            paragraphLabel.font = .systemFont(ofSize: 16)
         }
     }
     
     // MARK: - addBookmark()
     func addBookmark() {
         let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(named: "readmark")
+        imageAttachment.image = #imageLiteral(resourceName: "readmark")
         let imageString = NSAttributedString(attachment: imageAttachment)
-        let originalText = paragraph.text ?? ""
+        let originalText = paragraphLabel.text ?? ""
         let originalString = NSAttributedString(string: originalText)
         let attributedString = NSMutableAttributedString(attributedString: originalString)
         attributedString.append(imageString)
-        paragraph.attributedText = attributedString
+        paragraphLabel.attributedText = attributedString
     }
     
     // MARK: - removeBookmark()
     func removeBookmark() {
-        paragraph.text = paragraph_original
-        
-        // 줄 간격 다시 조정 (텍스트라벨에 이미지뷰를 붙일 때 줄간격이 무너지는 현상이 발생...)
+        paragraphLabel.text = paragraphOriginal
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10 // 원하는 간격 값으로 설정
+        paragraphStyle.lineSpacing = 10
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
         ]
-        let attributedString = NSAttributedString(string: paragraph.text ?? "", attributes: attributes)
-        self.paragraph.attributedText = attributedString
+        let attributedString = NSAttributedString(string: paragraphLabel.text ?? "", attributes: attributes)
+        self.paragraphLabel.attributedText = attributedString
     }
     
     // MARK: - setLayout()
     private func setLayout() {
-        self.addSubviews(paragraph)
-        paragraph.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubviews(paragraphLabel)
         
-        paragraph.snp.makeConstraints() {
+        paragraphLabel.snp.makeConstraints() {
             $0.centerY.equalTo(self)
             $0.leading.trailing.equalTo(self).inset(20)
         }
         
-//        let size = paragraph.sizeThatFits(CGSize(width: paragraph.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
-//        let labelHeight = size.height
-//        
-//        self.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
     }
     
-    let paragraph: UILabel = {
+    let paragraphLabel: UILabel = {
         
         let label = UILabel()
+        label.setTextWithLineHeight(text: label.text, lineHeight: 10)
         label.numberOfLines = 0
         label.sizeToFit()
         
@@ -111,7 +104,7 @@ class CollectionViewCell: UICollectionViewCell {
     func calculateLabelHeight() -> CGFloat {
         let labelWidth = UIScreen.main.bounds.width - 20 // 예시로 너비를 화면 전체에서 20을 뺀 값으로 설정
         let size = CGSize(width: labelWidth, height: .greatestFiniteMagnitude)
-        let boundingBox = paragraph.text?.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: paragraph.font!], context: nil)
+        let boundingBox = paragraphLabel.text?.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: paragraphLabel.font!], context: nil)
         return boundingBox?.height ?? 0
     }
 }

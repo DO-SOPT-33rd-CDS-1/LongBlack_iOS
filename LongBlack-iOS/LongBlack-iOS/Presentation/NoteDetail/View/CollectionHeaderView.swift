@@ -25,8 +25,8 @@ class CollectionHeaderView: UICollectionReusableView {
         let date = UILabel()
         date.text = articledatalist[0].createdDate
 
-        let line1 = CustomLine(height: 4, color: .subGray1)
-        let line2 = CustomLine(height: 2, color: .subGray2)
+        let line1 = reusedLineView(height: 4, color: .subGray1)
+        let line2 = reusedLineView(height: 2, color: .subGray2)
         [stampButton, title, line1, line2, writer, date, profileView].forEach() {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -65,25 +65,26 @@ class CollectionHeaderView: UICollectionReusableView {
     
     private lazy var stampButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "stamp_big"), for: .normal)
-        button.setImage(UIImage(named: "coffee_big"), for: .selected)
+        button.setImage(ImageLiterals.Detail.bigStamp, for: .normal)
+        button.setImage(ImageLiterals.Detail.bigCoffee, for: .selected)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
 
         return button
     }()
     @objc func buttonPressed() {
-        stampButton.isSelected = !stampButton.isSelected
+        stampButton.isSelected.toggle()
     }
     
     let profileView: UIImageView = {
         
         let image = UIImageView()
-        image.image = UIImage(named: "img_profile")
+        image.image = #imageLiteral(resourceName: "img_profile")
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([image.heightAnchor.constraint(equalToConstant: 32),
-                                     image.widthAnchor.constraint(equalToConstant: 127)
-        ])
+        image.snp.makeConstraints() {
+            $0.height.equalTo(32)
+            $0.width.equalTo(127)
+        }
         return image
     }()
     

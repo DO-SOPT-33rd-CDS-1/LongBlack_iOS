@@ -36,7 +36,6 @@ class NoteDetailViewController: BaseViewController {
         flowLayout.minimumLineSpacing = 3
         flowLayout.minimumInteritemSpacing = 3
         flowLayout.scrollDirection = .vertical
-        
         flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 110)
         self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
     }
@@ -51,26 +50,25 @@ class NoteDetailViewController: BaseViewController {
     // MARK: - bookmarkButton
     private lazy var bookmarkButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "icBookmark"), for: .normal)
-        button.setImage(UIImage(named: "icBookmarkFill"), for: .selected)
+        button.setImage(ImageLiterals.Detail.bookMark, for: .normal)
+        button.setImage(ImageLiterals.Detail.bookMarkFill, for: .selected)
         button.addTarget(self, action: #selector(buttonPressed1), for: .touchUpInside)
 
         return button
     }()
     @objc func buttonPressed1() {
-        bookmarkButton.isSelected = !bookmarkButton.isSelected
+        bookmarkButton.isSelected.toggle()
     }
     
     let topView = UIView()
     let bottomView: UIView = {
         let view = UIView()
         let back = UIButton()
-        back.setImage(UIImage(named: "ic_arrow_left"), for: .normal)
+        back.setImage(ImageLiterals.Home.icArrowLeft, for: .normal)
         let foward = UIButton()
-        foward.setImage(UIImage(named: "ic_arrow_right"), for: .normal)
+        foward.setImage(ImageLiterals.Home.icArrowRight, for: .normal)
         [back, foward].forEach() {
             view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
         }
         foward.snp.makeConstraints() {
             $0.trailing.equalTo(view).inset(20)
@@ -96,8 +94,8 @@ class NoteDetailViewController: BaseViewController {
     // MARK: - placeBookmarkButton
     private let placeBookmarkButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "placeBookmark"), for: .normal)
-        button.setImage(UIImage(named: "removeBookmark"), for: .selected)
+        button.setImage(ImageLiterals.Detail.placeBookmark, for: .normal)
+        button.setImage(ImageLiterals.Detail.removeBookmark, for: .selected)
         button.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(bookmarkbuttonPressed), for: .touchUpInside)
         return button
@@ -112,7 +110,7 @@ class NoteDetailViewController: BaseViewController {
                     }
                 }
             } else {
-                placeBookmarkButton.isSelected = false
+                placeBookmarkButton.isSelected.toggle()
                 collectionView.visibleCells.forEach { cell in
                     if let yourCustomCell = cell as? CollectionViewCell {
                         yourCustomCell.removeBookmark()
@@ -129,9 +127,9 @@ class NoteDetailViewController: BaseViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 3
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionview = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        return cv
+        return collectionview
     }()
     
     // MARK: - setStyle()
@@ -151,7 +149,6 @@ class NoteDetailViewController: BaseViewController {
     override func setLayout() {
         [topView, bottomView, collectionView, opaqueView].forEach() {
             self.view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
         }
         self.view.bringSubviewToFront(bottomView)
         topView.snp.makeConstraints() {
@@ -166,7 +163,6 @@ class NoteDetailViewController: BaseViewController {
         }
         [backButton, bookmarkButton].forEach() {
             topView.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
         }
         backButton.snp.makeConstraints() {
             $0.centerY.equalToSuperview()
@@ -178,7 +174,6 @@ class NoteDetailViewController: BaseViewController {
         }
         [placeBookmarkButton].forEach() {
             bottomView.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
             $0.layer.cornerRadius = 0
             $0.layer.borderWidth = 0
         }
@@ -188,16 +183,16 @@ class NoteDetailViewController: BaseViewController {
             $0.height.equalTo(33)
             $0.width.equalTo(96)
         }
-        NSLayoutConstraint.activate([collectionView.topAnchor.constraint(equalTo: topView.bottomAnchor),
-                                     collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                                     collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                                     collectionView.bottomAnchor.constraint(equalTo: bottomView.topAnchor)
-        ])
-        NSLayoutConstraint.activate([opaqueView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                                     opaqueView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                                     opaqueView.topAnchor.constraint(equalTo: topView.bottomAnchor),
-                                     opaqueView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor)
-                                     ])
+        collectionView.snp.makeConstraints() {
+            $0.leading.trailing.equalTo(self.view)
+            $0.top.equalTo(topView.snp.bottom)
+            $0.bottom.equalTo(bottomView.snp.top)
+        }
+        opaqueView.snp.makeConstraints() {
+            $0.leading.trailing.equalTo(self.view)
+            $0.top.equalTo(topView.snp.bottom)
+            $0.bottom.equalTo(collectionView.snp.bottom)
+        }
         opaqueView.isHidden = true
     }
     
@@ -214,7 +209,7 @@ extension NoteDetailViewController: UICollectionViewDelegate {
             // 선택된 셀에 대한 이벤트 진행
             if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
                 if opaqueView.isHidden == false {
-                    placeBookmarkButton.isSelected = !placeBookmarkButton.isSelected
+                    placeBookmarkButton.isSelected.toggle()
                     opaqueView.isHidden = true
                     cell.addBookmark()
                 }
@@ -261,8 +256,8 @@ extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
     
 }
     
-    // MARK: - CustomLine Class
-    class CustomLine: UIView {
+    // MARK: - reusedLineView Class
+    class reusedLineView: UIView {
         
         var customHeight: CGFloat
         var customColor: UIColor

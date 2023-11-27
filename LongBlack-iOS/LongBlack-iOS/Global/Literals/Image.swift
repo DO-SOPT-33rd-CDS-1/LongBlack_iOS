@@ -43,7 +43,14 @@ enum ImageLiterals {
     }
     
     enum Detail {
-        static var icDetail: UIImage { .load(named: "(이름을적어주세요)")}
+        static var readMark: UIImage { .load(named: "readmark")}
+        static var bigStamp: UIImage { .load(named: "stamp_big")}
+        static var bigCoffee: UIImage { .load(named: "coffee_big")}
+        static var profileImg: UIImage { .load(named: "img_profile")}
+        static var bookMark: UIImage { .load(named: "icBookmark")}
+        static var bookMarkFill: UIImage { .load(named: "icBookmarkFill")}
+        static var placeBookmark: UIImage { .load(named: "placeBookmark")}
+        static var removeBookmark: UIImage { .load(named: "removeBookmark")}
     }
 }
 
