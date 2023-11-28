@@ -39,13 +39,13 @@ class CustomLibraryNavigationView: UIView {
     }
 
     private func setupConstraints() {
-        
+    
         self.snp.makeConstraints {
             $0.height.equalTo(65)
         }
         
         libraryViewbackButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview().inset(20)
         }
     }
 }

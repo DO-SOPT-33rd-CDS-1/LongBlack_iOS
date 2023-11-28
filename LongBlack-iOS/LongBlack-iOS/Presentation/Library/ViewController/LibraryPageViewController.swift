@@ -7,118 +7,143 @@
 
 import UIKit
 
-import Then
 import SnapKit
+import Then
 
-class LibraryPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-
-    lazy var orderedViewControllers: [BaseViewController] = {
-        return [
-            LibraryViewController(),
-            MyBookmarkView(),
-            MyStickerView(),
-            MyNoteView()
-        ]
-    }()
+final class LibraryPageViewController: UIViewController {
     
-    private var libraryButtonLine = UIView()
-    
-    var currentIndex: Int = 0
 
+    let customLibraryView = CustomLibraryNavigationView()
+    private let segmentedControl = LibrarySegmentedControl(items: [StringLiterals.Library.Page.stampPage, StringLiterals.Library.Page.myNotePage, StringLiterals.Library.Page.stickerPage, StringLiterals.Library.Page.bookmarkPage])
+    private lazy var pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    
+    let libraryViewController = LibraryViewController()
+    let myNoteView = MyNoteView()
+    let myStickerView = MyStickerView()
+    let myBookmarkView = MyBookmarkView()
+
+    var orderedViewControllers: [UIViewController] {
+        [self.libraryViewController, self.myNoteView, self.myStickerView, self.myBookmarkView]
+    }
+    
+    var currentPage: Int = 0 {
+      didSet {
+        let direction: UIPageViewController.NavigationDirection = oldValue <= self.currentPage ? .forward : .reverse
+        self.pageViewController.setViewControllers(
+          [orderedViewControllers[self.currentPage]],
+          direction: direction,
+          animated: true,
+          completion: nil
+        )
+      }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
+        setDelegate()
+        setSegmentedControl()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
+    }
+}
 
-        self.delegate = self
-        self.dataSource = self
-
-        if let firstViewController = orderedViewControllers.first,
-           let libraryViewController = firstViewController as? LibraryViewController {
-            setViewControllers([libraryViewController],
-                               direction: .forward,
-                               animated: true,
-                               completion: nil)
-        }
-        setupLibrarySectionButtons()
+// MARK: - extension
+extension LibraryPageViewController {
+    
+    private func setUI() {
         setStyle()
         setLayout()
     }
     
     private func setStyle() {
-        libraryButtonLine.do {
-            $0.backgroundColor = .red
+        view.backgroundColor = .white
+        pageViewController.do {
+            $0.setViewControllers([self.orderedViewControllers[0]], direction: .forward, animated: true)
         }
     }
     
     private func setLayout() {
-        self.view.addSubviews(libraryButtonLine)
+        self.navigationController?.navigationBar.isHidden = true
         
-        libraryButtonLine.snp.makeConstraints {
-            $0.height.equalTo(20)
-            $0.leading.equalToSuperview()
-            $0.top.equalToSuperview().inset(139)
+        view.addSubviews(
+            customLibraryView,
+            segmentedControl,
+            pageViewController.view
+        )
+        
+        customLibraryView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaInsets).offset(60)
+            $0.horizontalEdges.equalToSuperview()
+        }
+        
+        segmentedControl.snp.makeConstraints {
+            $0.height.equalTo(33)
+            $0.width.equalToSuperview()
+            $0.top.equalTo(customLibraryView.snp.bottom)
+        }
+        
+        pageViewController.view.snp.makeConstraints {
+            $0.top.equalTo(segmentedControl.snp.bottom)
+            $0.width.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
-    func setupLibrarySectionButtons() {
-            let buttonTitles = ["스탬프", "내노트", "스티커", "북마크"]
-            let buttonWidth = view.bounds.width / CGFloat(buttonTitles.count)
+    
+    private func setDelegate() {
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
+    }
 
-            for (index, title) in buttonTitles.enumerated() {
-                let button = UIButton(type: .system)
-                button.frame = CGRect(x: CGFloat(index) * buttonWidth, y: 111, width: buttonWidth, height: 33)
-                button.setTitle(title, for: .normal)
-                button.setTitleColor(.subGray1, for: .normal)
-                button.titleLabel?.font = .b3Medium
-                button.tag = index
-                button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-                view.addSubview(button)
-            }
-        }
-
-    @objc func buttonTapped(_ sender: UIButton) {
-        let direction: UIPageViewController.NavigationDirection = sender.tag > currentIndex ? .forward : .reverse
-        let targetIndex = sender.tag
-        let targetViewController = orderedViewControllers[targetIndex]
-        
-        setViewControllers([targetViewController], direction: direction, animated: true, completion: nil)
-        currentIndex = targetIndex
+    private func setSegmentedControl() {
+        self.segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.subGray3,
+            .font: UIFont.b3Medium], for: .normal)
+        self.segmentedControl.setTitleTextAttributes(
+            [NSAttributedString.Key.foregroundColor: UIColor.subGray1,
+             .font: UIFont.b3Medium], for: .selected)
+        self.segmentedControl.addTarget(self, action: #selector(changeValue(control:)), for: .valueChanged)
+        self.segmentedControl.selectedSegmentIndex = 0
+        self.changeValue(control: self.segmentedControl)
     }
     
-
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController as! BaseViewController) else {
-            return nil
-        }
-
-        let previousIndex = viewControllerIndex - 1
-
-        guard previousIndex >= 0 else {
-            return orderedViewControllers.last
-        }
-
-        guard orderedViewControllers.count > previousIndex else {
-            return nil
-        }
-
-        return orderedViewControllers[previousIndex]
+    @objc private func changeValue(control: UISegmentedControl) {
+        self.currentPage = control.selectedSegmentIndex
     }
+}
 
+// MARK: UIPageViewControllerDelegate
+extension LibraryPageViewController: UIPageViewControllerDelegate { }
+
+// MARK: UIPageViewControllerDataSource
+extension LibraryPageViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerBefore viewController: UIViewController
+    ) -> UIViewController? {
+        guard let index = self.orderedViewControllers.firstIndex(of: viewController),
+            index - 1 >= 0
+        else { return nil }
+        return self.orderedViewControllers[index - 1]
+    }
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController as! BaseViewController) else {
-            return nil
-        }
-
-        let nextIndex = viewControllerIndex + 1
-
-        guard nextIndex < orderedViewControllers.count else {
-            return orderedViewControllers.first
-        }
-
-        guard orderedViewControllers.count > nextIndex else {
-            return nil
-        }
-
-        return orderedViewControllers[nextIndex]
+        guard let index = self.orderedViewControllers.firstIndex(of: viewController),
+            index + 1 < self.orderedViewControllers.count
+        else { return nil }
+        return self.orderedViewControllers[index + 1]
     }
-
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let viewController = pageViewController.viewControllers?[0],
+            let index = self.orderedViewControllers.firstIndex(of: viewController)
+        else { return }
+        self.currentPage = index
+        self.segmentedControl.selectedSegmentIndex = index
+    }
 }
