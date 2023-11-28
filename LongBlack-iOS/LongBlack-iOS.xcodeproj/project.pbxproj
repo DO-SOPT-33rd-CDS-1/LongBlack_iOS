@@ -48,7 +48,14 @@
 		C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC152B086EE600118AB3 /* BaseView.swift */; };
 		C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFC172B086EF100118AB3 /* BaseViewController.swift */; };
 		C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FD54022B0E405E00ADB912 /* HomeButton.swift */; };
-		E5DC8CDB2B11C687007A4F12 /* customLibraryNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC8CDA2B11C687007A4F12 /* customLibraryNavigationView.swift */; };
+		E58EBA262B148AD200F2896A /* LibraryViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58EBA252B148AD200F2896A /* LibraryViewData.swift */; };
+		E5DC8CDB2B11C687007A4F12 /* CustomLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */; };
+		E5E1CC612B148B4E008A1FE8 /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */; };
+		E5E1CC632B1491A6008A1FE8 /* MyNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */; };
+		E5E1CC652B1491D8008A1FE8 /* MyStickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */; };
+		E5E1CC672B14920B008A1FE8 /* MyBookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC662B14920B008A1FE8 /* MyBookmarkView.swift */; };
+		E5E1CC692B149260008A1FE8 /* LibraryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */; };
+		E5E1CC6B2B1494A9008A1FE8 /* LibraryPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC6A2B1494A9008A1FE8 /* LibraryPageTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,7 +100,14 @@
 		C3ECFC152B086EE600118AB3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C3ECFC172B086EF100118AB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C3FD54022B0E405E00ADB912 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
-		E5DC8CDA2B11C687007A4F12 /* customLibraryNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customLibraryNavigationView.swift; sourceTree = "<group>"; };
+		E58EBA252B148AD200F2896A /* LibraryViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewData.swift; sourceTree = "<group>"; };
+		E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLibraryView.swift; sourceTree = "<group>"; };
+		E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoteView.swift; sourceTree = "<group>"; };
+		E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStickerView.swift; sourceTree = "<group>"; };
+		E5E1CC662B14920B008A1FE8 /* MyBookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookmarkView.swift; sourceTree = "<group>"; };
+		E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPageViewController.swift; sourceTree = "<group>"; };
+		E5E1CC6A2B1494A9008A1FE8 /* LibraryPageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPageTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +402,11 @@
 			isa = PBXGroup;
 			children = (
 				C3020A4E2B0907AE000919CF /* LibraryViewController.swift */,
+				E5E1CC662B14920B008A1FE8 /* MyBookmarkView.swift */,
+				E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */,
+				E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */,
+				E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */,
+				E5E1CC6A2B1494A9008A1FE8 /* LibraryPageTitleView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -395,7 +414,7 @@
 		E5DC8CD62B11BF96007A4F12 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E5DC8CDA2B11C687007A4F12 /* customLibraryNavigationView.swift */,
+				E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -410,6 +429,7 @@
 		E5DC8CD82B11BFAF007A4F12 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -417,6 +437,7 @@
 		E5DC8CD92B11BFB6007A4F12 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E58EBA252B148AD200F2896A /* LibraryViewData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -510,29 +531,36 @@
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
 				C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
+				E5E1CC692B149260008A1FE8 /* LibraryPageViewController.swift in Sources */,
 				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
 				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
 				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,
+				E5E1CC6B2B1494A9008A1FE8 /* LibraryPageTitleView.swift in Sources */,
 				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
+				E5E1CC612B148B4E008A1FE8 /* LibraryCollectionViewCell.swift in Sources */,
 				C3020A622B090AAD000919CF /* HomeTabBarViewController.swift in Sources */,
 				C32E774E2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift in Sources */,
-				E5DC8CDB2B11C687007A4F12 /* customLibraryNavigationView.swift in Sources */,
+				E5DC8CDB2B11C687007A4F12 /* CustomLibraryView.swift in Sources */,
 				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
 				C32E77542B0F58C3001433C8 /* HomeEventView.swift in Sources */,
+				E58EBA262B148AD200F2896A /* LibraryViewData.swift in Sources */,
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
+				E5E1CC672B14920B008A1FE8 /* MyBookmarkView.swift in Sources */,
+				E5E1CC632B1491A6008A1FE8 /* MyNoteView.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
 				C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
+				E5E1CC652B1491D8008A1FE8 /* MyStickerView.swift in Sources */,
 				C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */,
 				C3020A472B090756000919CF /* NoteViewController.swift in Sources */,
 				C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */,

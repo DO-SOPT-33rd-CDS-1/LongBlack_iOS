@@ -41,7 +41,7 @@ class CustomLibraryNavigationView: UIView {
     private func setupConstraints() {
         
         self.snp.makeConstraints {
-            $0.height.equalTo(69)
+            $0.height.equalTo(65)
         }
         
         libraryViewbackButton.snp.makeConstraints {
