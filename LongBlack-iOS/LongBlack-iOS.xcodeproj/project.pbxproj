@@ -33,6 +33,8 @@
 		C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77582B10D944001433C8 /* HomeMainView.swift */; };
 		C32E775B2B10DEE2001433C8 /* HomeOpenNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */; };
 		C33BABD02B145A1C00A25A61 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33BABCF2B145A1C00A25A61 /* Config.swift */; };
+		C34113DA2B15ADA4001585BF /* LibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34113D92B15ADA4001585BF /* LibraryService.swift */; };
+		C34113DC2B15AE41001585BF /* LibraryStampResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34113DB2B15AE41001585BF /* LibraryStampResponseDTO.swift */; };
 		C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
@@ -94,6 +96,8 @@
 		C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOpenNote.swift; sourceTree = "<group>"; };
 		C33BABCF2B145A1C00A25A61 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C33BABD12B145A7300A25A61 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		C34113D92B15ADA4001585BF /* LibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryService.swift; sourceTree = "<group>"; };
+		C34113DB2B15AE41001585BF /* LibraryStampResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStampResponseDTO.swift; sourceTree = "<group>"; };
 		C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 		C3020A522B0907EB000919CF /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C34113D62B15AD7B001585BF /* Library */,
 				040C8EB42B0EFFE400F47ACE /* NoteDetail */,
 				C3020A532B0907FF000919CF /* Base */,
 				C3020A552B090818000919CF /* Note */,
@@ -346,6 +351,39 @@
 				C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C34113D62B15AD7B001585BF /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C34113D82B15AD87001585BF /* Service */,
+				C34113D72B15AD82001585BF /* DTO */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		C34113D72B15AD82001585BF /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C34113DD2B15AE61001585BF /* Response */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C34113D82B15AD87001585BF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C34113D92B15ADA4001585BF /* LibraryService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C34113DD2B15AE61001585BF /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C34113DB2B15AE41001585BF /* LibraryStampResponseDTO.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		C3ECFBD02B08676E00118AB3 = {
@@ -597,6 +635,7 @@
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
 				04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */,
 				04A524C52B0FD11300FCAC2C /* CollectionHeaderView.swift in Sources */,
+				C34113DC2B15AE41001585BF /* LibraryStampResponseDTO.swift in Sources */,
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
 				E5D1CB012B0C5F2900C50722 /* NoteCollectionViewCell.swift in Sources */,
 				E5D1CB032B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift in Sources */,
@@ -629,6 +668,7 @@
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
 				C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */,
+				C34113DA2B15ADA4001585BF /* LibraryService.swift in Sources */,
 				C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);
