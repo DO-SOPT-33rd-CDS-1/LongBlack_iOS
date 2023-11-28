@@ -92,8 +92,6 @@ extension LibrarySegmentedControl {
         self.layer.cornerRadius = 0
     }
 
-    
-
     private func removeBackgroundAndDivider() {
         let image = UIImage()
         self.setBackgroundImage(image, for: .normal, barMetrics: .default)

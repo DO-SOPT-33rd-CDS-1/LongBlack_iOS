@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class CustomLibraryNavigationView: UIView {
+class CustomLibraryNavigationView: BaseView {
 
     private let libraryViewbackButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -21,24 +21,12 @@ class CustomLibraryNavigationView: UIView {
     }()
 
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-        setupConstraints()
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupViews()
-        setupConstraints()
-    }
-
-    private func setupViews() {
+    override func setStyle() {
         addSubviews(libraryViewbackButton)
         self.backgroundColor = .white
     }
 
-    private func setupConstraints() {
+    override func setLayout() {
     
         self.snp.makeConstraints {
             $0.height.equalTo(65)

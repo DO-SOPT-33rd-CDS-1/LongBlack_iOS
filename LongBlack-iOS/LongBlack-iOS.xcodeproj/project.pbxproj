@@ -50,13 +50,13 @@
 		C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FD54022B0E405E00ADB912 /* HomeButton.swift */; };
 		E58EBA262B148AD200F2896A /* LibraryViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58EBA252B148AD200F2896A /* LibraryViewData.swift */; };
 		E5D4C1F82B16498D0050232A /* LibrarySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1F72B16498D0050232A /* LibrarySegmentedControl.swift */; };
+		E5D4C1FA2B1657880050232A /* ClassifyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1F92B1657880050232A /* ClassifyButtonView.swift */; };
 		E5DC8CDB2B11C687007A4F12 /* CustomLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */; };
 		E5E1CC612B148B4E008A1FE8 /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */; };
 		E5E1CC632B1491A6008A1FE8 /* MyNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */; };
 		E5E1CC652B1491D8008A1FE8 /* MyStickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */; };
 		E5E1CC672B14920B008A1FE8 /* MyBookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC662B14920B008A1FE8 /* MyBookmarkView.swift */; };
 		E5E1CC692B149260008A1FE8 /* LibraryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */; };
-		E5E1CC6B2B1494A9008A1FE8 /* LibraryPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC6A2B1494A9008A1FE8 /* LibraryPageTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,13 +103,13 @@
 		C3FD54022B0E405E00ADB912 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		E58EBA252B148AD200F2896A /* LibraryViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewData.swift; sourceTree = "<group>"; };
 		E5D4C1F72B16498D0050232A /* LibrarySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySegmentedControl.swift; sourceTree = "<group>"; };
+		E5D4C1F92B1657880050232A /* ClassifyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyButtonView.swift; sourceTree = "<group>"; };
 		E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLibraryView.swift; sourceTree = "<group>"; };
 		E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoteView.swift; sourceTree = "<group>"; };
 		E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStickerView.swift; sourceTree = "<group>"; };
 		E5E1CC662B14920B008A1FE8 /* MyBookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookmarkView.swift; sourceTree = "<group>"; };
 		E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPageViewController.swift; sourceTree = "<group>"; };
-		E5E1CC6A2B1494A9008A1FE8 /* LibraryPageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPageTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,7 +408,6 @@
 				E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */,
 				E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */,
 				E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */,
-				E5E1CC6A2B1494A9008A1FE8 /* LibraryPageTitleView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -418,6 +417,7 @@
 			children = (
 				E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */,
 				E5D4C1F72B16498D0050232A /* LibrarySegmentedControl.swift */,
+				E5D4C1F92B1657880050232A /* ClassifyButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D4C1FA2B1657880050232A /* ClassifyButtonView.swift in Sources */,
 				C3020A692B090DFF000919CF /* MyPageViewController.swift in Sources */,
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
@@ -540,7 +541,6 @@
 				C3020A5C2B090847000919CF /* b.swift in Sources */,
 				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
 				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,
-				E5E1CC6B2B1494A9008A1FE8 /* LibraryPageTitleView.swift in Sources */,
 				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
