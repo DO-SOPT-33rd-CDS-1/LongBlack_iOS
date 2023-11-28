@@ -20,7 +20,7 @@ class LibraryViewController: BaseViewController {
         }
     
     override func setLayout() {
-            self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
         
         classifyButtonView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(14)

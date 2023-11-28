@@ -13,7 +13,7 @@ import Then
 final class LibrarySegmentedControl: UISegmentedControl {
 
     private lazy var librarySelected: UIView = {
-        let width = self.bounds.size.width / CGFloat(self.numberOfSegments) * 0.8
+        let width = self.bounds.size.width / CGFloat(self.numberOfSegments) * 0.6
         let height: CGFloat = 2
         let xPosition: CGFloat = 0.0
         let yPosition = self.bounds.size.height - height
@@ -76,7 +76,7 @@ extension LibrarySegmentedControl {
         )
 
         let width = self.bounds.size.width / CGFloat(self.numberOfSegments)
-        let underlineWidth = width * 0.8
+        let underlineWidth = width * 0.6
         let underlineXPosition = (width - underlineWidth) / 2 + width * CGFloat(self.selectedSegmentIndex)
         
         self.libraryDefault.frame.size.width = width * CGFloat(self.numberOfSegments)
