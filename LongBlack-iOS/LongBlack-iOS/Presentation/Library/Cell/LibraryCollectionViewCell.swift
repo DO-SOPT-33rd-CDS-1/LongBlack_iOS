@@ -20,9 +20,18 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         return collectionView
     }()
     
-    private var stampCardTitle: UILabel = {
+    private var stampTitle: UILabel = {
         let label = UILabel()
         label.text = StringLiterals.Library.Stamp.stampTitle
+        label.textColor = .subGray1
+        label.font = .h7Semibold
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var stampCardTitle: UILabel = {
+        let label = UILabel()
+        label.text = StringLiterals.Library.Stamp.stampCardTitle
         label.textColor = .subGray1
         label.font = .b2Regular
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -73,14 +82,20 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        self.addSubview(stampBox)
+        self.addSubviews(stampTitle, stampBox)
         stampBox.addSubviews(stampCardTitle, stampDescription, stampBoxLine)
         collectionView.dataSource = self
+        
+        stampTitle.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(29)
+            $0.top.equalToSuperview()
+        }
         
         stampBox.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(27)
             $0.trailing.equalToSuperview().inset(28)
-            $0.top.bottom.equalToSuperview()
+            $0.top.equalTo(stampTitle.snp.bottom).inset(12)
+            $0.height.equalTo(352)
         }
         
         collectionView.snp.makeConstraints {
