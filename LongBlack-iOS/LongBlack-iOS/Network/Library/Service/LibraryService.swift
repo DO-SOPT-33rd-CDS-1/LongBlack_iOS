@@ -28,7 +28,7 @@ class LibraryService {
             let request = self.makeLibraryStampRequest()
             let (data, response) = try await URLSession.shared.data(for: request)
             dump(request)
-            guard let httpResponse = response as? HTTPURLResponse else {
+            guard response is HTTPURLResponse else {
                 throw NetworkError.responseError
             }
             dump(response)
