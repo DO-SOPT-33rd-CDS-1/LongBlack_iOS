@@ -32,6 +32,7 @@
 		C32E77572B10AA44001433C8 /* EventImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */; };
 		C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E77582B10D944001433C8 /* HomeMainView.swift */; };
 		C32E775B2B10DEE2001433C8 /* HomeOpenNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */; };
+		C33BABD02B145A1C00A25A61 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33BABCF2B145A1C00A25A61 /* Config.swift */; };
 		C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */; };
 		C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */; };
 		C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFBDE2B08676E00118AB3 /* SceneDelegate.swift */; };
@@ -91,6 +92,8 @@
 		C32E77562B10AA44001433C8 /* EventImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C32E77582B10D944001433C8 /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		C32E775A2B10DEE2001433C8 /* HomeOpenNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOpenNote.swift; sourceTree = "<group>"; };
+		C33BABCF2B145A1C00A25A61 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C33BABD12B145A7300A25A61 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		C3EB06BF2B0CD783005346DF /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		C3ECFBD92B08676E00118AB3 /* LongBlack-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LongBlack-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3ECFBDC2B08676E00118AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -369,6 +372,7 @@
 				C3ECFBFD2B0869C100118AB3 /* Global */,
 				C3ECFBFA2B08695900118AB3 /* Presentation */,
 				C3020A522B0907EB000919CF /* Network */,
+				C33BABD12B145A7300A25A61 /* Config.xcconfig */,
 			);
 			path = "LongBlack-iOS";
 			sourceTree = "<group>";
@@ -426,6 +430,7 @@
 				C3ECFBEA2B08677100118AB3 /* Info.plist */,
 				C3ECFC062B086C7700118AB3 /* Color.swift */,
 				C3ECFC082B086CF500118AB3 /* Font.swift */,
+				C33BABCF2B145A1C00A25A61 /* Config.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				04B2C2FB2B0DD75F00FD20E3 /* CollectionViewData.swift in Sources */,
 				040C8EB32B0EF15300F47ACE /* ArticleData.swift in Sources */,
 				C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */,
+				C33BABD02B145A1C00A25A61 /* Config.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
 				C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */,
@@ -644,6 +650,7 @@
 /* Begin XCBuildConfiguration section */
 		C3ECFBEB2B08677100118AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C33BABD12B145A7300A25A61 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -707,6 +714,7 @@
 		};
 		C3ECFBEC2B08677100118AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C33BABD12B145A7300A25A61 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
