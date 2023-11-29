@@ -12,6 +12,9 @@ import SnapKit
 class LibraryCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "LibraryCollectionViewCell"
+    
+    var libraryData = [1,1,1]
+
 
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -63,6 +66,16 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         return line
     }()
     
+    private var stampCardButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = .subGray5
+        button.layer.cornerRadius = 8
+        button.setTitle(StringLiterals.Library.Stamp.exchangeButton, for: .normal)
+        button.titleLabel?.font = .b3Medium
+        button.setTitleColor(.subGray4, for: .normal)
+        return button
+    }()
+    
        
     
     private func setCollectionViewConfig() {
@@ -82,7 +95,7 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        self.addSubviews(stampTitle, stampBox)
+        self.addSubviews(stampTitle, stampBox, stampCardButton)
         stampBox.addSubviews(collectionView, stampCardTitle, stampDescription, stampBoxLine)
         collectionView.dataSource = self
         
@@ -98,8 +111,15 @@ class LibraryCollectionViewCell: UICollectionViewCell {
             $0.height.equalTo(352)
         }
         
+        stampCardButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(27)
+            $0.trailing.equalToSuperview().inset(28)
+            $0.top.equalTo(stampBox.snp.bottom).inset(44)
+            $0.height.equalTo(44)
+        }
+        
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(stampBoxLine.snp.bottom).offset(10)
+            $0.top.equalTo(stampBoxLine.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(stampBox).inset(26)
             $0.bottom.equalTo(stampBox.snp.bottom).inset(76)
         }
