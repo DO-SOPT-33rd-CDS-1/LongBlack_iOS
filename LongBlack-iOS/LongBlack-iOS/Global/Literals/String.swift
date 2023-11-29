@@ -84,7 +84,7 @@ enum StringLiterals {
         enum Description {
             static let descriptionDummy1 = "스탬프 획득하지 않은 읽은 노트도 다시 접속해 스탬프를 획득할 수 있습니다."
             static let descriptionDummy2 = "노트당 스탬프 획득은 최초 1회만 가능합니다."
-            static let descriptionDummy3 = "샷으로 교환 후 14일 이내(교환일 기준)에 사용하셔야합니다."
+            static let descriptionDummy3 = "샷으로 교환 후 14일 이내(교환일 기준)에 사용하셔야\n합니다."
             static let descriptionDummy4 = "증정으로 받은 샷은 환볼 받을 수 없습니다."
             static let descriptionDummy5 = "샷은 멤버십을 유지하고 있어야 사용이 가능합니다."
         }
