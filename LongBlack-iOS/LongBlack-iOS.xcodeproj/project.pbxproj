@@ -10,8 +10,6 @@
 		040C8EB32B0EF15300F47ACE /* ArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8EB22B0EF15300F47ACE /* ArticleData.swift */; };
 		045F97272B16479E00B4D929 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 045F97262B16479E00B4D929 /* Config.xcconfig */; };
 		045F97302B16497200B4D929 /* GetSinglepost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F972F2B16497200B4D929 /* GetSinglepost.swift */; };
-		045F97322B16499300B4D929 /* SinglepostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F97312B16499300B4D929 /* SinglepostModel.swift */; };
-		045F97372B164B1100B4D929 /* CellListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F97362B164B1100B4D929 /* CellListData.swift */; };
 		04A524C52B0FD11300FCAC2C /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A524C42B0FD11300FCAC2C /* CollectionHeaderView.swift */; };
 		04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */; };
 		04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */; };
@@ -74,8 +72,6 @@
 		040C8EB22B0EF15300F47ACE /* ArticleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleData.swift; sourceTree = "<group>"; };
 		045F97262B16479E00B4D929 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = Note/Service/Config.xcconfig; sourceTree = "<group>"; };
 		045F972F2B16497200B4D929 /* GetSinglepost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSinglepost.swift; sourceTree = "<group>"; };
-		045F97312B16499300B4D929 /* SinglepostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglepostModel.swift; sourceTree = "<group>"; };
-		045F97362B164B1100B4D929 /* CellListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellListData.swift; sourceTree = "<group>"; };
 		04A524C42B0FD11300FCAC2C /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
 		04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -150,7 +146,6 @@
 		040C8EB42B0EFFE400F47ACE /* NoteDetail */ = {
 			isa = PBXGroup;
 			children = (
-				045F97352B164AF100B4D929 /* Data */,
 				045F972E2B16494900B4D929 /* Service */,
 				045F972D2B16494400B4D929 /* DTO */,
 			);
@@ -160,7 +155,7 @@
 		045F972D2B16494400B4D929 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				045F97312B16499300B4D929 /* SinglepostModel.swift */,
+				04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -171,14 +166,6 @@
 				045F972F2B16497200B4D929 /* GetSinglepost.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		045F97352B164AF100B4D929 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				045F97362B164B1100B4D929 /* CellListData.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		04A524C32B0FD0F200FCAC2C /* View */ = {
@@ -200,7 +187,6 @@
 		04B2C2F12B0DC0B800FD20E3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */,
 				04B2C2FA2B0DD75F00FD20E3 /* CollectionViewData.swift */,
 				040C8EB22B0EF15300F47ACE /* ArticleData.swift */,
 			);
@@ -620,7 +606,6 @@
 			files = (
 				04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */,
 				C3020A692B090DFF000919CF /* MyPageViewController.swift in Sources */,
-				045F97372B164B1100B4D929 /* CellListData.swift in Sources */,
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */,
 				C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */,
@@ -638,7 +623,6 @@
 				E5D1CB032B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift in Sources */,
 				C32E77592B10D944001433C8 /* HomeMainView.swift in Sources */,
 				C3020A4F2B0907AE000919CF /* LibraryViewController.swift in Sources */,
-				045F97322B16499300B4D929 /* SinglepostModel.swift in Sources */,
 				C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */,
 				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
 				E58C9D342B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift in Sources */,
@@ -688,6 +672,7 @@
 /* Begin XCBuildConfiguration section */
 		C3ECFBEB2B08677100118AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 045F97262B16479E00B4D929 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -751,6 +736,7 @@
 		};
 		C3ECFBEC2B08677100118AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 045F97262B16479E00B4D929 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
