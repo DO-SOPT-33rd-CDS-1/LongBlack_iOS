@@ -37,6 +37,7 @@ class LibraryViewController: BaseViewController {
         }
     }
     
+    
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = .clear

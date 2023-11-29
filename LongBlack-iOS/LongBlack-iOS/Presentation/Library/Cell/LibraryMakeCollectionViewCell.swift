@@ -8,88 +8,41 @@
 import UIKit
 
 class LibraryMakeCollectionViewCell: UICollectionViewCell {
-    
+
     static let identifier: String = "LibraryMakeCollectionViewCell"
-    
-    private let stampSpot1 = UIImageView()
-    private let stampSpot2 = UIImageView()
-    private let stampSpot3 = UIImageView()
-    private let stampSpot4 = UIImageView()
-    private let stampSpot5 = UIImageView()
-    private let stampSpot6 = UIImageView()
-    private let stampSpot7 = UIImageView()
-    private let stampSpot8 = UIImageView()
-    private let stampSpot9 = UIImageView()
-    private let stampSpot10 = UIImageView()
-    private let stampSpot11 = UIImageView()
-    private let stampSpot12 = UIImageView()
-   
-    
-    private func setLayout() {
-        self.contentView.addSubviews(stampSpot1, stampSpot2, stampSpot3, stampSpot4, stampSpot5, stampSpot6, stampSpot7, stampSpot8, stampSpot9, stampSpot10, stampSpot11, stampSpot12)
-        
-        stampSpot1.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(25)
-        }
-        stampSpot2.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(96)
-        }
-        stampSpot3.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(170)
-        }
-        stampSpot4.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(242)
-        }
-        stampSpot5.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(88)
-            $0.leading.equalToSuperview().inset(26)
-        }
-        stampSpot6.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(88)
-            $0.leading.equalToSuperview().inset(96)
-        }
-        stampSpot7.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(88)
-            $0.leading.equalToSuperview().inset(170)
-        }
-        stampSpot8.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(88)
-            $0.leading.equalToSuperview().inset(242)
-        }
-        stampSpot9.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(156)
-            $0.leading.equalToSuperview().inset(26)
-        }
-        stampSpot10.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(156)
-            $0.leading.equalToSuperview().inset(96)
-        }
-        stampSpot11.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(156)
-            $0.leading.equalToSuperview().inset(170)
-        }
-        stampSpot12.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(156)
-            $0.leading.equalToSuperview().inset(242)
+
+    private var stampImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupLayout() {
+        addSubview(stampImageView)
+
+        stampImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
-    
-    func bindData(data: LibraryData) {
-        self.stampSpot1.image = data.libraryStamp1
-        self.stampSpot2.image = data.libraryStamp2
-        self.stampSpot3.image = data.libraryStamp3
-        self.stampSpot4.image = data.libraryStamp4
-        self.stampSpot5.image = data.libraryStamp5
-        self.stampSpot6.image = data.libraryStamp6
-        self.stampSpot7.image = data.libraryStamp7
-        self.stampSpot8.image = data.libraryStamp8
-        self.stampSpot9.image = data.libraryStamp9
-        self.stampSpot10.image = data.libraryStamp10
-        self.stampSpot11.image = data.libraryStamp11
-        self.stampSpot12.image = data.libraryStamp12
+
+    func bindData() {
+        // 획득한 스탬프의 이미지
+        stampImageView.image = ImageLiterals.Library.imgStickerSmallFill
+    }
+
+    func bindDefaultData() {
+        // 획득하지 않은 스탬프의 기본 이미지
+        stampImageView.image = ImageLiterals.Library.imgStickerSmallEmpty
     }
 }
+

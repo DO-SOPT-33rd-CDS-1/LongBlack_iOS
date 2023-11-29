@@ -12,7 +12,7 @@ import SnapKit
 class LibraryCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "LibraryCollectionViewCell"
-    
+
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -100,7 +100,8 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         
         collectionView.snp.makeConstraints {
             $0.top.equalTo(stampBoxLine.snp.bottom).offset(10)
-            $0.leading.trailing.bottom.equalTo(stampBox).inset(10)
+            $0.leading.trailing.equalTo(stampBox).inset(26)
+            $0.bottom.equalTo(stampBox.snp.bottom).inset(76)
         }
         
         stampCardTitle.snp.makeConstraints {
@@ -120,20 +121,44 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     }
 }
 
-
 extension LibraryCollectionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 240)
-    }
-}
-extension LibraryCollectionViewCell: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        // 계산된 각 항목의 크기를 반환
+        return CGSize(width: 52, height: 52)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 13
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 9
+    }
+}
+
+
+
+
+
+extension LibraryCollectionViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4 * 3
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryMakeCollectionViewCell.identifier, for: indexPath) as? LibraryMakeCollectionViewCell else {return UICollectionViewCell()}
-        cell.bindData(data: libraryData[indexPath.row])
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryMakeCollectionViewCell.identifier, for: indexPath) as? LibraryMakeCollectionViewCell else { return UICollectionViewCell() }
+
+        let stampIndex = indexPath.row
+        if stampIndex < libraryData.count {
+            // 사용자가 획득한 스탬프가 있을 경우
+            let stamp = libraryData[stampIndex]
+            cell.bindData()
+        } else {
+            // 사용자가 획득하지 않은 스탬프일 경우
+            cell.bindDefaultData()
+        }
+
         return cell
     }
 }
+

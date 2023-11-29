@@ -54,6 +54,7 @@
 		E5D4C1FC2B16735D0050232A /* LibraryMakeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1FB2B16735C0050232A /* LibraryMakeCollectionViewCell.swift */; };
 		E5D4C1FE2B167ED20050232A /* UnExchangedStampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1FD2B167ED10050232A /* UnExchangedStampCollectionViewCell.swift */; };
 		E5D4C2002B167F280050232A /* LibraryDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1FF2B167F280050232A /* LibraryDescriptionCollectionViewCell.swift */; };
+		E5D4C2032B1771830050232A /* LibraryStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C2022B1771830050232A /* LibraryStampModel.swift */; };
 		E5DC8CDB2B11C687007A4F12 /* CustomLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */; };
 		E5E1CC612B148B4E008A1FE8 /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */; };
 		E5E1CC632B1491A6008A1FE8 /* MyNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */; };
@@ -110,6 +111,7 @@
 		E5D4C1FB2B16735C0050232A /* LibraryMakeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryMakeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5D4C1FD2B167ED10050232A /* UnExchangedStampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnExchangedStampCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5D4C1FF2B167F280050232A /* LibraryDescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5D4C2022B1771830050232A /* LibraryStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStampModel.swift; sourceTree = "<group>"; };
 		E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLibraryView.swift; sourceTree = "<group>"; };
 		E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoteView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		C3020A4D2B09079E000919CF /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				E5D4C2012B17716D0050232A /* Model */,
 				E5DC8CD92B11BFB6007A4F12 /* Data */,
 				E5DC8CD82B11BFAF007A4F12 /* Cell */,
 				E5DC8CD72B11BF9B007A4F12 /* Button */,
@@ -406,6 +409,14 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		E5D4C2012B17716D0050232A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5D4C2022B1771830050232A /* LibraryStampModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E5DC8CD52B11BF71007A4F12 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,6 +583,7 @@
 				E5D4C1FE2B167ED20050232A /* UnExchangedStampCollectionViewCell.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
+				E5D4C2032B1771830050232A /* LibraryStampModel.swift in Sources */,
 				C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
