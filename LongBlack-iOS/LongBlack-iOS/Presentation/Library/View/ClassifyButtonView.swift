@@ -24,8 +24,8 @@ class ClassifyButtonView: BaseView {
     private let exchangedButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle(StringLiterals.Library.Button.exchangedButton, for: .normal)
-        button.titleLabel?.font = .b5Mudium
-        button.setTitleColor(.subGray1, for: .normal)
+        button.titleLabel?.font = .b6Regular
+        button.setTitleColor(.subGray2, for: .normal)
         button.layer.borderColor = UIColor.subGray5.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 14
