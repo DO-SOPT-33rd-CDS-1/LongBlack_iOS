@@ -21,7 +21,7 @@ class LibraryViewController: BaseViewController {
         self.view.setNeedsLayout()
         setCollectionViewLayout()
         setCollectionViewConfig()
-        }
+    }
     
     override func setLayout() {
         self.navigationController?.navigationBar.isHidden = true
@@ -32,33 +32,33 @@ class LibraryViewController: BaseViewController {
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(classifyButtonView.snp.bottom)
+            $0.top.equalToSuperview().inset(66)
             $0.leading.trailing.bottom.equalToSuperview()
         }
-        }
+    }
     
     private let collectionView: UICollectionView = {
-           let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-           collectionView.backgroundColor = .clear
-           return collectionView
-       }()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
     
     private func setCollectionViewLayout() {
-            let flowLayout = UICollectionViewFlowLayout()
-            flowLayout.minimumLineSpacing = 52
-            self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
-        }
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 52
+        self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
+    }
     
     private func setCollectionViewConfig() {
-            self.collectionView.register(LibraryCollectionViewCell.self,
-                                         forCellWithReuseIdentifier: LibraryCollectionViewCell.identifier)
+        self.collectionView.register(LibraryCollectionViewCell.self,
+                                     forCellWithReuseIdentifier: LibraryCollectionViewCell.identifier)
         self.collectionView.register(UnExchangedStampCollectionViewCell.self,
                                      forCellWithReuseIdentifier: UnExchangedStampCollectionViewCell.identifier)
         self.collectionView.register(LibraryDescriptionCollectionViewCell.self,
                                      forCellWithReuseIdentifier: LibraryDescriptionCollectionViewCell.identifier)
-            self.collectionView.delegate = self
-            self.collectionView.dataSource = self
-        }
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+    }
 }
 
 
@@ -67,14 +67,13 @@ extension LibraryViewController: UICollectionViewDelegateFlowLayout {
         if indexPath.section == 0 {
             return CGSize(width: collectionView.frame.size.width, height: 410)
         } else if indexPath.section == 1 {
-            return CGSize(width: collectionView.frame.size.width , height: 165)
+            return CGSize(width: collectionView.frame.size.width , height: 233)
         }
         else {
-            return CGSize(width: collectionView.frame.size.width, height: 246)
+            return CGSize(width: collectionView.frame.size.width, height: 254)
         }
     }
 }
-
 
 extension LibraryViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -115,3 +114,4 @@ extension LibraryViewController: UICollectionViewDataSource {
         }
     }
 }
+

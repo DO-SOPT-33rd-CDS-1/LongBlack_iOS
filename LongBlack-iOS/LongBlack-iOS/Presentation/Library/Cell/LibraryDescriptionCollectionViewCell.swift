@@ -13,9 +13,16 @@ class LibraryDescriptionCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "LibraryDescriptionCollectionViewCell"
     
+    private var seperatedLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .subGray6
+        return view
+    }()
+    
     private var description1: UILabel = {
         let label = UILabel()
         label.text = StringLiterals.Library.Description.descriptionDummy1
+        label.numberOfLines = 0
         label.textColor = .subGray3
         label.font = .b6Regular
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +41,7 @@ class LibraryDescriptionCollectionViewCell: UICollectionViewCell {
     private var description3: UILabel = {
         let label = UILabel()
         label.text = StringLiterals.Library.Description.descriptionDummy3
+        label.numberOfLines = 0
         label.textColor = .subGray3
         label.font = .b6Regular
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -68,31 +76,38 @@ class LibraryDescriptionCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        self.contentView.addSubviews(description1, description2, description3, description4, description5)
+        self.contentView.addSubviews(seperatedLine, description1, description2, description3, description4, description5)
+        
+        seperatedLine.snp.makeConstraints {
+            $0.leading.trailing.top.equalToSuperview()
+            $0.height.equalTo(8)
+        }
         
         description1.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(21)
-            $0.top.equalToSuperview().inset(28)
+            $0.top.equalTo(seperatedLine.snp.bottom).offset(28)
+            $0.width.equalTo(290)
         }
         
         description2.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(21)
-            $0.top.equalToSuperview().inset(78)
+            $0.top.equalTo(seperatedLine.snp.bottom).offset(78)
         }
         
         description3.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(21)
-            $0.top.equalToSuperview().inset(109)
+            $0.top.equalTo(seperatedLine.snp.bottom).offset(109)
+            $0.width.equalTo(283)
         }
         
         description4.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(21)
-            $0.top.equalToSuperview().inset(159)
+            $0.top.equalTo(seperatedLine.snp.bottom).offset(159)
         }
         
         description5.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(21)
-            $0.top.equalToSuperview().inset(190)
+            $0.top.equalTo(seperatedLine.snp.bottom).offset(190)
         }
     }  
 }

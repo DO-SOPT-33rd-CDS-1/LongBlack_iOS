@@ -83,7 +83,7 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     
     private func setLayout() {
         self.addSubviews(stampTitle, stampBox)
-        stampBox.addSubviews(stampCardTitle, stampDescription, stampBoxLine)
+        stampBox.addSubviews(collectionView, stampCardTitle, stampDescription, stampBoxLine)
         collectionView.dataSource = self
         
         stampTitle.snp.makeConstraints {
@@ -94,7 +94,7 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         stampBox.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(27)
             $0.trailing.equalToSuperview().inset(28)
-            $0.top.equalTo(stampTitle.snp.bottom).inset(12)
+            $0.top.equalTo(stampTitle.snp.bottom).offset(12)
             $0.height.equalTo(352)
         }
         
@@ -123,17 +123,17 @@ class LibraryCollectionViewCell: UICollectionViewCell {
 
 extension LibraryCollectionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 52, height: 52)
-        }
+        return CGSize(width: collectionView.frame.size.width, height: 240)
+    }
 }
 extension LibraryCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return libraryData.count
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryMakeCollectionViewCell.identifier, for: indexPath) as? LibraryMakeCollectionViewCell else {return UICollectionViewCell()}
-        item.bindData(data: libraryData[indexPath.item])
-        return item
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryMakeCollectionViewCell.identifier, for: indexPath) as? LibraryMakeCollectionViewCell else {return UICollectionViewCell()}
+        cell.bindData(data: libraryData[indexPath.row])
+        return cell
     }
 }

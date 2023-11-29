@@ -69,12 +69,12 @@ class UnExchangedStampCollectionViewCell: UICollectionViewCell {
         
         cardTitle.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(29)
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(52)
         }
         
         libraryCoffeCard.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(27)
-            $0.top.equalTo(cardTitle.snp.bottom).inset(16)
+            $0.top.equalTo(cardTitle.snp.bottom).offset(16)
         }
         
         cardName.snp.makeConstraints {

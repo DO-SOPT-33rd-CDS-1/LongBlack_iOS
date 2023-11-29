@@ -26,11 +26,11 @@ class LibraryMakeCollectionViewCell: UICollectionViewCell {
    
     
     private func setLayout() {
-        self.contentView.addSubview(stampSpot1)
+        self.contentView.addSubviews(stampSpot1, stampSpot2, stampSpot3, stampSpot4, stampSpot5, stampSpot6, stampSpot7, stampSpot8, stampSpot9, stampSpot10, stampSpot11, stampSpot12)
         
         stampSpot1.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(26)
+            $0.leading.equalToSuperview().inset(25)
         }
         stampSpot2.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20)
