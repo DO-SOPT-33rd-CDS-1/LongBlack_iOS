@@ -39,6 +39,11 @@ final class HomeViewController: BaseViewController {
         setAddTarget()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     deinit {
         // 타이머 해제
         homeTimer?.invalidate()
@@ -209,11 +214,15 @@ extension HomeViewController {
     
     // MARK: Objc Function
     @objc private func noteHomeButtonTapped() {
-        print("여기에 전체 노트 연결")
+        let noteViewController = NoteViewController()
+        self.navigationController?.pushViewController(noteViewController, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc private func libraryHomeButtonTapped() {
-        print("여기에 라이브러리 연결")
+        let libraryPageViewController = LibraryPageViewController()
+        self.navigationController?.pushViewController(libraryPageViewController, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc private func eventRightButtonTapped() {

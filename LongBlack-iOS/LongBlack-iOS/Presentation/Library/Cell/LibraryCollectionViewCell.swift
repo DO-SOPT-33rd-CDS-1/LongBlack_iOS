@@ -13,7 +13,7 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "LibraryCollectionViewCell"
     
-    let libraryStampCount: Int = 2
+    var libraryStampCount: Int = 0
 
 
     let collectionView: UICollectionView = {
@@ -133,6 +133,21 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         stampBoxLine.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(1)
             $0.top.equalTo(stampBox.snp.top).inset(68)
+        }
+    }
+    
+    func fetchLibraryStamp() {
+        Task {
+            do {
+                if let receivedData = try await LibraryService.shared.getLibraryStampData() {
+                    self.libraryStampCount = receivedData.stampCount
+                    self.collectionView.reloadData()
+                    print(receivedData.stampCount)
+                    print("💛💛💛💛💛💛💛")
+                }
+            } catch {
+                print(error)
+            }
         }
     }
 }

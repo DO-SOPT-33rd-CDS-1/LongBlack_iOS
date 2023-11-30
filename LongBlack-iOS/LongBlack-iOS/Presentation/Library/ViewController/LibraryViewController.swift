@@ -104,6 +104,7 @@ extension LibraryViewController: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryCollectionViewCell.identifier, for: indexPath) as? LibraryCollectionViewCell else {return UICollectionViewCell()}
+            cell.fetchLibraryStamp()
             return cell
             
         case 1:
