@@ -17,6 +17,9 @@ class NoteViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task{
+            await fetchList()
+        }
         setLayout()
         setCollectionView()
     }
@@ -66,6 +69,30 @@ class NoteViewController: BaseViewController {
     @objc private func backButtonTapped() {
         // 뒤로가기 버튼이 눌렸을 때 Home으로 가는 동작
     }
+    
+    func fetchList() async {
+        for id in 1...1 {
+            do {
+                let noteId = try await NoteViewService.shared.getNoteList(post: id)
+                for post in noteId.posts {
+                    let noteList: NoteData = NoteData(
+                        id: post.id,
+                        title: post.title,
+                        author: post.writer,
+                        nickname: post.postType,
+                        state: post.like,
+                        backgroundColor: UIColor(hex: post.color)
+                    )
+                    noteData.append(noteList)
+                }
+            }
+            catch {
+                print("노트 리스트를 가져오는 중 오류 발생: \(error)")
+            }
+        }
+        collectionView.reloadData()
+    }
+
 }
 
 extension NoteViewController: UICollectionViewDelegateFlowLayout {
@@ -133,7 +160,7 @@ extension NoteViewController: UICollectionViewDataSource {
             
         case 1:
             guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.identifier, for: indexPath) as? NoteCollectionViewCell else {return UICollectionViewCell()}
-            item.bindData(data: noteData[indexPath.row])
+            item.bindData(data: noteData[indexPath.row], imageData: noteImageData[indexPath.row])
             return item
             
         default:

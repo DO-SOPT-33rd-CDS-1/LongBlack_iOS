@@ -25,6 +25,12 @@ class NoteCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var noteDivider = UILabel().then {
+        $0.font = .b3Medium
+        $0.text = "|"
+        $0.textColor = .subGray3
+    }
+    
     private func setLayout() {
         self.addSubview(contentView)
         contentView.addSubviews(noteBackground, noteImage, noteTitle, noteAuthor, noteDivider, noteNickname, noteState)
@@ -68,6 +74,8 @@ class NoteCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private var noteId: Int = 0
+    
     private var noteImage = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
@@ -81,11 +89,6 @@ class NoteCollectionViewCell: UICollectionViewCell {
     private var noteAuthor = UILabel().then {
         $0.font = .b3Medium
         $0.textColor = .black
-    }
-    
-    private var noteDivider = UILabel().then {
-        $0.font = .b3Medium
-        $0.textColor = .subGray3
     }
     
     private var noteNickname = UILabel().then {
@@ -103,17 +106,19 @@ class NoteCollectionViewCell: UICollectionViewCell {
         $0.layer.cornerRadius = 4
     }
     
-    func bindData(data: NoteData) {
-        self.noteImage.image = data.image
+    func bindData(data: NoteData, imageData: NoteImageData) {
+        self.noteId = data.id
         self.noteTitle.text = data.title
         self.noteAuthor.text = data.author
-        self.noteDivider.text = data.divider
-        self.noteNickname.text = data.nickname
         if data.state {
-            self.noteState.image = UIImage(named: "likeOn")
-        } else {
-            self.noteState.image = UIImage(named: "likeOff")
-        }
+                    self.noteState.image = UIImage(named: "likeOn")
+                } else {
+                    self.noteState.image = UIImage(named: "likeOff")
+                }
+        self.noteNickname.text = data.nickname
         self.noteBackground.backgroundColor = data.backgroundColor
-    }
+        self.noteImage.image = imageData.image
+        }
 }
+
+
