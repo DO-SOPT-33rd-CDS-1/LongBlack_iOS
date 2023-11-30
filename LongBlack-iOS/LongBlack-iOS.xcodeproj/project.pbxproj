@@ -66,6 +66,19 @@
 		E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CAFE2B0C5F1400C50722 /* NoteData.swift */; };
 		E5D1CB012B0C5F2900C50722 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CB002B0C5F2900C50722 /* NoteCollectionViewCell.swift */; };
 		E5D1CB032B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1CB022B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift */; };
+		E5D4C1F82B16498D0050232A /* LibrarySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1F72B16498D0050232A /* LibrarySegmentedControl.swift */; };
+		E5D4C1FA2B1657880050232A /* ClassifyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1F92B1657880050232A /* ClassifyButtonView.swift */; };
+		E5D4C1FC2B16735D0050232A /* LibraryMakeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1FB2B16735C0050232A /* LibraryMakeCollectionViewCell.swift */; };
+		E5D4C1FE2B167ED20050232A /* UnExchangedStampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1FD2B167ED10050232A /* UnExchangedStampCollectionViewCell.swift */; };
+		E5D4C2002B167F280050232A /* LibraryDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C1FF2B167F280050232A /* LibraryDescriptionCollectionViewCell.swift */; };
+		E5D4C2032B1771830050232A /* LibraryStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C2022B1771830050232A /* LibraryStampModel.swift */; };
+		E5DC8CDB2B11C687007A4F12 /* CustomLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */; };
+		E5E1CC612B148B4E008A1FE8 /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */; };
+		E5E1CC632B1491A6008A1FE8 /* MyNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */; };
+		E5E1CC652B1491D8008A1FE8 /* MyStickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */; };
+		E5E1CC672B14920B008A1FE8 /* MyBookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC662B14920B008A1FE8 /* MyBookmarkView.swift */; };
+		E5E1CC692B149260008A1FE8 /* LibraryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */; };
+		E5E8B6002B18614A00A2B386 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E5E8B5FF2B18614A00A2B386 /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +142,19 @@
 		E5D1CAFE2B0C5F1400C50722 /* NoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteData.swift; sourceTree = "<group>"; };
 		E5D1CB002B0C5F2900C50722 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5D1CB022B0C5F7B00C50722 /* FilterButtonMakeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonMakeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5D4C1F72B16498D0050232A /* LibrarySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySegmentedControl.swift; sourceTree = "<group>"; };
+		E5D4C1F92B1657880050232A /* ClassifyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifyButtonView.swift; sourceTree = "<group>"; };
+		E5D4C1FB2B16735C0050232A /* LibraryMakeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryMakeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5D4C1FD2B167ED10050232A /* UnExchangedStampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnExchangedStampCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5D4C1FF2B167F280050232A /* LibraryDescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5D4C2022B1771830050232A /* LibraryStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStampModel.swift; sourceTree = "<group>"; };
+		E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLibraryView.swift; sourceTree = "<group>"; };
+		E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoteView.swift; sourceTree = "<group>"; };
+		E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStickerView.swift; sourceTree = "<group>"; };
+		E5E1CC662B14920B008A1FE8 /* MyBookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookmarkView.swift; sourceTree = "<group>"; };
+		E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPageViewController.swift; sourceTree = "<group>"; };
+		E5E8B5FF2B18614A00A2B386 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +266,12 @@
 		C3020A4D2B09079E000919CF /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				C3020A4E2B0907AE000919CF /* LibraryViewController.swift */,
+				E5D4C2012B17716D0050232A /* Model */,
+				E5DC8CD92B11BFB6007A4F12 /* Data */,
+				E5DC8CD82B11BFAF007A4F12 /* Cell */,
+				E5DC8CD72B11BF9B007A4F12 /* Button */,
+				E5DC8CD62B11BF96007A4F12 /* View */,
+				E5DC8CD52B11BF71007A4F12 /* ViewController */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -469,6 +500,7 @@
 				C3ECFC062B086C7700118AB3 /* Color.swift */,
 				C3ECFC082B086CF500118AB3 /* Font.swift */,
 				C33BABCF2B145A1C00A25A61 /* Config.swift */,
+				E5E8B5FF2B18614A00A2B386 /* Config.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -534,6 +566,61 @@
 			children = (
 				E5D1CAFA2B0C5D6C00C50722 /* FilterButtonData.swift */,
 				E5D1CAFE2B0C5F1400C50722 /* NoteData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E5D4C2012B17716D0050232A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5D4C2022B1771830050232A /* LibraryStampModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5DC8CD52B11BF71007A4F12 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3020A4E2B0907AE000919CF /* LibraryViewController.swift */,
+				E5E1CC662B14920B008A1FE8 /* MyBookmarkView.swift */,
+				E5E1CC642B1491D8008A1FE8 /* MyStickerView.swift */,
+				E5E1CC622B1491A6008A1FE8 /* MyNoteView.swift */,
+				E5E1CC682B149260008A1FE8 /* LibraryPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E5DC8CD62B11BF96007A4F12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC8CDA2B11C687007A4F12 /* CustomLibraryView.swift */,
+				E5D4C1F72B16498D0050232A /* LibrarySegmentedControl.swift */,
+				E5D4C1F92B1657880050232A /* ClassifyButtonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5DC8CD72B11BF9B007A4F12 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		E5DC8CD82B11BFAF007A4F12 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5E1CC602B148B4E008A1FE8 /* LibraryCollectionViewCell.swift */,
+				E5D4C1FB2B16735C0050232A /* LibraryMakeCollectionViewCell.swift */,
+				E5D4C1FD2B167ED10050232A /* UnExchangedStampCollectionViewCell.swift */,
+				E5D4C1FF2B167F280050232A /* LibraryDescriptionCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E5DC8CD92B11BFB6007A4F12 /* Data */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -608,6 +695,7 @@
 				C3ECFC122B086D9B00118AB3 /* Pretendard-Regular.otf in Resources */,
 				C3ECFC132B086D9B00118AB3 /* Pretendard-SemiBold.otf in Resources */,
 				C3ECFC112B086D9B00118AB3 /* Pretendard-Medium.otf in Resources */,
+				E5E8B6002B18614A00A2B386 /* Config.xcconfig in Resources */,
 				C3ECFC0D2B086D8A00118AB3 /* Pretendard-Bold.otf in Resources */,
 				C3ECFBE62B08677100118AB3 /* Assets.xcassets in Resources */,
 				C3ECFC0B2B086D7E00118AB3 /* Pretendard-Light.otf in Resources */,
@@ -622,6 +710,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */,
+				E5D4C1FA2B1657880050232A /* ClassifyButtonView.swift in Sources */,
 				C3020A692B090DFF000919CF /* MyPageViewController.swift in Sources */,
 				C3ECFC022B086A6F00118AB3 /* Image.swift in Sources */,
 				E5D1CAFF2B0C5F1400C50722 /* NoteData.swift in Sources */,
@@ -631,6 +720,8 @@
 				C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
 				E58C9D362B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift in Sources */,
+				E5E1CC692B149260008A1FE8 /* LibraryPageViewController.swift in Sources */,
+				E5D4C1FC2B16735D0050232A /* LibraryMakeCollectionViewCell.swift in Sources */,
 				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
 				C3ECFC092B086CF500118AB3 /* Font.swift in Sources */,
 				04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */,
@@ -649,8 +740,11 @@
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
 				E5D1CAFB2B0C5D6C00C50722 /* FilterButtonData.swift in Sources */,
 				E5D1CAFD2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift in Sources */,
+				E5E1CC612B148B4E008A1FE8 /* LibraryCollectionViewCell.swift in Sources */,
+				E5D4C1F82B16498D0050232A /* LibrarySegmentedControl.swift in Sources */,
 				C3020A622B090AAD000919CF /* HomeTabBarViewController.swift in Sources */,
 				C32E774E2B0F4976001433C8 /* OpenNoteCollectionViewCell.swift in Sources */,
+				E5DC8CDB2B11C687007A4F12 /* CustomLibraryView.swift in Sources */,
 				C3ECFC182B086EF100118AB3 /* BaseViewController.swift in Sources */,
 				C3ECFBDD2B08676E00118AB3 /* AppDelegate.swift in Sources */,
 				C3ECFBDF2B08676E00118AB3 /* SceneDelegate.swift in Sources */,
@@ -659,16 +753,22 @@
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
 				E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */,
+				E5E1CC672B14920B008A1FE8 /* MyBookmarkView.swift in Sources */,
+				E5E1CC632B1491A6008A1FE8 /* MyNoteView.swift in Sources */,
+				E5D4C1FE2B167ED20050232A /* UnExchangedStampCollectionViewCell.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
 				04B2C2FB2B0DD75F00FD20E3 /* CollectionViewData.swift in Sources */,
 				040C8EB32B0EF15300F47ACE /* ArticleData.swift in Sources */,
+				E5D4C2032B1771830050232A /* LibraryStampModel.swift in Sources */,
 				C3020A642B090ACB000919CF /* HomeTabBarItem.swift in Sources */,
 				C33BABD02B145A1C00A25A61 /* Config.swift in Sources */,
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
+				E5E1CC652B1491D8008A1FE8 /* MyStickerView.swift in Sources */,
 				C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */,
 				C34113DA2B15ADA4001585BF /* LibraryService.swift in Sources */,
+				E5D4C2002B167F280050232A /* LibraryDescriptionCollectionViewCell.swift in Sources */,
 				C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);
@@ -690,7 +790,7 @@
 /* Begin XCBuildConfiguration section */
 		C3ECFBEB2B08677100118AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C33BABD12B145A7300A25A61 /* Config.xcconfig */;
+			baseConfigurationReference = E5E8B5FF2B18614A00A2B386 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -754,7 +854,7 @@
 		};
 		C3ECFBEC2B08677100118AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C33BABD12B145A7300A25A61 /* Config.xcconfig */;
+			baseConfigurationReference = E5E8B5FF2B18614A00A2B386 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
