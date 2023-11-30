@@ -64,6 +64,9 @@ enum ImageLiterals {
         static var imgNoteDummy9: UIImage { .load(named:  "imgNoteDummy9")}
         static var imgNoteDummy10: UIImage { .load(named:  "imgNoteDummy10")}
         static var imgNoteDummy11: UIImage { .load(named:  "imgNoteDummy11")}
+        static var icLike: UIImage { .load(named:  "likeOn")}
+        static var icUnLike: UIImage { .load(named:  "likeOff")}
+        
     }
     
     enum Library {

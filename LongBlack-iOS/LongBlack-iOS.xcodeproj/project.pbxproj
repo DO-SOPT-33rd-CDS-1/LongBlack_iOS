@@ -77,6 +77,7 @@
 		E5E8B6082B18C9FD00A2B386 /* NoteListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8B6072B18C9FD00A2B386 /* NoteListResponseDTO.swift */; };
 		E5E8B60A2B18D00100A2B386 /* NoteViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8B6092B18D00100A2B386 /* NoteViewService.swift */; };
 		E5E8B60C2B190DF200A2B386 /* NoteImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8B60B2B190DF200A2B386 /* NoteImageData.swift */; };
+		E5E8B60E2B19200E00A2B386 /* NoteListRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8B60D2B19200E00A2B386 /* NoteListRequestDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +152,7 @@
 		E5E8B6072B18C9FD00A2B386 /* NoteListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListResponseDTO.swift; sourceTree = "<group>"; };
 		E5E8B6092B18D00100A2B386 /* NoteViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewService.swift; sourceTree = "<group>"; };
 		E5E8B60B2B190DF200A2B386 /* NoteImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteImageData.swift; sourceTree = "<group>"; };
+		E5E8B60D2B19200E00A2B386 /* NoteListRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListRequestDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,6 +569,7 @@
 		E5E8B6042B18C99400A2B386 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				E5E8B60D2B19200E00A2B386 /* NoteListRequestDTO.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				E58C9D342B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
+				E5E8B60E2B19200E00A2B386 /* NoteListRequestDTO.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
 				E5D1CAFB2B0C5D6C00C50722 /* FilterButtonData.swift in Sources */,
 				E5D1CAFD2B0C5EC300C50722 /* FilterButtonCollectionViewCell.swift in Sources */,

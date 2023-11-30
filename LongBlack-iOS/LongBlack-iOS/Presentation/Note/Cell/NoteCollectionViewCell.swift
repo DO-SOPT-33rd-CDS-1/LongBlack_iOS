@@ -15,6 +15,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "NoteCollectionViewCell"
     
     private var itemRow: Int?
+    private var isListView: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -96,10 +97,13 @@ class NoteCollectionViewCell: UICollectionViewCell {
         $0.textColor = .black
     }
     
-    private var noteState = UIImageView().then {
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true
-    }
+    private lazy var noteState = UIImageView().then {
+            $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.isUserInteractionEnabled = true
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(noteStateTapped))
+            $0.addGestureRecognizer(tapGesture)
+        }
     
     private var noteBackground = UIView().then {
         $0.frame = CGRect(x: 0, y: 0, width: 335, height: 339)
@@ -119,6 +123,24 @@ class NoteCollectionViewCell: UICollectionViewCell {
         self.noteBackground.backgroundColor = data.backgroundColor
         self.noteImage.image = imageData.image
         }
+    
+    @objc private func noteStateTapped() {
+        print("좋아요 버튼이 탭되었습니다.")
+        if self.noteState.image == ImageLiterals.Note.icLike {
+            self.noteState.image = ImageLiterals.Note.icUnLike
+        }
+        else {
+            self.noteState.image = ImageLiterals.Note.icLike
+        }
+        Task {
+            do {
+                let newState = self.isListView
+                try await NoteViewService.shared.updateNote(postId: 1, isListView: newState)
+            } catch {
+                print("PUT 요청 중 에러 발생: \(error)")
+            }
+        }
+    }
 }
 
 

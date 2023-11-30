@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - NoteLisetResponseDTO
 struct NoteListResponseDTO: Codable {
     let posts: [Post]
 }
