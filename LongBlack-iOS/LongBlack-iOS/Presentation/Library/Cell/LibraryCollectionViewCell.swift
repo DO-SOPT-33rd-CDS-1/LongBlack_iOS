@@ -13,7 +13,7 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "LibraryCollectionViewCell"
     
-    var libraryData = [1,1,1]
+    let libraryStampCount: Int = 2
 
 
     let collectionView: UICollectionView = {
@@ -28,7 +28,6 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         label.text = StringLiterals.Library.Stamp.stampTitle
         label.textColor = .subGray1
         label.font = .h7Semibold
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -37,7 +36,6 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         label.text = StringLiterals.Library.Stamp.stampCardTitle
         label.textColor = .subGray1
         label.font = .b2Regular
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -46,7 +44,6 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         label.text = StringLiterals.Library.Stamp.stampDescription
         label.textColor = .subGray2
         label.font = .b8Light
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -97,7 +94,6 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     private func setLayout() {
         self.addSubviews(stampTitle, stampBox, stampCardButton)
         stampBox.addSubviews(collectionView, stampCardTitle, stampDescription, stampBoxLine)
-        collectionView.dataSource = self
         
         stampTitle.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(29)
@@ -169,9 +165,9 @@ extension LibraryCollectionViewCell: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryMakeCollectionViewCell.identifier, for: indexPath) as? LibraryMakeCollectionViewCell else { return UICollectionViewCell() }
 
         let stampIndex = indexPath.row
-        if stampIndex < libraryData.count {
+        if stampIndex < libraryStampCount {
             // 사용자가 획득한 스탬프가 있을 경우
-            let stamp = libraryData[stampIndex]
+            let stamp = libraryStampCount
             cell.bindData()
         } else {
             // 사용자가 획득하지 않은 스탬프일 경우

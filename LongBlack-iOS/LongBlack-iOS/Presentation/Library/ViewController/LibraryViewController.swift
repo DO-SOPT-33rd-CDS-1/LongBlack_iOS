@@ -15,16 +15,21 @@ class LibraryViewController: BaseViewController {
     
     let classifyButtonView = ClassifyButtonView()
     
-    override func setStyle() {
-        view.backgroundColor = .white
-        self.view.addSubviews(classifyButtonView, collectionView)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.view.setNeedsLayout()
         setCollectionViewLayout()
         setCollectionViewConfig()
     }
     
+    override func setStyle() {
+        view.backgroundColor = .white
+    }
+    
     override func setLayout() {
         self.navigationController?.navigationBar.isHidden = true
+        
+        self.view.addSubviews(classifyButtonView, collectionView)
         
         classifyButtonView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(14)

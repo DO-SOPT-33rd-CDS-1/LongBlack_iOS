@@ -22,12 +22,12 @@ class CustomLibraryNavigationView: BaseView {
 
 
     override func setStyle() {
-        addSubviews(libraryViewbackButton)
         self.backgroundColor = .white
     }
 
     override func setLayout() {
-    
+        addSubviews(libraryViewbackButton)
+        
         self.snp.makeConstraints {
             $0.height.equalTo(65)
         }
