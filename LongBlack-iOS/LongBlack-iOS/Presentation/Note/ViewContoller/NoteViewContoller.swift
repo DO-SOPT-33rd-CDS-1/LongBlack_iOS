@@ -63,8 +63,6 @@ class NoteViewController: BaseViewController {
     
     // TODO: 뒤로가기 버튼 동작 추가
     // TODO: section0 의 버튼들 상태 변화 넣기
-    // TODO: section1 detail 페이지 연결
-    // TODO: 좋아요 버튼 구현
     
     @objc private func backButtonTapped() {
         // 뒤로가기 버튼이 눌렸을 때 Home으로 가는 동작
@@ -92,7 +90,6 @@ class NoteViewController: BaseViewController {
         }
         collectionView.reloadData()
     }
-
 }
 
 extension NoteViewController: UICollectionViewDelegateFlowLayout {
@@ -168,3 +165,18 @@ extension NoteViewController: UICollectionViewDataSource {
         }
     }
 }
+
+
+extension NoteViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 && indexPath.row == 0 {
+            // Section 1의 첫 번째 셀이 클릭된 경우
+            navigateToDetailViewController()
+        }
+    }
+    private func navigateToDetailViewController() {
+        let detailViewController = NoteDetailViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
