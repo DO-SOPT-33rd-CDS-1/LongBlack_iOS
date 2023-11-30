@@ -14,6 +14,7 @@
 		04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */; };
 		04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */; };
 		04B2C2FB2B0DD75F00FD20E3 /* CollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2FA2B0DD75F00FD20E3 /* CollectionViewData.swift */; };
+		04B7F4272B189297006A31B5 /* postRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7F4262B189297006A31B5 /* postRequestBody.swift */; };
 		C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A3E2B0906D7000919CF /* UILabel+.swift */; };
 		C3020A432B090704000919CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A422B090704000919CF /* HomeViewController.swift */; };
 		C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4B2B090796000919CF /* NoteDetailViewController.swift */; };
@@ -70,12 +71,13 @@
 
 /* Begin PBXFileReference section */
 		040C8EB22B0EF15300F47ACE /* ArticleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleData.swift; sourceTree = "<group>"; };
-		045F97262B16479E00B4D929 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = Note/Service/Config.xcconfig; sourceTree = "<group>"; };
+		045F97262B16479E00B4D929 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		045F972F2B16497200B4D929 /* GetSinglepost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSinglepost.swift; sourceTree = "<group>"; };
 		04A524C42B0FD11300FCAC2C /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
 		04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		04B2C2FA2B0DD75F00FD20E3 /* CollectionViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewData.swift; sourceTree = "<group>"; };
+		04B7F4262B189297006A31B5 /* postRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postRequestBody.swift; sourceTree = "<group>"; };
 		C3020A3E2B0906D7000919CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		C3020A422B090704000919CF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3020A4B2B090796000919CF /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */,
+				04B7F4262B189297006A31B5 /* postRequestBody.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -264,7 +267,6 @@
 		C3020A522B0907EB000919CF /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				045F97262B16479E00B4D929 /* Config.xcconfig */,
 				040C8EB42B0EFFE400F47ACE /* NoteDetail */,
 				C3020A532B0907FF000919CF /* Base */,
 				C3020A552B090818000919CF /* Note */,
@@ -372,6 +374,7 @@
 		C3ECFBD02B08676E00118AB3 = {
 			isa = PBXGroup;
 			children = (
+				045F97262B16479E00B4D929 /* Config.xcconfig */,
 				C3ECFBDB2B08676E00118AB3 /* LongBlack-iOS */,
 				C3ECFBDA2B08676E00118AB3 /* Products */,
 			);
@@ -627,6 +630,7 @@
 				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
 				E58C9D342B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
+				04B7F4272B189297006A31B5 /* postRequestBody.swift in Sources */,
 				045F97302B16497200B4D929 /* GetSinglepost.swift in Sources */,
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
