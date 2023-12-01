@@ -10,8 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
-// MARK: - NoteDetailViewController class
+// MARK: - NoteDetailViewController
 class NoteDetailViewController: BaseViewController {
+    
+    var cellIdx: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,11 @@ class NoteDetailViewController: BaseViewController {
         setCollectionViewConfig()
         setCollectionViewLayout()
         setUI()
+        Task {
+            print("Before fetching article info")
+            await fetchArticleInfo()
+            print("After fetching article info")
+        }
     }
     
     // MARK: - setCollectionViewConfig()
@@ -36,10 +43,29 @@ class NoteDetailViewController: BaseViewController {
         flowLayout.minimumLineSpacing = 3
         flowLayout.minimumInteritemSpacing = 3
         flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 110)
+        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 200)
         self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
     }
     
+    // MARK: - fetchArticleInfo()
+    private func fetchArticleInfo() async {
+        do {
+            guard let currentarticle = try await GetSinglepost.shared.getArticledata(postid: 1) else {
+                print("Error: currentarticle is nil")
+                return
+            }
+            let articleinfo = ArticleData(isLiked: currentarticle.like, isStamped: currentarticle.stamp, title: currentarticle.title, postId: currentarticle.postID, writer: currentarticle.writer, createdDate: currentarticle.createdDate, bookmarkIdx: currentarticle.bookmarkIdx, paragraph: currentarticle.paragraphs)
+            
+            articledatalist.append(articleinfo)
+            if currentarticle.like == true {
+                bookmarkButton.isSelected = true
+            }
+        } catch {
+            print("Error fetching article data:", error)
+        }
+        collectionView.reloadData()
+    }
+    // MARK: - backButton
     let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
@@ -58,6 +84,13 @@ class NoteDetailViewController: BaseViewController {
     }()
     @objc func buttonPressed1() {
         bookmarkButton.isSelected.toggle()
+        Task {
+            do {
+                try await NoteViewService.shared.updateNote(postId: 1, isListView: false)
+            } catch {
+                print(error)
+            }
+        }
     }
     
     let topView = UIView()
@@ -92,7 +125,7 @@ class NoteDetailViewController: BaseViewController {
     }()
     
     // MARK: - placeBookmarkButton
-    private let placeBookmarkButton: UIButton = {
+    lazy var placeBookmarkButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Detail.placeBookmark, for: .normal)
         button.setImage(ImageLiterals.Detail.removeBookmark, for: .selected)
@@ -116,6 +149,14 @@ class NoteDetailViewController: BaseViewController {
                         yourCustomCell.removeBookmark()
                     }
                 }
+                Task {
+                    do {
+                        try await DeleteBookmark.shared.DeleteBookmarkFunc(postid: 1)
+                    } catch {
+                        print(error)
+                    }
+                }
+
             }
         } else {
             opaqueView.isHidden = true
@@ -212,6 +253,15 @@ extension NoteDetailViewController: UICollectionViewDelegate {
                     placeBookmarkButton.isSelected.toggle()
                     opaqueView.isHidden = true
                     cell.addBookmark()
+                    
+                    Task {
+                        do {
+                            try await AddBookmark.shared.PostAddBookmark(bookmarkIdx: indexPath.row)
+                            cell.addBookmark()
+                        } catch {
+                            print("Error in PostAddBookmark:", error)
+                        }
+                    }
                 }
             }
     }
@@ -220,18 +270,23 @@ extension NoteDetailViewController: UICollectionViewDelegate {
 extension NoteDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionviewdata.count
+        return articledatalist.first?.paraGraphs.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
                                                             for: indexPath) as? CollectionViewCell else {return UICollectionViewCell()}
-        item.bindData(data: collectionviewdata[indexPath.row])
+        item.bindData(data: articledatalist[0].paraGraphs[indexPath.row])
+        // 책갈피가 기존에 이미 있을때, 꽂혀있는 상태를 유지하게 함
+        if articledatalist[0].bookmarkIdx != -1 {
+            item.addBookmark()
+            bookmarkButton.isSelected = true
+        }
         return item
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width-6, height: 332)
+        return CGSize(width: UIScreen.main.bounds.width-6, height: 330)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -245,33 +300,36 @@ extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView else {
             return CollectionHeaderView()
         }
-        header.configure()
+        Task {
+            await fetchArticleInfo()
+            header.dataBindHeader()
+            header.configure()
+        }
         return header
     }
     
 }
+// MARK: - reusedLineView Class
+class reusedLineView: UIView {
     
-    // MARK: - reusedLineView Class
-    class reusedLineView: UIView {
-        
-        var customHeight: CGFloat
-        var customColor: UIColor
-        
-        init(height: CGFloat, color: UIColor) {
-            customHeight = height
-            customColor = color
-            super.init(frame: .zero)
-            backgroundColor = customColor
-            NSLayoutConstraint.activate([self.heightAnchor.constraint(equalToConstant: height)])
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
+    var customHeight: CGFloat
+    var customColor: UIColor
+    
+    init(height: CGFloat, color: UIColor) {
+        customHeight = height
+        customColor = color
+        super.init(frame: .zero)
+        backgroundColor = customColor
+        NSLayoutConstraint.activate([self.heightAnchor.constraint(equalToConstant: height)])
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
