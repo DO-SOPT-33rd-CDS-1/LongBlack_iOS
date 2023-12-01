@@ -18,9 +18,6 @@ class NoteDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-//        Task {
-//            await fetchArticleInfo()
-//        }
         setCollectionViewConfig()
         setCollectionViewLayout()
         setUI()
@@ -28,7 +25,6 @@ class NoteDetailViewController: BaseViewController {
             print("Before fetching article info")
             await fetchArticleInfo()
             print("After fetching article info")
-            //self.collectionView.reloadData()
         }
     }
     
@@ -127,7 +123,7 @@ class NoteDetailViewController: BaseViewController {
         button.addTarget(self, action: #selector(bookmarkbuttonPressed), for: .touchUpInside)
         return button
     }()
-    @objc func bookmarkbuttonPressed() async {
+    @objc func bookmarkbuttonPressed() {
         if opaqueView.isHidden {
             if !placeBookmarkButton.isSelected {
                 opaqueView.isHidden = false
@@ -143,11 +139,14 @@ class NoteDetailViewController: BaseViewController {
                         yourCustomCell.removeBookmark()
                     }
                 }
-                do {
-                    try await DeleteBookmark.shared.DeleteBookmarkFunc(postid: 1)
-                } catch {
-                    print(error)
+                Task {
+                    do {
+                        try await DeleteBookmark.shared.DeleteBookmarkFunc(postid: 1)
+                    } catch {
+                        print(error)
+                    }
                 }
+
             }
         } else {
             opaqueView.isHidden = true
@@ -237,7 +236,7 @@ class NoteDetailViewController: BaseViewController {
 // MARK: - UICollectionViewDelegate+
 extension NoteDetailViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) async {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             // 선택된 셀에 대한 이벤트 진행
             if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
                 if opaqueView.isHidden == false {
@@ -245,10 +244,15 @@ extension NoteDetailViewController: UICollectionViewDelegate {
                     opaqueView.isHidden = true
                     cell.addBookmark()
                     cellIdx = indexPath.row
-                    do {
-                        try await AddBookmark.shared.PostAddBookmark(bookmarkIdx: cellIdx)
-                    } catch {
-                        print(error)
+                    
+                    Task {
+                        do {
+                            try await AddBookmark.shared.PostAddBookmark(bookmarkIdx: cellIdx)
+                            
+                            cell.addBookmark()
+                        } catch {
+                            print("Error in PostAddBookmark:", error)
+                        }
                     }
                 }
             }
