@@ -246,11 +246,10 @@ extension NoteDetailViewController: UICollectionViewDelegate {
                     placeBookmarkButton.isSelected.toggle()
                     opaqueView.isHidden = true
                     cell.addBookmark()
-                    cellIdx = indexPath.row
                     
                     Task {
                         do {
-                            try await AddBookmark.shared.PostAddBookmark(bookmarkIdx: cellIdx)
+                            try await AddBookmark.shared.PostAddBookmark(bookmarkIdx: indexPath.row)
                             cell.addBookmark()
                         } catch {
                             print("Error in PostAddBookmark:", error)
@@ -271,6 +270,11 @@ extension NoteDetailViewController: UICollectionViewDataSource {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
                                                             for: indexPath) as? CollectionViewCell else {return UICollectionViewCell()}
         item.bindData(data: articledatalist[0].paraGraphs[indexPath.row])
+        // 책갈피가 기존에 이미 있을때, 꽂혀있는 상태를 유지하게 함
+        if articledatalist[0].bookmarkIdx != -1 {
+            item.addBookmark()
+            bookmarkButton.isSelected = true
+        }
         return item
     }
         

@@ -103,6 +103,9 @@ class CollectionHeaderView: UICollectionReusableView {
             $0.bottom.equalTo(contentView.snp.bottom).inset(85)
         }
         dateLabel.text = articledatalist[0].createdDate
+        if articledatalist[0].isStamped == true {
+            stampButton.isSelected = true
+        }
     }
     
     func configure() {
