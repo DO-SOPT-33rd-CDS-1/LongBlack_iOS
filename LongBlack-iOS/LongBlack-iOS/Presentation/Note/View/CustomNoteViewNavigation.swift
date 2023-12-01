@@ -24,10 +24,20 @@ class CustomNoteViewNavigationView: UIView {
         let searchBar = UISearchBar()
         searchBar.placeholder = StringLiterals.Note.TabBar.noteViewSearchPlaceholder
         searchBar.backgroundImage = UIImage()
-        searchBar.layer.cornerRadius = 32
-        searchBar.backgroundColor = UIColor.clear
         searchBar.isTranslucent = true
         searchBar.barTintColor = .clear
+        if let searchTextField = searchBar.value(forKey: "searchField") as? UITextField {
+            searchTextField.backgroundColor = .subGray6
+                let placeholderAttributes: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor.subGray5
+                ]
+                let attributedPlaceholder = NSAttributedString(
+                    string: StringLiterals.Note.TabBar.noteViewSearchPlaceholder,
+                    attributes: placeholderAttributes
+                )
+                searchTextField.attributedPlaceholder = attributedPlaceholder
+            }
+        
         return searchBar
     }()
 
