@@ -11,17 +11,23 @@ import Then
 import SnapKit
 
 class NoteViewController: BaseViewController {
-    
+    var noteData: [NoteData] = []
     private let customNoteViewNavigationView = CustomNoteViewNavigationView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task{
-            await fetchList()
-        }
         setLayout()
         setCollectionView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task{
+            await fetchList { data in
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     override func setLayout() {
@@ -62,7 +68,7 @@ class NoteViewController: BaseViewController {
     }
     
     @objc func dismissButtonTapped() {
-            dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
         }
     
   
@@ -79,7 +85,7 @@ class NoteViewController: BaseViewController {
     }
 
     
-    func fetchList() async {
+    func fetchList(completion: @escaping ([NoteData]?) -> Void) async {
         for id in 1...1 {
             do {
                 let noteId = try await NoteViewService.shared.getNoteList(post: id)
@@ -92,15 +98,19 @@ class NoteViewController: BaseViewController {
                         state: post.like,
                         backgroundColor: UIColor(hex: post.color)
                     )
+                    dump(noteList)
                     noteData.append(noteList)
                 }
+                completion(noteData)
             }
             catch {
+                completion(nil)
                 print("노트 리스트를 가져오는 중 오류 발생: \(error)")
             }
         }
-        collectionView.reloadData()
     }
+    
+  
 }
 
 extension NoteViewController: UICollectionViewDelegateFlowLayout {

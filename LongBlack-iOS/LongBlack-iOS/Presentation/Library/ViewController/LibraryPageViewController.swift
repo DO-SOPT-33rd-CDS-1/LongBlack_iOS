@@ -31,7 +31,7 @@ final class LibraryPageViewController: UIViewController {
     }
     
     @objc func dismissLibraryButtonTapped() {
-            dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
         }
 
     var orderedViewControllers: [UIViewController] {

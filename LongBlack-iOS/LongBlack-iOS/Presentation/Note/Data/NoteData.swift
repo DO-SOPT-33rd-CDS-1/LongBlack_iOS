@@ -27,6 +27,6 @@ struct NoteData {
     }
 }
 
-var noteData: [NoteData] = []
+//var noteData: [NoteData] = []
 
 

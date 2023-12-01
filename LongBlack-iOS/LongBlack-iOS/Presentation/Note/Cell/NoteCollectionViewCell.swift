@@ -16,6 +16,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     
     private var itemRow: Int?
     private var isListView: Bool = false
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -114,11 +115,12 @@ class NoteCollectionViewCell: UICollectionViewCell {
         self.noteId = data.id
         self.noteTitle.text = data.title
         self.noteAuthor.text = data.author
+        print("bind data: \(data.state)")
         if data.state {
-                    self.noteState.image = UIImage(named: "likeOn")
-                } else {
-                    self.noteState.image = UIImage(named: "likeOff")
-                }
+            self.noteState.image = ImageLiterals.Note.icLike
+        } else {
+            self.noteState.image = ImageLiterals.Note.icUnLike
+        }
         self.noteNickname.text = data.nickname
         self.noteBackground.backgroundColor = data.backgroundColor
         self.noteImage.image = imageData.image
