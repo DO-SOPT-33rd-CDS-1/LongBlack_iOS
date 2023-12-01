@@ -19,17 +19,18 @@ class CollectionHeaderView: UICollectionReusableView {
         view.backgroundColor = .white
         let title = UILabel()
         title.font = .h2Bold
-        title.text = articledatalist[0].title
+        //title.text = articledatalist[0].title
+        //title.text = "aaaaaasdsodhfauliwlfhnacuowfhmoauchmfxlauwghf"
         title.numberOfLines = 0
         let writer = UILabel()
-        writer.text = articledatalist[0].writer
+        //writer.text = articledatalist[0].writer
         
         let date = UILabel()
         // Date타입을 String으로 변환
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: articledatalist[0].createdDate)
-        date.text = dateString
+        //let dateFormatter = DateFormatter()
+        //dateFormatter.dateFormat = "yyyy-MM-dd"
+        //let dateString = dateFormatter.string(from: articledatalist[0].createdDate)
+        //date.text = articledatalist[0].createdDate
 
         let line1 = reusedLineView(height: 4, color: .subGray1)
         let line2 = reusedLineView(height: 2, color: .subGray2)
@@ -93,8 +94,31 @@ class CollectionHeaderView: UICollectionReusableView {
         return image
     }()
     
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private func setLayout() {
+        self.addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        [titleLabel].forEach() {
+            contentView.addSubview($0)
+        }
+        titleLabel.snp.makeConstraints() {
+            $0.leading.equalTo(contentView).inset(20)
+            $0.trailing.equalTo(contentView).inset(80)
+            $0.top.equalTo(contentView).inset(20)
+        }
+        titleLabel.font = .h2Bold
+        titleLabel.text = articledatalist[0].title
+        titleLabel.numberOfLines = 0
+    }
+    
     func configure() {
         addSubview(contentView)
+        // setLayout()
     }
     
     override func layoutSubviews() {

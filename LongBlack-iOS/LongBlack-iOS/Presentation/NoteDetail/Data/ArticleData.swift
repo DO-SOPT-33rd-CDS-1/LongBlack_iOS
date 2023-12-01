@@ -8,19 +8,19 @@
 import Foundation
 
 // MARK: - ArticleData
-// 아티클 제목, 본문 제외 북마크, 스탬프 여부 등을 담는 데이터
+// 단일게시물 관련 모든 데이터를 담는 구조체
 struct ArticleData {
     let isLiked: Bool
     let isStamped: Bool
     let title: String
     let postId: Int
     let writer: String
-    let createdDate: Date
+    let createdDate: String
     let bookmarkIdx: Int
     
     let paraGraphs: [Paragraph]
     
-    init(isLiked: Bool, isStamped: Bool, title: String, postId: Int, writer: String, createdDate: Date, bookmarkIdx: Int, paragraph: [Paragraph]) {
+    init(isLiked: Bool, isStamped: Bool, title: String, postId: Int, writer: String, createdDate: String, bookmarkIdx: Int, paragraph: [Paragraph]) {
         self.isLiked = isLiked
         self.isStamped = isStamped
         self.title = title

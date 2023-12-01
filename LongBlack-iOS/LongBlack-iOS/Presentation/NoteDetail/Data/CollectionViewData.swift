@@ -5,6 +5,7 @@
 //  Created by Woo Jye Lee on 11/22/23.
 //
 
+// MARK: - 안쓰는 파일입니다!
 import Foundation
 
 // MARK: - CollectionViewData

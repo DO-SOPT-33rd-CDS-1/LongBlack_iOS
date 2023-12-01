@@ -25,7 +25,7 @@ class GetSinglepost {
         return request
     }
     
-    func getPostdata(postid: Int) async throws -> ArticleDataModel? {
+    func getArticledata(postid: Int) async throws -> ArticleDataModel? {
         do {
             let request = self.makeRequest(postid: postid)
             let (data, response) = try await URLSession.shared.data(for: request)

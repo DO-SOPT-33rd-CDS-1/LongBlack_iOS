@@ -9,10 +9,11 @@ import Foundation
 
 // MARK: - ArticleDataModel
 struct ArticleDataModel: Codable {
-    let postID, bookmarkIdx: Int
+    let postID: Int
     let title, writer, postType: String
-    let createdDate: Date
+    let createdDate: String
     let like, stamp: Bool
+    let bookmarkIdx: Int
     let paragraphs: [Paragraph]
 
     enum CodingKeys: String, CodingKey {
