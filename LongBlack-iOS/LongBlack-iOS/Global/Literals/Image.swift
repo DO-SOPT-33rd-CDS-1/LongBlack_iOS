@@ -65,6 +65,13 @@ enum ImageLiterals {
         static var imgNoteDummy10: UIImage { .load(named:  "imgNoteDummy10")}
         static var imgNoteDummy11: UIImage { .load(named:  "imgNoteDummy11")}
     }
+    
+    enum Library {
+        static var imgStickerSmallEmpty: UIImage { .load(named: "sticker_small_empty")}
+        static var imgStickerSmallFill: UIImage { .load(named: "sticker_small_fill")}
+        static var icArrowLeft: UIImage { .load(named: "ic_arrow_left_small")}
+        static var imgLibraryCoffeCard: UIImage { .load(named: "libraryCoffeCard")}
+    }
 }
 
 extension UIImage {
