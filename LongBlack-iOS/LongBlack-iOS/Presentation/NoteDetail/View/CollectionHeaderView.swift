@@ -15,26 +15,12 @@ class CollectionHeaderView: UICollectionReusableView {
     static let identifier = "CollectionHeaderView"
     
     private lazy var contentView: UIView = {
+
         let view = UIView()
         view.backgroundColor = .white
-        let title = UILabel()
-        title.font = .h2Bold
-        //title.text = articledatalist[0].title
-        //title.text = "aaaaaasdsodhfauliwlfhnacuowfhmoauchmfxlauwghf"
-        title.numberOfLines = 0
-        let writer = UILabel()
-        //writer.text = articledatalist[0].writer
-        
-        let date = UILabel()
-        // Date타입을 String으로 변환
-        //let dateFormatter = DateFormatter()
-        //dateFormatter.dateFormat = "yyyy-MM-dd"
-        //let dateString = dateFormatter.string(from: articledatalist[0].createdDate)
-        //date.text = articledatalist[0].createdDate
-
         let line1 = reusedLineView(height: 4, color: .subGray1)
         let line2 = reusedLineView(height: 2, color: .subGray2)
-        [stampButton, title, line1, line2, writer, date, profileView].forEach() {
+        [stampButton, line1, line2, profileView].forEach() {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -44,19 +30,6 @@ class CollectionHeaderView: UICollectionReusableView {
         line2.snp.makeConstraints() {
             $0.leading.trailing.equalTo(view).inset(20)
             $0.bottom.equalTo(profileView.snp.top).offset(-46)
-        }
-        title.snp.makeConstraints() {
-            $0.leading.equalTo(view).inset(20)
-            $0.trailing.equalTo(view).inset(80)
-            $0.top.equalTo(line1).inset(20)
-        }
-        writer.snp.makeConstraints() {
-            $0.leading.equalTo(view).inset(20)
-            $0.bottom.equalTo(line2).inset(10)
-        }
-        date.snp.makeConstraints() {
-            $0.leading.equalTo(writer).offset(50)
-            $0.bottom.equalTo(line2).inset(10)
         }
         stampButton.snp.makeConstraints() {
             $0.trailing.equalTo(view).inset(20)
@@ -99,26 +72,42 @@ class CollectionHeaderView: UICollectionReusableView {
         label.numberOfLines = 0
         return label
     }()
+    let writerLabel = UILabel()
+    let dateLabel = UILabel()
     
     private func setLayout() {
         self.addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        [titleLabel].forEach() {
+        [titleLabel, writerLabel, dateLabel].forEach() {
             contentView.addSubview($0)
         }
+        contentView.snp.makeConstraints() {
+            $0.edges.equalTo(self)
+        }
         titleLabel.snp.makeConstraints() {
-            $0.leading.equalTo(contentView).inset(20)
-            $0.trailing.equalTo(contentView).inset(80)
-            $0.top.equalTo(contentView).inset(20)
+            $0.leading.equalTo(contentView.snp.leading).inset(20)
+            $0.trailing.equalTo(contentView.snp.trailing).inset(80)
+            $0.top.equalTo(contentView.snp.top).inset(30)
         }
         titleLabel.font = .h2Bold
         titleLabel.text = articledatalist[0].title
         titleLabel.numberOfLines = 0
+        
+        writerLabel.snp.makeConstraints() {
+            $0.leading.equalTo(contentView.snp.leading).inset(20)
+            $0.bottom.equalTo(contentView.snp.bottom).inset(85)
+        }
+        writerLabel.text = articledatalist[0].writer
+        dateLabel.snp.makeConstraints() {
+            $0.leading.equalTo(writerLabel).offset(50)
+            $0.bottom.equalTo(contentView.snp.bottom).inset(85)
+        }
+        dateLabel.text = articledatalist[0].createdDate
     }
     
     func configure() {
-        addSubview(contentView)
-        // setLayout()
+        //addSubview(contentView)
+        setLayout()
     }
     
     override func layoutSubviews() {

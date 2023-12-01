@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-// MARK: - NoteDetailViewController class
+// MARK: - NoteDetailViewController
 class NoteDetailViewController: BaseViewController {
     
     var cellIdx: Int = 0
@@ -43,7 +43,7 @@ class NoteDetailViewController: BaseViewController {
         flowLayout.minimumLineSpacing = 3
         flowLayout.minimumInteritemSpacing = 3
         flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 150)
+        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 6), height: 200)
         self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
     }
     
@@ -57,6 +57,9 @@ class NoteDetailViewController: BaseViewController {
             let articleinfo = ArticleData(isLiked: currentarticle.like, isStamped: currentarticle.stamp, title: currentarticle.title, postId: currentarticle.postID, writer: currentarticle.writer, createdDate: currentarticle.createdDate, bookmarkIdx: currentarticle.bookmarkIdx, paragraph: currentarticle.paragraphs)
             
             articledatalist.append(articleinfo)
+            if currentarticle.like == true {
+                bookmarkButton.isSelected = true
+            }
         } catch {
             print("Error fetching article data:", error)
         }
@@ -262,7 +265,6 @@ extension NoteDetailViewController: UICollectionViewDelegate {
 extension NoteDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // return articledatalist[0].paraGraphs.count
         return articledatalist.first?.paraGraphs.count ?? 0
     }
     
@@ -274,7 +276,7 @@ extension NoteDetailViewController: UICollectionViewDataSource {
     }
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width-6, height: 332)
+        return CGSize(width: UIScreen.main.bounds.width-6, height: 330)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -288,7 +290,7 @@ extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView else {
             return CollectionHeaderView()
@@ -302,23 +304,22 @@ extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+// MARK: - reusedLineView Class
+class reusedLineView: UIView {
     
-    // MARK: - reusedLineView Class
-    class reusedLineView: UIView {
-        
-        var customHeight: CGFloat
-        var customColor: UIColor
-        
-        init(height: CGFloat, color: UIColor) {
-            customHeight = height
-            customColor = color
-            super.init(frame: .zero)
-            backgroundColor = customColor
-            NSLayoutConstraint.activate([self.heightAnchor.constraint(equalToConstant: height)])
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
+    var customHeight: CGFloat
+    var customColor: UIColor
+    
+    init(height: CGFloat, color: UIColor) {
+        customHeight = height
+        customColor = color
+        super.init(frame: .zero)
+        backgroundColor = customColor
+        NSLayoutConstraint.activate([self.heightAnchor.constraint(equalToConstant: height)])
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}

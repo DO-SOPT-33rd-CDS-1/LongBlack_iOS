@@ -75,7 +75,6 @@ class CollectionViewCell: UICollectionViewCell {
             $0.centerY.equalTo(self)
             $0.leading.trailing.equalTo(self).inset(20)
         }
-        
     }
     
     let paragraphLabel: UILabel = {
@@ -91,8 +90,17 @@ class CollectionViewCell: UICollectionViewCell {
     
     func calculateLabelHeight() -> CGFloat {
         let labelWidth = UIScreen.main.bounds.width - 20 // 예시로 너비를 화면 전체에서 20을 뺀 값으로 설정
-        let size = CGSize(width: labelWidth, height: .greatestFiniteMagnitude)
+        let size = CGSize(width: UIScreen.main.bounds.width - 20, height: .greatestFiniteMagnitude)
         let boundingBox = paragraphLabel.text?.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: paragraphLabel.font!], context: nil)
         return boundingBox?.height ?? 0
+    }
+}
+
+extension CollectionViewCell: UICollectionViewDelegateFlowLayout {
+    // cell의 크기를 동적으로 설정
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let labelWidth = UIScreen.main.bounds.width - 20
+        let labelHeight = calculateLabelHeight()
+        return CGSize(width: labelWidth, height: labelHeight + 20) // 20은 적절한 여유값
     }
 }
