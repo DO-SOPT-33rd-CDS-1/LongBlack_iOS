@@ -72,7 +72,7 @@ class NoteViewService {
             return request
         }
     
-    func updateNote(postId: Int64, isListView: Bool) async throws -> NoteListResponseDTO {
+    func updateNote(postId: Int64, isListView: Bool) async throws -> NoteListRequestDTO {
         do {
             let request = self.makeUpdateNoteRequest(postId: postId, isListView: isListView)
             print("Request URL: \(request.url?.absoluteString ?? "No URL")")
@@ -87,13 +87,24 @@ class NoteViewService {
                 throw NetworkError.responseError
             }
 
-            guard let parseData = parseNoteListData(data: data) else {
+            guard let parseData = parseNoteLikeData(data: data) else {
                 throw NetworkError.responseDecodingError
             }
 
             return parseData
         } catch {
             throw error
+        }
+    }
+    
+    private func parseNoteLikeData(data: Data) -> NoteListRequestDTO? {
+        do {
+            let jsonDecoder = JSONDecoder()
+            let result = try jsonDecoder.decode(NoteListRequestDTO.self, from: data)
+            return result
+        } catch {
+            print(error)
+            return nil
         }
     }
 
