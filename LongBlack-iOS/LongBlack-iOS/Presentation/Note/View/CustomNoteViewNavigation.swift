@@ -10,16 +10,7 @@ import UIKit
 import SnapKit
 
 class CustomNoteViewNavigationView: UIView {
-
-    private let noteViewbackButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle(StringLiterals.Note.TabBar.noteViewTitle, for: .normal)
-        button.setImage(ImageLiterals.Note.icNoteBackButton, for: .normal)
-        button.titleLabel?.font = .h3Semibold
-        button.setTitleColor(.subGray1, for: .normal)
-        return button
-    }()
-
+    
     private let noteViewSearchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = StringLiterals.Note.TabBar.noteViewSearchPlaceholder
@@ -54,7 +45,7 @@ class CustomNoteViewNavigationView: UIView {
     }
 
     private func setupViews() {
-        addSubviews(noteViewbackButton, noteViewSearchBar)
+        addSubviews(noteViewSearchBar)
         self.backgroundColor = .white
     }
 
@@ -62,11 +53,6 @@ class CustomNoteViewNavigationView: UIView {
         
         self.snp.makeConstraints {
             $0.height.equalTo(72)
-        }
-        
-        noteViewbackButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.top.equalToSuperview().offset(21)
         }
 
         noteViewSearchBar.snp.makeConstraints {

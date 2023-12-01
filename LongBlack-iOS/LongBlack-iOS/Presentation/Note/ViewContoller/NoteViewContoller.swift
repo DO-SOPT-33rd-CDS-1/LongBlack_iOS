@@ -30,10 +30,16 @@ class NoteViewController: BaseViewController {
     
     override func setStyle() {
         self.view.addSubviews(customNoteViewNavigationView, collectionView)
+        customNoteViewNavigationView.addSubview(noteViewbackButton)
         
         customNoteViewNavigationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
+        }
+        
+        noteViewbackButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().inset(21)
         }
         
         collectionView.snp.makeConstraints{
@@ -47,6 +53,19 @@ class NoteViewController: BaseViewController {
         $0.backgroundColor = .white
     }
     
+    private let noteViewbackButton = UIButton().then {
+        $0.setTitle(StringLiterals.Note.TabBar.noteViewTitle, for: .normal)
+        $0.setImage(ImageLiterals.Note.icNoteBackButton, for: .normal)
+        $0.titleLabel?.font = .h3Semibold
+        $0.setTitleColor(.subGray1, for: .normal)
+        $0.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func dismissButtonTapped() {
+            dismiss(animated: true, completion: nil)
+        }
+    
+  
     private func setCollectionView() {
         self.collectionView.register(FilterButtonMakeCollectionViewCell.self,
                                      forCellWithReuseIdentifier: FilterButtonMakeCollectionViewCell.identifier)
@@ -58,15 +77,7 @@ class NoteViewController: BaseViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
-    
-    
-    
-    // TODO: 뒤로가기 버튼 동작 추가
-    // TODO: section0 의 버튼들 상태 변화 넣기
-    
-    @objc private func backButtonTapped() {
-        // 뒤로가기 버튼이 눌렸을 때 Home으로 가는 동작
-    }
+
     
     func fetchList() async {
         for id in 1...1 {
