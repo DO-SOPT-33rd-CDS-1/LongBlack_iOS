@@ -75,7 +75,13 @@ class NoteViewService {
     func updateNote(postId: Int64, isListView: Bool) async throws -> NoteListResponseDTO {
         do {
             let request = self.makeUpdateNoteRequest(postId: postId, isListView: isListView)
+            print("Request URL: \(request.url?.absoluteString ?? "No URL")")
+            print("Request Headers: \(request.allHTTPHeaderFields ?? [:])")
+            print("Request Body: \(String(data: request.httpBody ?? Data(), encoding: .utf8) ?? "No body")")
+
             let (data, response) = try await URLSession.shared.data(for: request)
+
+            print("Response: \(response)")
 
             guard response is HTTPURLResponse else {
                 throw NetworkError.responseError
@@ -90,6 +96,7 @@ class NoteViewService {
             throw error
         }
     }
+
 
     
     private func configureHTTPError(errorCode: Int) -> Error {

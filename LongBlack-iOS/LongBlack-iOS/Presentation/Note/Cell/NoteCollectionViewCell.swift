@@ -132,10 +132,10 @@ class NoteCollectionViewCell: UICollectionViewCell {
         else {
             self.noteState.image = ImageLiterals.Note.icLike
         }
+        
         Task {
             do {
-                let newState = self.isListView
-                try await NoteViewService.shared.updateNote(postId: 1, isListView: newState)
+                try await NoteViewService.shared.updateNote(postId: Int64(noteId), isListView: true)
             } catch {
                 print("PUT 요청 중 에러 발생: \(error)")
             }
