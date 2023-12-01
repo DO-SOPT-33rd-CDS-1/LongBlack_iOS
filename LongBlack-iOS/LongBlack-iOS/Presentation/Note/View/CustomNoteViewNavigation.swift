@@ -10,24 +10,25 @@ import UIKit
 import SnapKit
 
 class CustomNoteViewNavigationView: UIView {
-
-    private let noteViewbackButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle(StringLiterals.Note.TabBar.noteViewTitle, for: .normal)
-        button.setImage(ImageLiterals.Note.icNoteBackButton, for: .normal)
-        button.titleLabel?.font = .h3Semibold
-        button.setTitleColor(.subGray1, for: .normal)
-        return button
-    }()
-
+    
     private let noteViewSearchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = StringLiterals.Note.TabBar.noteViewSearchPlaceholder
         searchBar.backgroundImage = UIImage()
-        searchBar.layer.cornerRadius = 32
-        searchBar.backgroundColor = UIColor.clear
         searchBar.isTranslucent = true
         searchBar.barTintColor = .clear
+        if let searchTextField = searchBar.value(forKey: "searchField") as? UITextField {
+            searchTextField.backgroundColor = .subGray6
+                let placeholderAttributes: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor.subGray5
+                ]
+                let attributedPlaceholder = NSAttributedString(
+                    string: StringLiterals.Note.TabBar.noteViewSearchPlaceholder,
+                    attributes: placeholderAttributes
+                )
+                searchTextField.attributedPlaceholder = attributedPlaceholder
+            }
+        
         return searchBar
     }()
 
@@ -44,7 +45,7 @@ class CustomNoteViewNavigationView: UIView {
     }
 
     private func setupViews() {
-        addSubviews(noteViewbackButton, noteViewSearchBar)
+        addSubviews(noteViewSearchBar)
         self.backgroundColor = .white
     }
 
@@ -52,11 +53,6 @@ class CustomNoteViewNavigationView: UIView {
         
         self.snp.makeConstraints {
             $0.height.equalTo(72)
-        }
-        
-        noteViewbackButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.top.equalToSuperview().offset(21)
         }
 
         noteViewSearchBar.snp.makeConstraints {

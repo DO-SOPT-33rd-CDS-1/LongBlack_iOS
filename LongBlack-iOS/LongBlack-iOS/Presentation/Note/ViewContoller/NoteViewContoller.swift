@@ -11,7 +11,7 @@ import Then
 import SnapKit
 
 class NoteViewController: BaseViewController {
-    
+    var noteData: [NoteData] = []
     private let customNoteViewNavigationView = CustomNoteViewNavigationView()
     
     
@@ -21,16 +21,31 @@ class NoteViewController: BaseViewController {
         setCollectionView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task{
+            await fetchList { data in
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     override func setLayout() {
         self.navigationController?.navigationBar.isHidden = true
     }
     
     override func setStyle() {
         self.view.addSubviews(customNoteViewNavigationView, collectionView)
+        customNoteViewNavigationView.addSubview(noteViewbackButton)
         
         customNoteViewNavigationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
+        }
+        
+        noteViewbackButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().inset(21)
         }
         
         collectionView.snp.makeConstraints{
@@ -44,6 +59,19 @@ class NoteViewController: BaseViewController {
         $0.backgroundColor = .white
     }
     
+    private let noteViewbackButton = UIButton().then {
+        $0.setTitle(StringLiterals.Note.TabBar.noteViewTitle, for: .normal)
+        $0.setImage(ImageLiterals.Note.icNoteBackButton, for: .normal)
+        $0.titleLabel?.font = .h3Semibold
+        $0.setTitleColor(.subGray1, for: .normal)
+        $0.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func dismissButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+        }
+    
+  
     private func setCollectionView() {
         self.collectionView.register(FilterButtonMakeCollectionViewCell.self,
                                      forCellWithReuseIdentifier: FilterButtonMakeCollectionViewCell.identifier)
@@ -55,17 +83,34 @@ class NoteViewController: BaseViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
+
     
-    
-    
-    // TODO: 뒤로가기 버튼 동작 추가
-    // TODO: section0 의 버튼들 상태 변화 넣기
-    // TODO: section1 detail 페이지 연결
-    // TODO: 좋아요 버튼 구현
-    
-    @objc private func backButtonTapped() {
-        // 뒤로가기 버튼이 눌렸을 때 Home으로 가는 동작
+    func fetchList(completion: @escaping ([NoteData]?) -> Void) async {
+        for id in 1...1 {
+            do {
+                let noteId = try await NoteViewService.shared.getNoteList(post: id)
+                for post in noteId.posts {
+                    let noteList: NoteData = NoteData(
+                        id: post.id,
+                        title: post.title,
+                        author: post.writer,
+                        nickname: post.postType,
+                        state: post.like,
+                        backgroundColor: UIColor(hex: post.color)
+                    )
+                    dump(noteList)
+                    noteData.append(noteList)
+                }
+                completion(noteData)
+            }
+            catch {
+                completion(nil)
+                print("노트 리스트를 가져오는 중 오류 발생: \(error)")
+            }
+        }
     }
+    
+  
 }
 
 extension NoteViewController: UICollectionViewDelegateFlowLayout {
@@ -133,7 +178,7 @@ extension NoteViewController: UICollectionViewDataSource {
             
         case 1:
             guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.identifier, for: indexPath) as? NoteCollectionViewCell else {return UICollectionViewCell()}
-            item.bindData(data: noteData[indexPath.row])
+            item.bindData(data: noteData[indexPath.row], imageData: noteImageData[indexPath.row])
             return item
             
         default:
@@ -141,3 +186,18 @@ extension NoteViewController: UICollectionViewDataSource {
         }
     }
 }
+
+
+extension NoteViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 && indexPath.row == 0 {
+            // Section 1의 첫 번째 셀이 클릭된 경우
+            navigateToDetailViewController()
+        }
+    }
+    private func navigateToDetailViewController() {
+        let detailViewController = NoteDetailViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+

@@ -15,6 +15,8 @@ class NoteCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "NoteCollectionViewCell"
     
     private var itemRow: Int?
+    private var isListView: Bool = false
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +25,12 @@ class NoteCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private var noteDivider = UILabel().then {
+        $0.font = .b3Medium
+        $0.text = "|"
+        $0.textColor = .subGray3
     }
     
     private func setLayout() {
@@ -68,6 +76,8 @@ class NoteCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private var noteId: Int = 0
+    
     private var noteImage = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
@@ -83,37 +93,56 @@ class NoteCollectionViewCell: UICollectionViewCell {
         $0.textColor = .black
     }
     
-    private var noteDivider = UILabel().then {
-        $0.font = .b3Medium
-        $0.textColor = .subGray3
-    }
-    
     private var noteNickname = UILabel().then {
         $0.font = .b3Medium
         $0.textColor = .black
     }
     
-    private var noteState = UIImageView().then {
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true
-    }
+    private lazy var noteState = UIImageView().then {
+            $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.isUserInteractionEnabled = true
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(noteStateTapped))
+            $0.addGestureRecognizer(tapGesture)
+        }
     
     private var noteBackground = UIView().then {
         $0.frame = CGRect(x: 0, y: 0, width: 335, height: 339)
         $0.layer.cornerRadius = 4
     }
     
-    func bindData(data: NoteData) {
-        self.noteImage.image = data.image
+    func bindData(data: NoteData, imageData: NoteImageData) {
+        self.noteId = data.id
         self.noteTitle.text = data.title
         self.noteAuthor.text = data.author
-        self.noteDivider.text = data.divider
-        self.noteNickname.text = data.nickname
+        print("bind data: \(data.state)")
         if data.state {
-            self.noteState.image = UIImage(named: "likeOn")
+            self.noteState.image = ImageLiterals.Note.icLike
         } else {
-            self.noteState.image = UIImage(named: "likeOff")
+            self.noteState.image = ImageLiterals.Note.icUnLike
         }
+        self.noteNickname.text = data.nickname
         self.noteBackground.backgroundColor = data.backgroundColor
+        self.noteImage.image = imageData.image
+        }
+    
+    @objc private func noteStateTapped() {
+        print("좋아요 버튼이 탭되었습니다.")
+        if self.noteState.image == ImageLiterals.Note.icLike {
+            self.noteState.image = ImageLiterals.Note.icUnLike
+        }
+        else {
+            self.noteState.image = ImageLiterals.Note.icLike
+        }
+        
+        Task {
+            do {
+                try await NoteViewService.shared.updateNote(postId: Int64(noteId), isListView: true)
+            } catch {
+                print("PUT 요청 중 에러 발생: \(error)")
+            }
+        }
     }
 }
+
+
