@@ -307,6 +307,7 @@ extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
         }
         Task {
             await fetchArticleInfo()
+            header.dataBindHeader()
             header.configure()
         }
         return header

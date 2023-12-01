@@ -90,21 +90,15 @@ class CollectionHeaderView: UICollectionReusableView {
             $0.top.equalTo(contentView.snp.top).inset(30)
         }
         titleLabel.font = .h2Bold
-        titleLabel.text = articledatalist[0].title
         titleLabel.numberOfLines = 0
         
         writerLabel.snp.makeConstraints() {
             $0.leading.equalTo(contentView.snp.leading).inset(20)
             $0.bottom.equalTo(contentView.snp.bottom).inset(85)
         }
-        writerLabel.text = articledatalist[0].writer
         dateLabel.snp.makeConstraints() {
             $0.leading.equalTo(writerLabel).offset(50)
             $0.bottom.equalTo(contentView.snp.bottom).inset(85)
-        }
-        dateLabel.text = articledatalist[0].createdDate
-        if articledatalist[0].isStamped == true {
-            stampButton.isSelected = true
         }
     }
     
@@ -116,5 +110,15 @@ class CollectionHeaderView: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = bounds
+    }
+    
+    func dataBindHeader() {
+        titleLabel.text = articledatalist[0].title
+        writerLabel.text = articledatalist[0].writer
+        
+        dateLabel.text = articledatalist[0].createdDate
+        if articledatalist[0].isStamped == true {
+            stampButton.isSelected = true
+        }
     }
 }
