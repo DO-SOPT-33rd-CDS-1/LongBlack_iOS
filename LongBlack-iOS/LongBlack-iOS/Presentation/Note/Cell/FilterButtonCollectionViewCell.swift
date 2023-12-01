@@ -17,6 +17,7 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setLayout()
+        self.setStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -37,6 +38,11 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private func setStyle() {
+        updateButtonAppearance()
+        filterButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+    }
+    
     private var filterButton = UIButton().then {
         $0.backgroundColor = .clear
         $0.layer.cornerRadius = 17
@@ -52,4 +58,20 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
     func bindData(data: FilterButtonData) {
         self.filterLabel.text = data.filter
     }
+    
+    @objc private func buttonPressed() {
+           filterButton.isSelected.toggle()
+           updateButtonAppearance()
+       }
+    
+    private func updateButtonAppearance() {
+            if filterButton.isSelected {
+                filterButton.backgroundColor = .subGray1
+                filterLabel.textColor = .white
+            } else {
+                filterButton.backgroundColor = .clear
+                filterLabel.textColor = .subGray1
+            }
+        }
+       
 }
