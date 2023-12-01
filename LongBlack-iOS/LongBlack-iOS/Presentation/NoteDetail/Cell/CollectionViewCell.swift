@@ -26,7 +26,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - bindData()
-    func bindData(data: CollectionViewData) {
+    func bindData(data: Paragraph) {
         
         self.paragraphLabel.text = data.content
         paragraphLabel.setTextWithLineHeight(text: paragraphLabel.text, lineHeight: 30, numberOfLines: 0)

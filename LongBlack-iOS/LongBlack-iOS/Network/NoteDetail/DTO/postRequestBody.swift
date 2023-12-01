@@ -2,11 +2,11 @@
 //  postRequestBody.swift
 //  LongBlack-iOS
 //
-//  Created by Woo Jye Lee on 11/30/23.
+//  Created by Woo Jye Lee on 12/1/23.
 //
 
 import Foundation
 
 struct postRequestBody: Codable {
-    let postid: String
+    let bookmarkIdx: Int
 }

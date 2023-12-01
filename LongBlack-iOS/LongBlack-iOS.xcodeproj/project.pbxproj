@@ -10,11 +10,13 @@
 		040C8EB32B0EF15300F47ACE /* ArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8EB22B0EF15300F47ACE /* ArticleData.swift */; };
 		045F97272B16479E00B4D929 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 045F97262B16479E00B4D929 /* Config.xcconfig */; };
 		045F97302B16497200B4D929 /* GetSinglepost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F972F2B16497200B4D929 /* GetSinglepost.swift */; };
+		047FFA842B197AF8007E8CDA /* AddBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FFA832B197AF8007E8CDA /* AddBookmark.swift */; };
+		047FFA862B197B05007E8CDA /* DeleteBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FFA852B197B05007E8CDA /* DeleteBookmark.swift */; };
+		047FFA882B197B71007E8CDA /* postRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FFA872B197B71007E8CDA /* postRequestBody.swift */; };
 		04A524C52B0FD11300FCAC2C /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A524C42B0FD11300FCAC2C /* CollectionHeaderView.swift */; };
 		04B2C2F62B0DC37000FD20E3 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */; };
 		04B2C2F92B0DC7E200FD20E3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */; };
 		04B2C2FB2B0DD75F00FD20E3 /* CollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C2FA2B0DD75F00FD20E3 /* CollectionViewData.swift */; };
-		04B7F4272B189297006A31B5 /* postRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7F4262B189297006A31B5 /* postRequestBody.swift */; };
 		C3020A3F2B0906D7000919CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A3E2B0906D7000919CF /* UILabel+.swift */; };
 		C3020A432B090704000919CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A422B090704000919CF /* HomeViewController.swift */; };
 		C3020A4C2B090796000919CF /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3020A4B2B090796000919CF /* NoteDetailViewController.swift */; };
@@ -73,11 +75,13 @@
 		040C8EB22B0EF15300F47ACE /* ArticleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleData.swift; sourceTree = "<group>"; };
 		045F97262B16479E00B4D929 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		045F972F2B16497200B4D929 /* GetSinglepost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSinglepost.swift; sourceTree = "<group>"; };
+		047FFA832B197AF8007E8CDA /* AddBookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookmark.swift; sourceTree = "<group>"; };
+		047FFA852B197B05007E8CDA /* DeleteBookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBookmark.swift; sourceTree = "<group>"; };
+		047FFA872B197B71007E8CDA /* postRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postRequestBody.swift; sourceTree = "<group>"; };
 		04A524C42B0FD11300FCAC2C /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
 		04B2C2F82B0DC7E200FD20E3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		04B2C2FA2B0DD75F00FD20E3 /* CollectionViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewData.swift; sourceTree = "<group>"; };
-		04B7F4262B189297006A31B5 /* postRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postRequestBody.swift; sourceTree = "<group>"; };
 		C3020A3E2B0906D7000919CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		C3020A422B090704000919CF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3020A4B2B090796000919CF /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				04B2C2F52B0DC37000FD20E3 /* ArticleDataModel.swift */,
-				04B7F4262B189297006A31B5 /* postRequestBody.swift */,
+				047FFA872B197B71007E8CDA /* postRequestBody.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -167,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				045F972F2B16497200B4D929 /* GetSinglepost.swift */,
+				047FFA832B197AF8007E8CDA /* AddBookmark.swift */,
+				047FFA852B197B05007E8CDA /* DeleteBookmark.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -615,6 +621,7 @@
 				C3ECFBFC2B08697300118AB3 /* UIStackView+.swift in Sources */,
 				C32E77572B10AA44001433C8 /* EventImageCollectionViewCell.swift in Sources */,
 				C3FD54032B0E405E00ADB912 /* HomeButton.swift in Sources */,
+				047FFA842B197AF8007E8CDA /* AddBookmark.swift in Sources */,
 				C3020A5E2B09084C000919CF /* c.swift in Sources */,
 				E58C9D362B10BFFB005F8CF5 /* CustomNoteViewFooterView.swift in Sources */,
 				C3020A6B2B090F2A000919CF /* UITabBar+.swift in Sources */,
@@ -630,7 +637,6 @@
 				C3020A672B090DEA000919CF /* AlarmViewController.swift in Sources */,
 				E58C9D342B10BFB9005F8CF5 /* CustomNoteViewNavigation.swift in Sources */,
 				C3ECFBF72B08694100118AB3 /* UIView+.swift in Sources */,
-				04B7F4272B189297006A31B5 /* postRequestBody.swift in Sources */,
 				045F97302B16497200B4D929 /* GetSinglepost.swift in Sources */,
 				C3020A432B090704000919CF /* HomeViewController.swift in Sources */,
 				C3ECFBE12B08676E00118AB3 /* ViewController.swift in Sources */,
@@ -646,6 +652,7 @@
 				C3ECFC052B086B2900118AB3 /* String.swift in Sources */,
 				C3ECFC002B086A1500118AB3 /* UIColor+.swift in Sources */,
 				E5D1CAF52B0BB89700C50722 /* NoteViewContoller.swift in Sources */,
+				047FFA862B197B05007E8CDA /* DeleteBookmark.swift in Sources */,
 				C3020A5A2B09083E000919CF /* a.swift in Sources */,
 				C3ECFC162B086EE600118AB3 /* BaseView.swift in Sources */,
 				04B2C2FB2B0DD75F00FD20E3 /* CollectionViewData.swift in Sources */,
@@ -655,6 +662,7 @@
 				C3020A512B0907D1000919CF /* NetworkError.swift in Sources */,
 				C3EB06C02B0CD783005346DF /* HomeTabBar.swift in Sources */,
 				C32E77512B0F50ED001433C8 /* OpenNoteModel.swift in Sources */,
+				047FFA882B197B71007E8CDA /* postRequestBody.swift in Sources */,
 				C3020A6D2B090F71000919CF /* CALayer+.swift in Sources */,
 				C3ECFC072B086C7700118AB3 /* Color.swift in Sources */,
 			);
@@ -676,7 +684,6 @@
 /* Begin XCBuildConfiguration section */
 		C3ECFBEB2B08677100118AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 045F97262B16479E00B4D929 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -740,7 +747,6 @@
 		};
 		C3ECFBEC2B08677100118AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 045F97262B16479E00B4D929 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

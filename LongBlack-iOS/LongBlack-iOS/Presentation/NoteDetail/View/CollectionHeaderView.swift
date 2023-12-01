@@ -7,23 +7,29 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class CollectionHeaderView: UICollectionReusableView {
     
     static let identifier = "CollectionHeaderView"
     
     private lazy var contentView: UIView = {
-        
         let view = UIView()
         view.backgroundColor = .white
-        
         let title = UILabel()
         title.font = .h2Bold
         title.text = articledatalist[0].title
         title.numberOfLines = 0
         let writer = UILabel()
         writer.text = articledatalist[0].writer
+        
         let date = UILabel()
-        date.text = articledatalist[0].createdDate
+        // Date타입을 String으로 변환
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: articledatalist[0].createdDate)
+        date.text = dateString
 
         let line1 = reusedLineView(height: 4, color: .subGray1)
         let line2 = reusedLineView(height: 2, color: .subGray2)
@@ -76,7 +82,6 @@ class CollectionHeaderView: UICollectionReusableView {
     }
     
     let profileView: UIImageView = {
-        
         let image = UIImageView()
         image.image = ImageLiterals.Detail.profileImg
         image.contentMode = .scaleAspectFit

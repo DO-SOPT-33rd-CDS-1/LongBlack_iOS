@@ -1,22 +1,22 @@
 //
-//  getSinglepost.swift
+//  DeleteBookmark.swift
 //  LongBlack-iOS
 //
-//  Created by Woo Jye Lee on 11/29/23.
+//  Created by Woo Jye Lee on 12/1/23.
 //
 
 import Foundation
 
-class GetSinglepost {
+class DeleteBookmark {
     
-    static let shared = GetSinglepost()
+    static let shared = DeleteBookmark()
     private init() {}
     
     func makeRequest(postid: Int) -> URLRequest {
-        let url = URL(string: "http://long-black.kro.kr/api/post/\(postid)")!
+        let url = URL(string: "http://long-black.kro.kr/api/bookmark/1")!
         // let url = Bundle.main.object(forInfoDictionaryKey: Config.Keys.Plist.baseURL) as? String ?? ""
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = "DELETE"
         let header = ["Content-Type": "application/json"]
         header.forEach {
             request.addValue($0.value, forHTTPHeaderField: $0.key)
@@ -25,8 +25,9 @@ class GetSinglepost {
         return request
     }
     
-    func getPostdata(postid: Int) async throws -> ArticleDataModel? {
+    func DeleteBookmarkFunc(postid: Int) async throws -> postRequestBody? {
         do {
+            
             let request = self.makeRequest(postid: postid)
             let (data, response) = try await URLSession.shared.data(for: request)
             dump(request)
@@ -34,17 +35,17 @@ class GetSinglepost {
                 throw NetworkError.responseError
             }
             dump(response)
-            return parseArticleData(data: data)
+            return parseIdxData(data: data)
         } catch {
             throw error
         }
         
     }
     
-    private func parseArticleData(data: Data) -> ArticleDataModel? {
+    private func parseIdxData(data: Data) -> postRequestBody? {
         do {
             let jsonDecoder = JSONDecoder()
-            let result = try jsonDecoder.decode(ArticleDataModel.self, from: data)
+            let result = try jsonDecoder.decode(postRequestBody.self, from: data)
             return result
         } catch {
             print(error)

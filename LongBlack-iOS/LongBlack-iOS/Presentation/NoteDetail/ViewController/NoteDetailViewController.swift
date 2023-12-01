@@ -16,9 +16,15 @@ class NoteDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        Task {
+            await fetchArticleInfo()
+        }
         setCollectionViewConfig()
         setCollectionViewLayout()
         setUI()
+//        Task {
+//            await fetchArticleInfo()
+//        }
     }
     
     // MARK: - setCollectionViewConfig()
@@ -40,6 +46,20 @@ class NoteDetailViewController: BaseViewController {
         self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
     }
     
+    // MARK: - fetchArticleInfo()
+    private func fetchArticleInfo() async {
+        do {
+            guard let currentarticle = try await GetSinglepost.shared.getPostdata(postid: 1) else {return}
+            let articleinfo = ArticleData(isLiked: currentarticle.like, isStamped: currentarticle.stamp, title: currentarticle.title, postId: currentarticle.postID, writer: currentarticle.writer, createdDate: currentarticle.createdDate, bookmarkIdx: currentarticle.bookmarkIdx, paragraph: currentarticle.paragraphs)
+            
+            articledatalist.append(articleinfo)
+        } catch {
+            print(error)
+        }
+        collectionView.reloadData()
+        
+    }
+    // MARK: - backButton
     let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
@@ -220,13 +240,14 @@ extension NoteDetailViewController: UICollectionViewDelegate {
 extension NoteDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionviewdata.count
+        // return articledatalist[0].paraGraphs.count
+        return articledatalist.first?.paraGraphs.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
                                                             for: indexPath) as? CollectionViewCell else {return UICollectionViewCell()}
-        item.bindData(data: collectionviewdata[indexPath.row])
+        item.bindData(data: articledatalist[0].paraGraphs[indexPath.row])
         return item
     }
     
