@@ -66,10 +66,10 @@ class NoteDetailViewController: BaseViewController {
         collectionView.reloadData()
     }
     // MARK: - backButton
-    let backButton: UIButton = {
+    lazy var backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        button.addTarget(button, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         return button
     }()
     
