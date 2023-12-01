@@ -21,6 +21,18 @@ final class LibraryPageViewController: UIViewController {
     let myNoteView = MyNoteView()
     let myStickerView = MyStickerView()
     let myBookmarkView = MyBookmarkView()
+    
+    private let libraryViewbackButton = UIButton().then {
+        $0.setTitle(StringLiterals.Library.Title.libraryTitle, for: .normal)
+        $0.setImage(ImageLiterals.Library.icArrowLeft, for: .normal)
+        $0.titleLabel?.font = .h3Semibold
+        $0.setTitleColor(.subGray1, for: .normal)
+        $0.addTarget(self, action: #selector(dismissLibraryButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func dismissLibraryButtonTapped() {
+            dismiss(animated: true, completion: nil)
+        }
 
     var orderedViewControllers: [UIViewController] {
         [self.libraryViewController, self.myNoteView, self.myStickerView, self.myBookmarkView]
@@ -76,9 +88,15 @@ extension LibraryPageViewController {
             pageViewController.view
         )
         
+        customLibraryView.addSubview(libraryViewbackButton)
+        
         customLibraryView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaInsets).offset(60)
             $0.horizontalEdges.equalToSuperview()
+        }
+        
+        libraryViewbackButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20)
         }
         
         segmentedControl.snp.makeConstraints {
