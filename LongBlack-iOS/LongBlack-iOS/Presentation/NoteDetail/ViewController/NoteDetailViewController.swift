@@ -251,7 +251,6 @@ extension NoteDetailViewController: UICollectionViewDelegate {
                     Task {
                         do {
                             try await AddBookmark.shared.PostAddBookmark(bookmarkIdx: cellIdx)
-                            
                             cell.addBookmark()
                         } catch {
                             print("Error in PostAddBookmark:", error)
@@ -299,7 +298,6 @@ extension NoteDetailViewController: UICollectionViewDelegateFlowLayout {
             await fetchArticleInfo()
             header.configure()
         }
-//        header.configure()
         return header
     }
     

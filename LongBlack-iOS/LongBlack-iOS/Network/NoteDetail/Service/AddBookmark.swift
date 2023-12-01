@@ -24,7 +24,9 @@ class AddBookmark {
     }
     
     func makeRequest(body: Data?) -> URLRequest {
-        let url = URL(string: "http://long-black.kro.kr/api/bookmark/1")!
+        // let url = URL(string: "http://long-black.kro.kr/api/bookmark/1")!
+        let baseurl = Bundle.main.object(forInfoDictionaryKey: Config.Keys.Plist.baseURL) as? String ?? ""
+        guard let url = URL(string: "http://" + baseurl + "bookmark/1") else { fatalError("Can't find URL") }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         let header = ["Content-Type": "application/json"]

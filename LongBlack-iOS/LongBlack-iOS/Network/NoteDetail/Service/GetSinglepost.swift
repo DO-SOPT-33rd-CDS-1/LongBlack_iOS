@@ -13,8 +13,9 @@ class GetSinglepost {
     private init() {}
     
     func makeRequest(postid: Int) -> URLRequest {
-        let url = URL(string: "http://long-black.kro.kr/api/post/\(postid)")!
-        // let url = Bundle.main.object(forInfoDictionaryKey: Config.Keys.Plist.baseURL) as? String ?? ""
+        //let url = URL(string: "http://long-black.kro.kr/api/post/\(postid)")!
+        let baseurl = Bundle.main.object(forInfoDictionaryKey: Config.Keys.Plist.baseURL) as? String ?? ""
+        guard let url = URL(string: "http://" + baseurl + "post/\(postid)") else { fatalError("Can't find URL") }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let header = ["Content-Type": "application/json"]

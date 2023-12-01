@@ -13,8 +13,9 @@ class DeleteBookmark {
     private init() {}
     
     func makeRequest(postid: Int) -> URLRequest {
-        let url = URL(string: "http://long-black.kro.kr/api/bookmark/1")!
-        // let url = Bundle.main.object(forInfoDictionaryKey: Config.Keys.Plist.baseURL) as? String ?? ""
+        //let url = URL(string: "http://long-black.kro.kr/api/bookmark/1")!
+        let baseurl = Bundle.main.object(forInfoDictionaryKey: Config.Keys.Plist.baseURL) as? String ?? ""
+        guard let url = URL(string: "http://" + baseurl + "bookmark/1") else { fatalError("Can't find URL") }
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         let header = ["Content-Type": "application/json"]
