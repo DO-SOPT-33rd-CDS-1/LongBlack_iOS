@@ -84,6 +84,13 @@ class NoteDetailViewController: BaseViewController {
     }()
     @objc func buttonPressed1() {
         bookmarkButton.isSelected.toggle()
+        Task {
+            do {
+                try await NoteViewService.shared.updateNote(postId: 1, isListView: false)
+            } catch {
+                print(error)
+            }
+        }
     }
     
     let topView = UIView()
